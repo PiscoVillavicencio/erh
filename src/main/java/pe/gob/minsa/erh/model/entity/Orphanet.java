@@ -5,33 +5,24 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Data
-@Table(name = "distritos")
-public class Distrito implements Serializable {
+@Table(name = "orphanet")
+public class Orphanet implements Serializable {
 
     @Id
-    @Column(name = "iddistrito")
+    @Column(name = "idorphanet")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    @Column(name = "distrito")
+    @Column(name = "strorphanet")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "idprovincia")
-    private Provincia provincia;
-
     @NotEmpty
-    @Column(name = "coddistrito")
+    @Column(name = "strcodorphanet")
     private String codigo;
 
-    @OneToMany(mappedBy = "distrito")
-    private List<Ipress> ipresses;
-
     private static final long serialVersionUID = 1L;
-
 }
