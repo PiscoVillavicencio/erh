@@ -1,12 +1,14 @@
 package pe.gob.minsa.erh.model.entity;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
+@Data
 @Table(name = "departamentos")
 public class Departamento implements Serializable {
 
@@ -23,42 +25,9 @@ public class Departamento implements Serializable {
     @Column(name = "coddepartamento")
     private String codigo;
 
+    @OneToMany(mappedBy = "departamento")
+    private List<Provincia> provincias;
+
     private static final Long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Departamento that = (Departamento) o;
-        return id.equals(that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
