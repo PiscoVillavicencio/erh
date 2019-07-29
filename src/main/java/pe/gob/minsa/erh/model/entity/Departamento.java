@@ -1,5 +1,6 @@
 package pe.gob.minsa.erh.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -25,7 +26,8 @@ public class Departamento implements Serializable {
     @Column(name = "coddepartamento")
     private String codigo;
 
-    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    @OneToMany(mappedBy = "departamento")
     private List<Provincia> provincias;
 
     private static final Long serialVersionUID = 1L;

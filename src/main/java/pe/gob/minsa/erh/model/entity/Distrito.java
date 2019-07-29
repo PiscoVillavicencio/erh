@@ -1,5 +1,6 @@
 package pe.gob.minsa.erh.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,7 +22,7 @@ public class Distrito implements Serializable {
     @Column(name = "distrito")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idprovincia")
     private Provincia provincia;
 
@@ -29,7 +30,8 @@ public class Distrito implements Serializable {
     @Column(name = "coddistrito")
     private String codigo;
 
-    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ipress> ipresses;
 
     private static final long serialVersionUID = 1L;
