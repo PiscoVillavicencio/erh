@@ -29,7 +29,7 @@ public class Provincia implements Serializable {
     @Column(name = "codprovincia")
     private String codigo;
 
-    @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Distrito> distritos;
 
     private static final long serialVersionUID = 1L;

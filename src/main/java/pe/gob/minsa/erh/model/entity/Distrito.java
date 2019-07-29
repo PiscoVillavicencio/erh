@@ -29,7 +29,7 @@ public class Distrito implements Serializable {
     @Column(name = "coddistrito")
     private String codigo;
 
-    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ipress> ipresses;
 
     private static final long serialVersionUID = 1L;
