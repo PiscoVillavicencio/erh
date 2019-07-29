@@ -41,7 +41,7 @@ public class Ipress implements Serializable {
     @Column(name = "strdireccion")
     private String direccion;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "iddistrito")
     private Distrito distrito;
 

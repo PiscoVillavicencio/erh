@@ -25,7 +25,7 @@ public class Departamento implements Serializable {
     @Column(name = "coddepartamento")
     private String codigo;
 
-    @OneToMany(mappedBy = "departamento")
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Provincia> provincias;
 
     private static final Long serialVersionUID = 1L;

@@ -21,7 +21,7 @@ public class Distrito implements Serializable {
     @Column(name = "distrito")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idprovincia")
     private Provincia provincia;
 
@@ -29,7 +29,7 @@ public class Distrito implements Serializable {
     @Column(name = "coddistrito")
     private String codigo;
 
-    @OneToMany(mappedBy = "distrito")
+    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ipress> ipresses;
 
     private static final long serialVersionUID = 1L;
