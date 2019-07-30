@@ -1,5 +1,6 @@
 package pe.gob.minsa.erh.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -52,6 +53,10 @@ public class Ipress implements Serializable {
     @NotEmpty
     @Column(name = "strruc")
     private String ruc;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "ipress")
+    private Director director;
 
     private static final long serialVersionUID = 1L;
 }
