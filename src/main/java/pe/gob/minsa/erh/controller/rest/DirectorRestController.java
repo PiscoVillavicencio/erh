@@ -1,25 +1,24 @@
-package pe.gob.minsa.erh.controller;
+package pe.gob.minsa.erh.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.gob.minsa.erh.model.entity.Provincia;
-import pe.gob.minsa.erh.service.ProvinciaService;
+import pe.gob.minsa.erh.model.entity.Director;
+import pe.gob.minsa.erh.service.DirectorService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/provincias")
-public class ProvinciaController {
+@RequestMapping(value = "/api/directores")
+public class DirectorRestController {
 
     @Autowired
-    private ProvinciaService provinciaService;
+    private DirectorService directorService;
 
     @GetMapping(value="/", produces = "application/json")
-    public List<Provincia> getProvincias() {
-
-        return provinciaService.getAllProvincias();
+    public List<Director> getDirectores() {
+        return directorService.getAllDirectores();
     }
 
 }

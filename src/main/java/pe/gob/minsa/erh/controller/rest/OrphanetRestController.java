@@ -1,4 +1,4 @@
-package pe.gob.minsa.erh.controller;
+package pe.gob.minsa.erh.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,8 @@ import pe.gob.minsa.erh.service.OrphanetService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/orphanets")
-public class OrphanetController {
+@RequestMapping(value = "/api/orphanets")
+public class OrphanetRestController {
 
     @Autowired
     private OrphanetService orphanetService;

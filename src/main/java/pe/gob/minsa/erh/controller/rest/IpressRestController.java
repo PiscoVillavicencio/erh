@@ -1,4 +1,4 @@
-package pe.gob.minsa.erh.controller;
+package pe.gob.minsa.erh.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,8 @@ import pe.gob.minsa.erh.service.IpressService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/ipresses")
-public class IpressController {
+@RequestMapping(value = "/api/ipresses")
+public class IpressRestController {
 
     @Autowired
     private IpressService ipressService;

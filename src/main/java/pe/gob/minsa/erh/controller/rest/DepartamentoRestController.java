@@ -1,4 +1,4 @@
-package pe.gob.minsa.erh.controller;
+package pe.gob.minsa.erh.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +10,8 @@ import pe.gob.minsa.erh.service.DepartamentoService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/departamentos")
-public class DepartamentoController {
+@RequestMapping(value = "/api/departamentos")
+public class DepartamentoRestController {
 
     @Autowired
     private DepartamentoService departamentoService;
