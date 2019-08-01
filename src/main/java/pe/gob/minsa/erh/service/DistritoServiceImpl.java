@@ -13,18 +13,25 @@ import java.util.List;
 public class DistritoServiceImpl implements DistritoService {
 
     @Autowired
-    private DistritoRepository distritoRepository;
+    DistritoRepository distritoRepository;
 
     @Override
-    public List<DistritoEntity> getAllDistritos() {
-
+    public List<DistritoEntity> listAll() {
         return (List<DistritoEntity>) distritoRepository.findAll();
     }
 
     @Override
-    public DistritoEntity getDistritoById(Long id) {
-
+    public DistritoEntity getById(Long id) {
         return distritoRepository.findOne(id);
     }
 
+    @Override
+    public DistritoEntity saveOrUpdate(DistritoEntity domainObject) {
+        return distritoRepository.save(domainObject);
+    }
+
+    @Override
+    public void delete(Long id) {
+        distritoRepository.delete(id);
+    }
 }

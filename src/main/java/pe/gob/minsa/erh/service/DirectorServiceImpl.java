@@ -15,7 +15,6 @@ public class DirectorServiceImpl implements DirectorService {
     @Autowired
     private DirectorRepository directorRepository;
 
-
     @Override
     public List<DirectorEntity> listAll() {
         return (List<DirectorEntity>) directorRepository.findAll();

@@ -18,7 +18,8 @@ public class DepartamentoRestController {
 
     @GetMapping(value = "/", produces = "application/json")
     public List<DepartamentoEntity> getDepartamentos() {
-        return departamentoService.getAllDepartamentos();
+
+        return departamentoService.listAll();
     }
 
 }

@@ -18,7 +18,8 @@ public class DistritoRestController {
 
     @GetMapping(value = "/", produces = "application/json")
     public List<DistritoEntity> getDistritos() {
-        return distritoService.getAllDistritos();
+
+        return distritoService.listAll();
     }
 
 }

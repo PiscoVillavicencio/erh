@@ -15,16 +15,24 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
-    @Override
-    public List<DepartamentoEntity> getAllDepartamentos() {
 
+    @Override
+    public List<DepartamentoEntity> listAll() {
         return (List<DepartamentoEntity>) departamentoRepository.findAll();
     }
 
     @Override
-    public DepartamentoEntity getDepartamentoById(Long id) {
-
+    public DepartamentoEntity getById(Long id) {
         return departamentoRepository.findOne(id);
     }
 
+    @Override
+    public DepartamentoEntity saveOrUpdate(DepartamentoEntity domainObject) {
+        return departamentoRepository.save(domainObject);
+    }
+
+    @Override
+    public void delete(Long id) {
+        departamentoRepository.delete(id);
+    }
 }

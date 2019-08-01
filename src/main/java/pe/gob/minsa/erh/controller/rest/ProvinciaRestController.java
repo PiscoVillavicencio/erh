@@ -19,7 +19,7 @@ public class ProvinciaRestController {
     @GetMapping(value = "/", produces = "application/json")
     public List<ProvinciaEntity> getProvincias() {
 
-        return provinciaService.getAllProvincias();
+        return provinciaService.listAll();
     }
 
 }

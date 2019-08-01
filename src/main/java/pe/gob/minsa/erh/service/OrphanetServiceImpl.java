@@ -16,13 +16,23 @@ public class OrphanetServiceImpl implements OrphanetService {
     private OrphanetRepository orphanetRepository;
 
     @Override
-    public List<OrphanetEntity> getAllOrphanets() {
+    public List<OrphanetEntity> listAll() {
         return (List<OrphanetEntity>) orphanetRepository.findAll();
     }
 
     @Override
-    public OrphanetEntity getOrphanetById(Long id) {
+    public OrphanetEntity getById(Long id) {
         return orphanetRepository.findOne(id);
+    }
+
+    @Override
+    public OrphanetEntity saveOrUpdate(OrphanetEntity domainObject) {
+        return orphanetRepository.save(domainObject);
+    }
+
+    @Override
+    public void delete(Long id) {
+        orphanetRepository.delete(id);
     }
 
 }

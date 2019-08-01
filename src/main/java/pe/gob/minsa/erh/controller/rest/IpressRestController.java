@@ -18,7 +18,8 @@ public class IpressRestController {
 
     @GetMapping(value = "/", produces = "application/json")
     public List<IpressEntity> getIpress() {
-        return ipressService.getAllIpresses();
+
+        return ipressService.listAll();
     }
 
 }

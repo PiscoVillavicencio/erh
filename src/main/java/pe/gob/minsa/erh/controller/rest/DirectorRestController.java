@@ -18,7 +18,8 @@ public class DirectorRestController {
 
     @GetMapping(value = "/", produces = "application/json")
     public List<DirectorEntity> getDirectores() {
-        return (List<DirectorEntity>) directorService.listAll();
+
+        return directorService.listAll();
     }
 
 }

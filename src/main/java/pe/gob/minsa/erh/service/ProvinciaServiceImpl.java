@@ -16,15 +16,23 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     private ProvinciaRepository provinciaRepository;
 
     @Override
-    public List<ProvinciaEntity> getAllProvincias() {
-
+    public List<ProvinciaEntity> listAll() {
         return (List<ProvinciaEntity>) provinciaRepository.findAll();
     }
 
     @Override
-    public ProvinciaEntity getProvinciaById(Long id) {
-
+    public ProvinciaEntity getById(Long id) {
         return provinciaRepository.findOne(id);
+    }
+
+    @Override
+    public ProvinciaEntity saveOrUpdate(ProvinciaEntity domainObject) {
+        return provinciaRepository.save(domainObject);
+    }
+
+    @Override
+    public void delete(Long id) {
+        provinciaRepository.delete(id);
     }
 
 }

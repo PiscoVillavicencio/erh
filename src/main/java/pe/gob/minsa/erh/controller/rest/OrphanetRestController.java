@@ -18,7 +18,8 @@ public class OrphanetRestController {
 
     @GetMapping(value = "/", produces = "application/json")
     public List<OrphanetEntity> getOrphanet() {
-        return orphanetService.getAllOrphanets();
+
+        return orphanetService.listAll();
     }
 
 }

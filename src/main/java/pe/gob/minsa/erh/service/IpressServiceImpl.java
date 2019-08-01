@@ -16,13 +16,23 @@ public class IpressServiceImpl implements IpressService {
     private IpressRepository ipressRepository;
 
     @Override
-    public List<IpressEntity> getAllIpresses() {
+    public List<IpressEntity> listAll() {
         return (List<IpressEntity>) ipressRepository.findAll();
     }
 
     @Override
-    public IpressEntity getIpressById(Long id) {
+    public IpressEntity getById(Long id) {
         return ipressRepository.findOne(id);
+    }
+
+    @Override
+    public IpressEntity saveOrUpdate(IpressEntity domainObject) {
+        return ipressRepository.save(domainObject);
+    }
+
+    @Override
+    public void delete(Long id) {
+        ipressRepository.delete(id);
     }
 
 }
