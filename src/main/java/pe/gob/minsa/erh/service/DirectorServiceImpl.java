@@ -3,7 +3,7 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.gob.minsa.erh.model.entity.Director;
+import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.repository.DirectorRepository;
 
 import java.util.List;
@@ -16,12 +16,12 @@ public class DirectorServiceImpl implements DirectorService {
     private DirectorRepository directorRepository;
 
     @Override
-    public List<Director> getAllDirectores() {
-        return (List<Director>) directorRepository.findAll();
+    public List<DirectorEntity> getAllDirectores() {
+        return (List<DirectorEntity>) directorRepository.findAll();
     }
 
     @Override
-    public Director getDirectorById(Long id) {
+    public DirectorEntity getDirectorById(Long id) {
         return directorRepository.findOne(id);
     }
 

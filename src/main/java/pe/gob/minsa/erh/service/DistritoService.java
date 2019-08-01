@@ -1,13 +1,13 @@
 package pe.gob.minsa.erh.service;
 
-import pe.gob.minsa.erh.model.entity.Distrito;
+import pe.gob.minsa.erh.model.entity.DistritoEntity;
 
 import java.util.List;
 
 public interface DistritoService {
 
-    List<Distrito> getAllDistritos();
+    List<DistritoEntity> getAllDistritos();
 
-    Distrito getDistritoById(Long id);
+    DistritoEntity getDistritoById(Long id);
 
 }

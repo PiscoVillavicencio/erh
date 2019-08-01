@@ -1,14 +1,13 @@
 package pe.gob.minsa.erh.service;
 
-import pe.gob.minsa.erh.model.entity.Departamento;
-import pe.gob.minsa.erh.model.entity.Ipress;
+import pe.gob.minsa.erh.model.entity.IpressEntity;
 
 import java.util.List;
 
 public interface IpressService {
 
-    List<Ipress> getAllIpresses();
+    List<IpressEntity> getAllIpresses();
 
-    Ipress getIpressById(Long id);
+    IpressEntity getIpressById(Long id);
 
 }

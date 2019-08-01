@@ -3,12 +3,8 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.gob.minsa.erh.model.entity.Departamento;
-import pe.gob.minsa.erh.model.entity.Distrito;
-import pe.gob.minsa.erh.model.entity.Provincia;
-import pe.gob.minsa.erh.repository.DepartamentoRepository;
+import pe.gob.minsa.erh.model.entity.DistritoEntity;
 import pe.gob.minsa.erh.repository.DistritoRepository;
-import pe.gob.minsa.erh.repository.ProvinciaRepository;
 
 import java.util.List;
 
@@ -20,13 +16,13 @@ public class DistritoServiceImpl implements DistritoService {
     private DistritoRepository distritoRepository;
 
     @Override
-    public List<Distrito> getAllDistritos() {
+    public List<DistritoEntity> getAllDistritos() {
 
-        return (List<Distrito>) distritoRepository.findAll();
+        return (List<DistritoEntity>) distritoRepository.findAll();
     }
 
     @Override
-    public Distrito getDistritoById(Long id) {
+    public DistritoEntity getDistritoById(Long id) {
 
         return distritoRepository.findOne(id);
     }

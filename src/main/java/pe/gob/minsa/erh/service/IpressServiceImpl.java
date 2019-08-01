@@ -3,8 +3,7 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.gob.minsa.erh.model.entity.Departamento;
-import pe.gob.minsa.erh.model.entity.Ipress;
+import pe.gob.minsa.erh.model.entity.IpressEntity;
 import pe.gob.minsa.erh.repository.IpressRepository;
 
 import java.util.List;
@@ -17,12 +16,12 @@ public class IpressServiceImpl implements IpressService {
     private IpressRepository ipressRepository;
 
     @Override
-    public List<Ipress> getAllIpresses() {
-        return (List<Ipress>) ipressRepository.findAll();
+    public List<IpressEntity> getAllIpresses() {
+        return (List<IpressEntity>) ipressRepository.findAll();
     }
 
     @Override
-    public Ipress getIpressById(Long id) {
+    public IpressEntity getIpressById(Long id) {
         return ipressRepository.findOne(id);
     }
 

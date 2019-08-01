@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name = "orphanet")
-public class Orphanet implements Serializable {
+public class OrphanetEntity implements Serializable {
 
     @Id
     @Column(name = "idorphanet")
@@ -18,7 +18,7 @@ public class Orphanet implements Serializable {
 
     @NotEmpty
     @Column(name = "strorphanet")
-    private String name;
+    private String nombre;
 
     @NotEmpty
     @Column(name = "strcodorphanet")

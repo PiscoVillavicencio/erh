@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "departamentos")
-public class Departamento implements Serializable {
+public class DepartamentoEntity implements Serializable {
 
     @Id
     @Column(name = "iddepartamento")
@@ -28,7 +28,7 @@ public class Departamento implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Provincia> provincias;
+    private List<ProvinciaEntity> provincias;
 
     private static final Long serialVersionUID = 1L;
 

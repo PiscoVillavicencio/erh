@@ -6,22 +6,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="all"/>
 
     <!-- MetisMenu CSS -->
-    <link href="../static/css/metisMenu.min.css" th:href="@{/css/metisMenu.min.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/metisMenu.min.css" th:href="@{/css/metisMenu.min.css}" rel="stylesheet" media="all"/>
 
     <!-- Timeline CSS -->
-    <link href="../static/css/timeline.css" th:href="@{/css/timeline.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/timeline.css" th:href="@{/css/timeline.css}" rel="stylesheet" media="all"/>
 
     <!-- Custom CSS -->
-    <link href="../static/css/startmin.css" th:href="@{/css/startmin.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/startmin.css" th:href="@{/css/startmin.css}" rel="stylesheet" media="all"/>
 
     <!-- Morris Charts CSS -->
-    <link href="../static/css/morris.css" th:href="@{/css/morris.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/morris.css" th:href="@{/css/morris.css}" rel="stylesheet" media="all"/>
 
     <!-- Custom Fonts -->
-    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet" media="all"/>
+    <link href="../../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet" media="all"/>
+
+    <!-- DataTables CSS -->
+    <link href="../../static/css/dataTables/dataTables.bootstrap.css"  th:href="@{/css/dataTables/dataTables.bootstrap.css}" rel="stylesheet" media="all"/>
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../../static/css/dataTables/dataTables.responsive.css"  th:href="@{/css/dataTables/dataTables.responsive.css}" rel="stylesheet" media="all"/>
 
 </head>
 <body>
@@ -134,22 +140,37 @@
 
             <!-- ... Your content goes here ... -->
 
+
+
         </div>
     </div>
 
 </div>
 
 <!-- jQuery -->
-<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="../static/js/metisMenu.min.js" th:src="@{/js/metisMenu.min.js}"></script>
+<script src="../../static/js/metisMenu.min.js" th:src="@{/js/metisMenu.min.js}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../static/js/startmin.js" th:src="@{/js/startmin.js}"></script>
+<script src="../../static/js/startmin.js" th:src="@{/js/startmin.js}"></script>
+
+<!-- DataTables JavaScript -->
+<script src="../../static/js/dataTables/jquery.dataTables.min.js" th:src="@{/js/dataTables/jquery.dataTables.min.js}"></script>
+<script src="../../static/js/dataTables/dataTables.bootstrap.min.js" th:src="@{/js/dataTables/dataTables.bootstrap.min.js}"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 
 </body>
 </html>

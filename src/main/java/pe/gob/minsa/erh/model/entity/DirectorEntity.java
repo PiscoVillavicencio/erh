@@ -2,6 +2,7 @@ package pe.gob.minsa.erh.model.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "director")
-public class Director {
+public class DirectorEntity {
 
     @Id
     @Column(name = "iddirector")
@@ -19,7 +20,7 @@ public class Director {
 
     @NotEmpty
     @Column(name = "strdirector")
-    private String name;
+    private String nombre;
 
     @NotEmpty
     @Column(name = "datfregistro")
@@ -29,13 +30,13 @@ public class Director {
     @Column(name = "datfmodificacion")
     private Date fecModificacion;
 
-    @NotEmpty
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
-    private Boolean estado;
+    private EstadoEnum estado;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idipress")
-    private Ipress ipress;
+    private IpressEntity ipress;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")

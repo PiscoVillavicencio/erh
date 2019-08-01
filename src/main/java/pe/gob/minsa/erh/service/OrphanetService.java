@@ -1,14 +1,13 @@
 package pe.gob.minsa.erh.service;
 
-import org.springframework.data.repository.CrudRepository;
-import pe.gob.minsa.erh.model.entity.Orphanet;
+import pe.gob.minsa.erh.model.entity.OrphanetEntity;
 
 import java.util.List;
 
 public interface OrphanetService {
 
-    List<Orphanet> getAllOrphanets();
+    List<OrphanetEntity> getAllOrphanets();
 
-    Orphanet getOrphanetById(Long id);
+    OrphanetEntity getOrphanetById(Long id);
 
 }

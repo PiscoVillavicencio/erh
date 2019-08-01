@@ -1,14 +1,13 @@
 package pe.gob.minsa.erh.service;
 
-import pe.gob.minsa.erh.model.entity.Director;
-import pe.gob.minsa.erh.model.entity.Orphanet;
+import pe.gob.minsa.erh.model.entity.DirectorEntity;
 
 import java.util.List;
 
 public interface DirectorService {
 
-    List<Director> getAllDirectores();
+    List<DirectorEntity> getAllDirectores();
 
-    Director getDirectorById(Long id);
+    DirectorEntity getDirectorById(Long id);
 
 }

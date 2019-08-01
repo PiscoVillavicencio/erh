@@ -5,18 +5,17 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum PerfilEnum {
+public enum EstadoEnum {
 
-    DESCONOCIDO("Desconocido"),
-    DIRECTOR("Director"),
-    MEDICO("Medico"),
-    PACIENTE("Paciente"),
-    CUIDADOR("Cuidador"),
+    INACTIVO(false, "Inactivo"),
+    ACTIVO(true, "Activo"),
     ;
 
+    private Boolean code;
     private String label;
 
-    PerfilEnum(String label) {
+    EstadoEnum(Boolean code, String label) {
+        this.code = code;
         this.label = label;
     }
 
@@ -29,15 +28,31 @@ public enum PerfilEnum {
         return list;
     }
 
+    public static EstadoEnum findByCode(Boolean code) {
+        EstadoEnum result = INACTIVO;
+        if(code){
+            return ACTIVO;
+        }
+        return result;
+    }
+
     public static EstadoEnum findByLabel(String label) {
         if (StringUtils.isNoneBlank(label)) {
-            for (EstadoEnum status : EstadoEnum.values()) {
-                if (status.toString().equalsIgnoreCase(label)) {
+            for(EstadoEnum status: EstadoEnum.values()){
+                if(status.toString().equalsIgnoreCase(label)){
                     return status;
                 }
             }
         }
         return null;
+    }
+
+    public Boolean getCode() {
+        return code;
+    }
+
+    public void setCode(Boolean code) {
+        this.code = code;
     }
 
     public String getLabel() {

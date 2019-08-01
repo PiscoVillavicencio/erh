@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "provincias")
-public class Provincia implements Serializable {
+public class ProvinciaEntity implements Serializable {
 
     @Id
     @Column(name = "idprovincia")
@@ -20,11 +20,11 @@ public class Provincia implements Serializable {
 
     @NotEmpty
     @Column(name = "provincia")
-    private String name;
+    private String nombre;
 
     @ManyToOne
     @JoinColumn(name = "iddepartamento")
-    private Departamento departamento;
+    private DepartamentoEntity departamento;
 
     @NotEmpty
     @Column(name = "codprovincia")
@@ -32,7 +32,7 @@ public class Provincia implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Distrito> distritos;
+    private List<DistritoEntity> distritos;
 
     private static final long serialVersionUID = 1L;
 }

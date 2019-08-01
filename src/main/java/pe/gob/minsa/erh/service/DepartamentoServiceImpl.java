@@ -3,7 +3,7 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.gob.minsa.erh.model.entity.Departamento;
+import pe.gob.minsa.erh.model.entity.DepartamentoEntity;
 import pe.gob.minsa.erh.repository.DepartamentoRepository;
 
 import java.util.List;
@@ -16,13 +16,13 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     private DepartamentoRepository departamentoRepository;
 
     @Override
-    public List<Departamento> getAllDepartamentos() {
+    public List<DepartamentoEntity> getAllDepartamentos() {
 
-        return (List<Departamento>) departamentoRepository.findAll();
+        return (List<DepartamentoEntity>) departamentoRepository.findAll();
     }
 
     @Override
-    public Departamento getDepartamentoById(Long id) {
+    public DepartamentoEntity getDepartamentoById(Long id) {
 
         return departamentoRepository.findOne(id);
     }

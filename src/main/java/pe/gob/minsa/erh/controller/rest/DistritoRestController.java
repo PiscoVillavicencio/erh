@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.gob.minsa.erh.model.entity.Distrito;
+import pe.gob.minsa.erh.model.entity.DistritoEntity;
 import pe.gob.minsa.erh.service.DistritoService;
 
 import java.util.List;
@@ -16,9 +16,8 @@ public class DistritoRestController {
     @Autowired
     private DistritoService distritoService;
 
-    @GetMapping(value="/", produces = "application/json")
-    public List<Distrito> getDistritos() {
-
+    @GetMapping(value = "/", produces = "application/json")
+    public List<DistritoEntity> getDistritos() {
         return distritoService.getAllDistritos();
     }
 

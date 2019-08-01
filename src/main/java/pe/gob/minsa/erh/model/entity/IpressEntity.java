@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "ipress")
-public class Ipress implements Serializable {
+public class IpressEntity implements Serializable {
 
     @Id
     @Column(name = "idipress")
@@ -20,7 +20,7 @@ public class Ipress implements Serializable {
 
     @NotEmpty
     @Column(name = "stripress")
-    private String name;
+    private String nombre;
 
     @NotEmpty
     @Column(name = "strcodipress")
@@ -44,7 +44,7 @@ public class Ipress implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "iddistrito")
-    private Distrito distrito;
+    private DistritoEntity distrito;
 
     @NotEmpty
     @Column(name = "strtelefono")
@@ -56,7 +56,7 @@ public class Ipress implements Serializable {
 
     @JsonIgnore
     @OneToOne(mappedBy = "ipress")
-    private Director director;
+    private DirectorEntity director;
 
     private static final long serialVersionUID = 1L;
 }
