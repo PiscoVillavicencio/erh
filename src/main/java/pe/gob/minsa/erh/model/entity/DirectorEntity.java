@@ -8,39 +8,30 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
 @Data
+@Entity
 @Table(name = "director")
 public class DirectorEntity {
 
+    private static final Long serialVersionUID = 1L;
     @Id
     @Column(name = "iddirector")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty
     @Column(name = "strdirector")
     private String nombre;
-
-    @NotEmpty
     @Column(name = "datfregistro")
     private Date fecRegistro;
-
-    @NotEmpty
     @Column(name = "datfmodificacion")
     private Date fecModificacion;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
-
-    private static final Long serialVersionUID = 1L;
 }

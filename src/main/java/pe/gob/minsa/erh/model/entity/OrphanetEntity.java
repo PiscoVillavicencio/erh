@@ -11,18 +11,15 @@ import java.io.Serializable;
 @Table(name = "orphanet")
 public class OrphanetEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "idorphanet")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty
     @Column(name = "strorphanet")
     private String nombre;
-
     @NotEmpty
     @Column(name = "strcodorphanet")
     private String codigo;
-
-    private static final long serialVersionUID = 1L;
 }

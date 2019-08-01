@@ -15,14 +15,25 @@ public class DirectorServiceImpl implements DirectorService {
     @Autowired
     private DirectorRepository directorRepository;
 
+
     @Override
-    public List<DirectorEntity> getAllDirectores() {
+    public List<DirectorEntity> listAll() {
         return (List<DirectorEntity>) directorRepository.findAll();
     }
 
     @Override
-    public DirectorEntity getDirectorById(Long id) {
+    public DirectorEntity getById(Long id) {
         return directorRepository.findOne(id);
+    }
+
+    @Override
+    public DirectorEntity saveOrUpdate(DirectorEntity directorEntity) {
+        return directorRepository.save(directorEntity);
+    }
+
+    @Override
+    public void delete(Long id) {
+        directorRepository.delete(id);
     }
 
 }
