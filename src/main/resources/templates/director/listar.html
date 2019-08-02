@@ -172,7 +172,7 @@
                                                 <td th:text="${director.fecRegistro}"></td>
                                                 <td th:text="${director.fecModificacion}"></td>
                                                 <td th:text="${director.estado}"></td>
-                                                <td th:text="${director.ipress}"></td>
+                                                <td th:text="${director.ipress.nombre}"></td>
                                                 <td th:text="${director.perfil}"></td>
                                                 <td class="text-center"><a th:href="${'/director/editar/' + director.id}"><i class="fa fa-edit fa-fw"></i></a></td>
                                                 <td class="text-center"><a th:href="${'/director/eliminar/' + director.id}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-times-circle fa-fw"></i></a></td>

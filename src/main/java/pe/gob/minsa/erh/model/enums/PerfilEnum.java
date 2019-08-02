@@ -30,7 +30,7 @@ public enum PerfilEnum {
     }
 
     public static EstadoEnum findByLabel(String label) {
-        if (StringUtils.isNoneBlank(label)) {
+        if (StringUtils.isNotBlank(label)) {
             for (EstadoEnum status : EstadoEnum.values()) {
                 if (status.toString().equalsIgnoreCase(label)) {
                     return status;

@@ -9,6 +9,7 @@ import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.IpressEntity;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.DirectorService;
+import pe.gob.minsa.erh.service.IpressService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +19,9 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
 
     @Autowired
     private DirectorService directorService;
+
+    @Autowired
+    private IpressService ipressService;
 
     @Autowired
     private IpressConverter ipressConverter;
@@ -74,7 +78,7 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
 
     private IpressEntity getIpress(DirectorDto dto) {
 
-        return ipressConverter.dtoToEntity(dto.getIpress());
+        return ipressService.getById(dto.getIpress().getId());
     }
 
 }

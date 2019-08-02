@@ -30,16 +30,16 @@ public enum EstadoEnum {
 
     public static EstadoEnum findByCode(Boolean code) {
         EstadoEnum result = INACTIVO;
-        if(code){
+        if (code) {
             return ACTIVO;
         }
         return result;
     }
 
     public static EstadoEnum findByLabel(String label) {
-        if (StringUtils.isNoneBlank(label)) {
-            for(EstadoEnum status: EstadoEnum.values()){
-                if(status.toString().equalsIgnoreCase(label)){
+        if (StringUtils.isNotBlank(label)) {
+            for (EstadoEnum status : EstadoEnum.values()) {
+                if (status.toString().equalsIgnoreCase(label)) {
                     return status;
                 }
             }
