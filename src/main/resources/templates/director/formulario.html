@@ -30,6 +30,9 @@
     <!-- DataTables Responsive CSS -->
     <link href="../../static/css/dataTables/dataTables.responsive.css" th:href="@{/css/dataTables/dataTables.responsive.css}" rel="stylesheet" media="all" />
 
+    <!-- Bootstrap Toggle CSS -->
+    <link href="../../static/css/bootstrap-toggle.min.css" th:href="@{/css/bootstrap-toggle.min.css}" rel="stylesheet" media="all" />
+
 </head>
 
 <body>
@@ -154,13 +157,15 @@
                                         <form role="form" th:object="${director}" th:action="@{/director}" method="post">
                                             <input type="hidden" th:field="*{id}" />
                                             <input type="hidden" th:field="*{ipress.id}" />
+                                            <input type="hidden" th:field="*{estado}" />
                                             <div class="form-group">
                                                 <label>Nombre</label>
                                                 <input class="form-control" placeholder="Ingrese nombre" th:field="*{nombre}" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Estado</label>
-                                                <input class="form-control" placeholder="Ingrese estado" th:field="*{estado}" />
+                                                <label>
+                                                    <input type="checkbox" id="toggle-event" data-on="Activo" data-off="Inactivo"/>Estado
+                                                </label>
                                             </div>
                                             <div class="form-group input-group">
                                                 <input type="text" class="form-control" th:field="*{ipress.nombre}" />
@@ -211,6 +216,9 @@
     <script src="../../static/js/dataTables/jquery.dataTables.min.js" th:src="@{/js/dataTables/jquery.dataTables.min.js}"></script>
     <script src="../../static/js/dataTables/dataTables.bootstrap.min.js" th:src="@{/js/dataTables/dataTables.bootstrap.min.js}"></script>
 
+    <!-- Bootstrap Toggle JavaScript -->
+    <script src="../../static/js/bootstrap-toggle.min.js" th:src="@{/js/bootstrap-toggle.min.js}"></script>
+
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
         $(document).ready(function() {
@@ -219,6 +227,29 @@
             });
         });
     </script>
+
+    <!-- Initialize Toggle -->
+    <script>
+      $(document).ready(function() {
+        $('#toggle-event').bootstrapToggle();
+
+        if($('#estado').val() === 'ACTIVO'){
+            $('#toggle-event').bootstrapToggle('on')
+        }else{
+            $('#toggle-event').bootstrapToggle('off')
+        }
+      });
+    </script>
+
+    <!-- Toogle Event Propagation -->
+    <script>
+      $(function() {
+        $('#toggle-event').change(function() {
+          $('#estado').val($(this).prop('checked')?'ACTIVO':'INACTIVO')
+        })
+      })
+    </script>
+
 
 </body>
 
