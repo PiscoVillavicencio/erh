@@ -3,6 +3,7 @@ package pe.gob.minsa.erh.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,15 +25,13 @@ public class IpressEntity implements Serializable {
     @NotEmpty
     @Column(name = "strcodipress")
     private String codigo;
-    @NotEmpty
     @Column(name = "datfregistro")
     private Date fecRegistro;
-    @NotEmpty
     @Column(name = "datfmodificacion")
     private Date fecModificacion;
     @NotEmpty
     @Column(name = "chrestado")
-    private Boolean estado;
+    private EstadoEnum estado;
     @NotEmpty
     @Column(name = "strdireccion")
     private String direccion;

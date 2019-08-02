@@ -27,7 +27,7 @@ public class DirectorController {
     public String listar(Model model) {
 
         model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("directores", converter.toListDto((List<DirectorEntity>) directorService.listAll()));
+        model.addAttribute("directores", converter.toListDto(directorService.listAll()));
         return "director/listar";
     }
 
