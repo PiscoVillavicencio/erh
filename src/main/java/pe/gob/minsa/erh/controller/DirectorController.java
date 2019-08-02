@@ -60,7 +60,7 @@ public class DirectorController {
     public String saveOrUpdate(DirectorDto directorDto, Model model) {
         DirectorEntity directorEntity = directorService.saveOrUpdate(directorConverter.toEntity(directorDto));
         model.addAttribute("director", directorConverter.toDto(directorEntity));
-        return "redirect:director/listar/";
+        return "redirect:director/";
     }
 
     @RequestMapping(value="/eliminar/{id}")
