@@ -28,7 +28,7 @@ public class DirectorEntity {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
     @Enumerated(EnumType.ORDINAL)
