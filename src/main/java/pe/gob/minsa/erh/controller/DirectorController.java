@@ -66,7 +66,7 @@ public class DirectorController {
     @RequestMapping(value="/eliminar/{id}")
     public String delete(@PathVariable(value = "id") Long id){
         directorService.delete(id);
-        return "redirect:/director/listar";
+        return "redirect:/director/";
     }
 
 }
