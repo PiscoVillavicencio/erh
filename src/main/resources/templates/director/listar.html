@@ -155,12 +155,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
-                                                <th>Nombre</th>
-                                                <th>Fecha de registro</th>
-                                                <th>Fecha de Modificación</th>
-                                                <th>Estado</th>
+                                                <th>Nombre Completo</th>
                                                 <th>Ipress</th>
                                                 <th>Perfil</th>
+                                                <th>Estado</th>
                                                 <th>Editar</th>
                                                 <th>Eliminar</th>
                                             </tr>
@@ -169,11 +167,9 @@
                                             <tr th:each="director: ${directores}" class="odd gradeX">
                                                 <td th:text="${director.id}"></td>
                                                 <td th:text="${director.nombre}"></td>
-                                                <td th:text="${director.fecRegistro}"></td>
-                                                <td th:text="${director.fecModificacion}"></td>
-                                                <td th:text="${director.estado}"></td>
                                                 <td th:text="${director.ipress.nombre}"></td>
                                                 <td th:text="${director.perfil}"></td>
+                                                <td th:text="${director.estado}"></td>
                                                 <td class="text-center"><a th:href="${'/director/editar/' + director.id}"><i class="fa fa-edit fa-fw"></i></a></td>
                                                 <td class="text-center"><a th:href="${'/director/eliminar/' + director.id}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-times-circle fa-fw"></i></a></td>
                                             </tr>

@@ -10,9 +10,13 @@ import pe.gob.minsa.erh.converter.DirectorConverter;
 import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.entity.DirectorEntity;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.DirectorService;
 import pe.gob.minsa.erh.service.IpressService;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/director")
@@ -51,7 +55,12 @@ public class DirectorController {
     public String nuevo(Model model) {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Nuevo Director");
-        model.addAttribute("director", DirectorDto.builder().perfil(PerfilEnum.DIRECTOR.getLabel()).build());
+        model.addAttribute("director", DirectorDto.builder()
+                .estado(EstadoEnum.ACTIVO)
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
+                .perfil(PerfilEnum.DIRECTOR.getLabel())
+                .build());
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "director/formulario";
     }
@@ -63,8 +72,8 @@ public class DirectorController {
         return "redirect:director/";
     }
 
-    @RequestMapping(value="/eliminar/{id}")
-    public String delete(@PathVariable(value = "id") Long id){
+    @RequestMapping(value = "/eliminar/{id}")
+    public String delete(@PathVariable(value = "id") Long id) {
         directorService.delete(id);
         return "redirect:/director/";
     }
