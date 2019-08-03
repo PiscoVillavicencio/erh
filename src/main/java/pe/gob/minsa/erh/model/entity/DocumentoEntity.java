@@ -2,9 +2,11 @@ package pe.gob.minsa.erh.model.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
@@ -19,5 +21,12 @@ public class DocumentoEntity implements Serializable {
     @NotEmpty
     @Column(name = "documento")
     private String nombre;
+    @Column(name = "datfregistro")
+    private Date fecRegistro;
+    @Column(name = "datfmodificacion")
+    private Date fecModificacion;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrestado")
+    private EstadoEnum estado;
 
 }

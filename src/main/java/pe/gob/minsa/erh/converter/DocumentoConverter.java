@@ -7,6 +7,9 @@ import pe.gob.minsa.erh.model.dto.DocumentoDto;
 import pe.gob.minsa.erh.model.entity.DocumentoEntity;
 import pe.gob.minsa.erh.service.DocumentoService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Component
 public class DocumentoConverter extends AbstractConverter<DocumentoEntity, DocumentoDto> {
 
@@ -17,6 +20,9 @@ public class DocumentoConverter extends AbstractConverter<DocumentoEntity, Docum
         return DocumentoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
+                .estado(entity.getEstado())
                 .build();
     }
 
@@ -32,6 +38,9 @@ public class DocumentoConverter extends AbstractConverter<DocumentoEntity, Docum
         }
 
         entity.setNombre(getNombre(dto));
+        entity.setFecRegistro(getFecRegistro(dto, entity));
+        entity.setFecModificacion(new Date());
+        entity.setEstado(dto.getEstado());
 
         return entity;
     }
@@ -41,6 +50,13 @@ public class DocumentoConverter extends AbstractConverter<DocumentoEntity, Docum
             return dto.getNombre().trim();
         }
         return "";
+    }
+
+    private Date getFecRegistro(DocumentoDto dto, DocumentoEntity entity) {
+        if (dto.getId() != null) {
+            return entity.getFecRegistro();
+        }
+        return new Date();
     }
 
 }

@@ -3743,27 +3743,29 @@ INSERT INTO director(datfregistro, datfmodificacion, chrestado, idipress, idperf
 
 ----------------------- DOCUMENTO ---------------------------
 
-INSERT INTO documento(documento) VALUES ('DNI');
-INSERT INTO documento(documento) VALUES ('Pasaporte');
-INSERT INTO documento(documento) VALUES ('Carnet de extrangería');
+INSERT INTO documento(documento, datfregistro, datfmodificacion, chrestado) VALUES ('DNI',NOW(),NOW(),1);
+INSERT INTO documento(documento, datfregistro, datfmodificacion, chrestado) VALUES ('Pasaporte',NOW(),NOW(),1);
+INSERT INTO documento(documento, datfregistro, datfmodificacion, chrestado) VALUES ('Carnet de extrangería',NOW(),NOW(),1);
 
 ----------------------- PARENTESCO ---------------------------
 
-INSERT INTO parentesco(parentesco) VALUES ('Padre');
-INSERT INTO parentesco(parentesco) VALUES ('Madre');
-INSERT INTO parentesco(parentesco) VALUES ('Suegro/a');
-INSERT INTO parentesco(parentesco) VALUES ('Hijo/a');
-INSERT INTO parentesco(parentesco) VALUES ('Yerno');
-INSERT INTO parentesco(parentesco) VALUES ('Nuera');
-INSERT INTO parentesco(parentesco) VALUES ('Abuelo/a');
-INSERT INTO parentesco(parentesco) VALUES ('Nieto/a');
-INSERT INTO parentesco(parentesco) VALUES ('Hermano/a');
-INSERT INTO parentesco(parentesco) VALUES ('Cuñado/a');
-INSERT INTO parentesco(parentesco) VALUES ('Bisabuelo/a');
-INSERT INTO parentesco(parentesco) VALUES ('Bisnieto/a');
-INSERT INTO parentesco(parentesco) VALUES ('tío/a');
-INSERT INTO parentesco(parentesco) VALUES ('Sobrino/a');
-INSERT INTO parentesco(parentesco) VALUES ('Padrastro');
-INSERT INTO parentesco(parentesco) VALUES ('Madrastra');
-INSERT INTO parentesco(parentesco) VALUES ('Ninguno');
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Padre',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Madre',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Suegro/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Hijo/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Yerno',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Nuera',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Abuelo/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Nieto/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Hermano/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Cuñado/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Bisabuelo/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Bisnieto/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('tío/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Sobrino/a',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Padrastro',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Madrastra',NOW(),NOW(),1);
+INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Ninguno',NOW(),NOW(),1);
+
+----------------------- PARENTESCO ---------------------------
 
