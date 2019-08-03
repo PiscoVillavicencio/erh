@@ -6,12 +6,13 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "director")
-public class DirectorEntity {
+public class DirectorEntity implements Serializable {
 
     private static final Long serialVersionUID = 1L;
     @Id
