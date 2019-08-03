@@ -22,13 +22,13 @@ public class DirectorRestController {
     private DirectorConverter converter;
 
     @GetMapping(value = "/entities", produces = "application/json")
-    public List<DirectorEntity> getDirectoresEntities() {
+    public List<DirectorEntity> getEntities() {
 
         return directorService.listAll();
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<DirectorDto> getDirectoresDtos() {
+    public List<DirectorDto> getDtos() {
 
         return converter.toListDto(directorService.listAll());
     }

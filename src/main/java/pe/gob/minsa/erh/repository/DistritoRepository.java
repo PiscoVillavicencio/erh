@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import pe.gob.minsa.erh.model.entity.DistritoEntity;
 
 @Repository
-public interface DistritoRepository extends CrudRepository<DistritoEntity, Long> {
-}
+public interface DistritoRepository extends CrudRepository<DistritoEntity, Long> { }

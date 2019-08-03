@@ -33,7 +33,6 @@ public class DepartamentoConverter extends AbstractConverter<DepartamentoEntity,
             entity = departamentoService.getById(dto.getId());
         }
 
-
         return entity;
     }
 

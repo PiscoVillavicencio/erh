@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import pe.gob.minsa.erh.model.entity.IpressEntity;
 
 @Repository
-public interface IpressRepository extends CrudRepository<IpressEntity, Long> {
-}
+public interface IpressRepository extends CrudRepository<IpressEntity, Long> { }
