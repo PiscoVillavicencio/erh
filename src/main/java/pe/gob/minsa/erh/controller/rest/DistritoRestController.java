@@ -17,7 +17,6 @@ public class DistritoRestController {
 
     @Autowired
     private DistritoService distritoService;
-
     @Autowired
     private DistritoConverter converter;
 

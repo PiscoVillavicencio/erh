@@ -66,9 +66,9 @@ public class DirectorController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String saveOrUpdate(DirectorDto directorDto, Model model) {
-        DirectorEntity directorEntity = directorService.saveOrUpdate(directorConverter.toEntity(directorDto));
-        model.addAttribute("director", directorConverter.toDto(directorEntity));
+    public String saveOrUpdate(DirectorDto dto, Model model) {
+        DirectorEntity newEntity = directorService.saveOrUpdate(directorConverter.toEntity(dto));
+        model.addAttribute("newEntity", directorConverter.toDto(newEntity));
         return "redirect:director/";
     }
 

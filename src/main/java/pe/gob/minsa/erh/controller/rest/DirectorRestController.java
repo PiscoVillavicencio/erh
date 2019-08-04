@@ -17,7 +17,6 @@ public class DirectorRestController {
 
     @Autowired
     private DirectorService directorService;
-
     @Autowired
     private DirectorConverter converter;
 

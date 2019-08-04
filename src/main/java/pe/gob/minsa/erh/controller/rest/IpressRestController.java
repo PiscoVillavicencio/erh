@@ -17,7 +17,6 @@ public class IpressRestController {
 
     @Autowired
     private IpressService ipressService;
-
     @Autowired
     private IpressConverter converter;
 

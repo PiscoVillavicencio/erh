@@ -17,7 +17,6 @@ public class OrphanetRestController {
 
     @Autowired
     private OrphanetService orphanetService;
-
     @Autowired
     private OrphanetConverter converter;
 

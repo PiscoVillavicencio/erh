@@ -17,7 +17,6 @@ public class DepartamentoRestController {
 
     @Autowired
     private DepartamentoService departamentoService;
-
     @Autowired
     private DepartamentoConverter converter;
 

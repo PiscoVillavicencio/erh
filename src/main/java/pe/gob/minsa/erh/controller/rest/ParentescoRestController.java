@@ -17,7 +17,6 @@ public class ParentescoRestController {
 
     @Autowired
     private ParentescoService parentescoService;
-
     @Autowired
     private ParentescoConverter converter;
 
