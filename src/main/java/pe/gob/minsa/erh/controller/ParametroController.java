@@ -42,11 +42,11 @@ public class ParametroController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) {
-
         model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("opcion", "Parametros");
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("parentescos", parentescoConverter.toListDto(parentescoService.listAll()));
-        return "director/listar";
+        return "parametro/listar";
     }
 
     @RequestMapping(value = "documento/editar/{id}", method = RequestMethod.GET)
@@ -81,7 +81,7 @@ public class ParametroController {
     public String parentescoNuevo(Model model) {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Nuevo Parentesco");
-        model.addAttribute("documento", DocumentoDto.builder()
+        model.addAttribute("parentesco", ParentescoDto.builder()
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
@@ -93,14 +93,14 @@ public class ParametroController {
     public String documentoSaveOrUpdate(DocumentoDto dto, Model model) {
         DocumentoEntity newEntity = documentoService.saveOrUpdate(documentoConverter.toEntity(dto));
         model.addAttribute("newEntity", documentoConverter.toDto(newEntity));
-        return "redirect:parametro/";
+        return "redirect:/parametro/";
     }
 
     @RequestMapping(value = "/parentesco", method = RequestMethod.POST)
     public String parentescoSaveOrUpdate(ParentescoDto dto, Model model) {
         ParentescoEntity newEntity = parentescoService.saveOrUpdate(parentescoConverter.toEntity(dto));
         model.addAttribute("newEntity", parentescoConverter.toDto(newEntity));
-        return "redirect:parametro/";
+        return "redirect:/parametro/";
     }
 
     @RequestMapping(value = "documento/eliminar/{id}")
@@ -111,7 +111,7 @@ public class ParametroController {
 
     @RequestMapping(value = "parentesco/eliminar/{id}")
     public String parentescoDelete(@PathVariable(value = "id") Long id) {
-        documentoService.delete(id);
+        parentescoService.delete(id);
         return "redirect:/parametro/";
     }
 

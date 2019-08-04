@@ -1,6 +1,7 @@
 package pe.gob.minsa.erh.converter;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.DocumentoDto;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Component
 public class DocumentoConverter extends AbstractConverter<DocumentoEntity, DocumentoDto> {
 
+    @Autowired
     private DocumentoService documentoService;
 
     @Override

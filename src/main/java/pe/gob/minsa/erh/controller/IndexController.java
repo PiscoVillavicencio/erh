@@ -11,6 +11,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("opcion", "Dashboard");
         return "index";
     }
 

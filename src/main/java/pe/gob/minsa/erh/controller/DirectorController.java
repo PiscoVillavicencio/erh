@@ -36,8 +36,8 @@ public class DirectorController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) {
-
         model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("opcion", "Directores");
         model.addAttribute("directores", directorConverter.toListDto(directorService.listAll()));
         return "director/listar";
     }
@@ -69,7 +69,7 @@ public class DirectorController {
     public String saveOrUpdate(DirectorDto dto, Model model) {
         DirectorEntity newEntity = directorService.saveOrUpdate(directorConverter.toEntity(dto));
         model.addAttribute("newEntity", directorConverter.toDto(newEntity));
-        return "redirect:director/";
+        return "redirect:/director/";
     }
 
     @RequestMapping(value = "/eliminar/{id}")
