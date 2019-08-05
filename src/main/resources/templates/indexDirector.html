@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout :: head"></head>
+<head th:replace="layoutDirector :: head"></head>
 
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav th:replace="layout :: nav"></nav>
+        <nav th:replace="layoutDirector :: nav"></nav>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -47,7 +47,7 @@
     </div>
 
     <!-- footer -->
-    <footer th:replace="layout :: footer"></footer>
+    <footer th:replace="layoutDirector :: footer"></footer>
 
 </body>
 

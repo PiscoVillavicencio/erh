@@ -1,0 +1,22 @@
+.background {
+    background: url('../images/layout/wallpapers-hd.jpg') no-repeat center center fixed;;
+}
+
+#page-wrapper {
+    margin-right: 250px;
+    background-color: rgba(0,0,0,.075);
+    border-left: none;
+    border-right: none;
+}
+
+.titulo {
+    text-align: center;
+    color: white;
+}
+
+img {
+    margin: 15px;
+    width: 350px;
+    height: 100px;
+    display: block;
+}

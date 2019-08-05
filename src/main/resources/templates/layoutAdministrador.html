@@ -38,6 +38,13 @@
             min-width: 80% !important;
             max-width: 80% !important;
         }
+        img {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            width: 200px;
+            height: 60px;
+            display: block;
+        }
     </style>
 </head>
 
@@ -48,7 +55,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:fragment="nav">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Startmin</a>
+                <a class="navbar-brand" href="#">MINSA ERH</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -60,7 +67,7 @@
 
             <!-- Top Navigation: Left Menu -->
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                <li><a href="/"><i class="fa fa-home fa-fw"></i></a></li>
             </ul>
 
             <!-- Top Navigation: Right Menu -->
@@ -89,7 +96,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> <span th:text="${user.user}"> user </span> <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -97,7 +104,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
