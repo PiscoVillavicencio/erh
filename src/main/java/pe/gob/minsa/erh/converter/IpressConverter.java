@@ -19,7 +19,7 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
     private DistritoConverter distritoConverter;
 
     @Override
-    protected IpressDto entityToDto(IpressEntity entity) {
+    protected IpressDto entityToDto(IpressEntity entity) throws Exception {
         return IpressDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -35,7 +35,7 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
     }
 
     @Override
-    protected IpressEntity dtoToEntity(IpressDto dto) {
+    protected IpressEntity dtoToEntity(IpressDto dto) throws Exception {
 
         IpressEntity entity;
         if (dto.getId() == null) {

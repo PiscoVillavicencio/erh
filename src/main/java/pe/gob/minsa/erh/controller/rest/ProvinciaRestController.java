@@ -27,7 +27,7 @@ public class ProvinciaRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<ProvinciaDto> getDtos() {
+    public List<ProvinciaDto> getDtos() throws Exception {
 
         return converter.toListDto(provinciaService.listAll());
     }

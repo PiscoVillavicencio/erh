@@ -27,7 +27,7 @@ public class DocumentoRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<DocumentoDto> getDtos() {
+    public List<DocumentoDto> getDtos() throws Exception {
         return converter.toListDto(documentoService.listAll());
     }
 

@@ -6,17 +6,17 @@ import java.util.List;
 public abstract class AbstractConverter<E, D> implements Converter<E, D> {
 
     @Override
-    public D toDto(E entity) {
+    public D toDto(E entity) throws Exception {
         return entityToDto(entity);
     }
 
     @Override
-    public E toEntity(D dto) {
+    public E toEntity(D dto) throws Exception {
         return dtoToEntity(dto);
     }
 
     @Override
-    public List<E> toListEntity(List<D> dtos) {
+    public List<E> toListEntity(List<D> dtos) throws Exception {
 
         List<E> entities = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public abstract class AbstractConverter<E, D> implements Converter<E, D> {
     }
 
     @Override
-    public List<D> toListDto(List<E> entities) {
+    public List<D> toListDto(List<E> entities) throws Exception {
 
         List<D> dtos = new ArrayList<>();
 
@@ -39,8 +39,8 @@ public abstract class AbstractConverter<E, D> implements Converter<E, D> {
         return dtos;
     }
 
-    protected abstract D entityToDto(E entity);
+    protected abstract D entityToDto(E entity) throws Exception;
 
-    protected abstract E dtoToEntity(D dto);
+    protected abstract E dtoToEntity(D dto) throws Exception;
 
 }

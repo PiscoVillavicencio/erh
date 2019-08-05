@@ -27,7 +27,7 @@ public class DistritoRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<DistritoDto> getDtos() {
+    public List<DistritoDto> getDtos() throws Exception {
 
         return converter.toListDto(distritoService.listAll());
     }

@@ -18,7 +18,7 @@ public class ParentescoConverter extends AbstractConverter<ParentescoEntity, Par
     private ParentescoService parentescoService;
 
     @Override
-    protected ParentescoDto entityToDto(ParentescoEntity entity) {
+    protected ParentescoDto entityToDto(ParentescoEntity entity) throws Exception {
         return ParentescoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -29,36 +29,22 @@ public class ParentescoConverter extends AbstractConverter<ParentescoEntity, Par
     }
 
     @Override
-    protected ParentescoEntity dtoToEntity(ParentescoDto dto) {
+    protected ParentescoEntity dtoToEntity(ParentescoDto dto) throws Exception {
 
         ParentescoEntity entity;
 
         if (dto.getId() == null) {
             entity = new ParentescoEntity();
+            entity.setFecRegistro(new Date());
         } else {
             entity = parentescoService.getById(dto.getId());
         }
 
-        entity.setNombre(getNombre(dto));
-        entity.setFecRegistro(getFecRegistro(dto, entity));
+        entity.setNombre(dto.getNombre().trim());
         entity.setFecModificacion(new Date());
         entity.setEstado(dto.getEstado());
 
         return entity;
-    }
-
-    private String getNombre(ParentescoDto dto) {
-        if (StringUtils.isNotBlank(dto.getNombre())) {
-            return dto.getNombre().trim();
-        }
-        return "";
-    }
-
-    private Date getFecRegistro(ParentescoDto dto, ParentescoEntity entity) {
-        if (dto.getId() != null) {
-            return entity.getFecRegistro();
-        }
-        return new Date();
     }
 
 }

@@ -14,7 +14,7 @@ public class DepartamentoConverter extends AbstractConverter<DepartamentoEntity,
     private DepartamentoService departamentoService;
 
     @Override
-    protected DepartamentoDto entityToDto(DepartamentoEntity entity) {
+    protected DepartamentoDto entityToDto(DepartamentoEntity entity) throws Exception {
         return DepartamentoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -23,7 +23,7 @@ public class DepartamentoConverter extends AbstractConverter<DepartamentoEntity,
     }
 
     @Override
-    protected DepartamentoEntity dtoToEntity(DepartamentoDto dto) {
+    protected DepartamentoEntity dtoToEntity(DepartamentoDto dto) throws Exception {
 
         DepartamentoEntity entity;
 

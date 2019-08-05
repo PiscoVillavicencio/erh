@@ -3767,5 +3767,6 @@ INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VA
 INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Madrastra',NOW(),NOW(),1);
 INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Ninguno',NOW(),NOW(),1);
 
------------------------ PARENTESCO ---------------------------
+----------------------- PERSONA ---------------------------
 
+INSERT INTO persona(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, strrutaimagen, iddistrito, datfregistro, datfmodificacion) VALUES ('Juan Pablo','Perez','Gómez',date('now') - interval '20 year', 1, '08076542', '/images/persona/08076542', 1271, NOW(), NOW());

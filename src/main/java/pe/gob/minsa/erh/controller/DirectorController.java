@@ -35,7 +35,7 @@ public class DirectorController {
     private IpressConverter ipressConverter;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listar(Model model) {
+    public String listar(Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Directores");
         model.addAttribute("directores", directorConverter.toListDto(directorService.listAll()));
@@ -43,7 +43,7 @@ public class DirectorController {
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
-    public String editar(@PathVariable(value = "id") Long id, Model model) {
+    public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Editar Director");
         model.addAttribute("director", directorConverter.toDto(directorService.getById(id)));
@@ -52,7 +52,7 @@ public class DirectorController {
     }
 
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
-    public String nuevo(Model model) {
+    public String nuevo(Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Nuevo Director");
         model.addAttribute("director", DirectorDto.builder()
@@ -66,7 +66,7 @@ public class DirectorController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String saveOrUpdate(DirectorDto dto, Model model) {
+    public String saveOrUpdate(DirectorDto dto, Model model) throws Exception {
         DirectorEntity newEntity = directorService.saveOrUpdate(directorConverter.toEntity(dto));
         model.addAttribute("newEntity", directorConverter.toDto(newEntity));
         return "redirect:/director/";

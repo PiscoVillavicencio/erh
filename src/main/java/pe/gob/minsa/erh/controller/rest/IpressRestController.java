@@ -27,7 +27,7 @@ public class IpressRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<IpressDto> getDtos() {
+    public List<IpressDto> getDtos() throws Exception {
 
         return converter.toListDto(ipressService.listAll());
     }

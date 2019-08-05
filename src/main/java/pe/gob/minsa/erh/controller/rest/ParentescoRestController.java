@@ -27,7 +27,7 @@ public class ParentescoRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<ParentescoDto> getDtos() {
+    public List<ParentescoDto> getDtos() throws Exception {
         return converter.toListDto(parentescoService.listAll());
     }
 

@@ -41,7 +41,7 @@ public class ParametroController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listar(Model model) {
+    public String listar(Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Parametros");
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
@@ -50,7 +50,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "documento/editar/{id}", method = RequestMethod.GET)
-    public String documentoEditar(@PathVariable(value = "id") Long id, Model model) {
+    public String documentoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Editar Documento");
         model.addAttribute("documento", documentoConverter.toDto(documentoService.getById(id)));
@@ -58,7 +58,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "parentesco/editar/{id}", method = RequestMethod.GET)
-    public String parentescoEditar(@PathVariable(value = "id") Long id, Model model) {
+    public String parentescoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Editar Parentesco");
         model.addAttribute("parentesco", parentescoConverter.toDto(parentescoService.getById(id)));
@@ -90,14 +90,14 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "/documento", method = RequestMethod.POST)
-    public String documentoSaveOrUpdate(DocumentoDto dto, Model model) {
+    public String documentoSaveOrUpdate(DocumentoDto dto, Model model) throws Exception {
         DocumentoEntity newEntity = documentoService.saveOrUpdate(documentoConverter.toEntity(dto));
         model.addAttribute("newEntity", documentoConverter.toDto(newEntity));
         return "redirect:/parametro/";
     }
 
     @RequestMapping(value = "/parentesco", method = RequestMethod.POST)
-    public String parentescoSaveOrUpdate(ParentescoDto dto, Model model) {
+    public String parentescoSaveOrUpdate(ParentescoDto dto, Model model) throws Exception {
         ParentescoEntity newEntity = parentescoService.saveOrUpdate(parentescoConverter.toEntity(dto));
         model.addAttribute("newEntity", parentescoConverter.toDto(newEntity));
         return "redirect:/parametro/";

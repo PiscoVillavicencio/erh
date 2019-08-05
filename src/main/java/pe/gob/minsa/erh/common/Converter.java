@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface Converter<E,D> {
 
-    D toDto(E entity);
-    E toEntity(D dto);
-    List<E> toListEntity(List<D> dtos);
-    List<D> toListDto(List<E> entities);
+    D toDto(E entity) throws Exception;
+    E toEntity(D dto) throws Exception;
+    List<E> toListEntity(List<D> dtos) throws Exception;
+    List<D> toListDto(List<E> entities) throws Exception;
 
 }

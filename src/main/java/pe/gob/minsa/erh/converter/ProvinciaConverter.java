@@ -17,7 +17,7 @@ public class ProvinciaConverter extends AbstractConverter<ProvinciaEntity, Provi
     private DepartamentoConverter departamentoConverter;
 
     @Override
-    protected ProvinciaDto entityToDto(ProvinciaEntity entity) {
+    protected ProvinciaDto entityToDto(ProvinciaEntity entity) throws Exception {
         return ProvinciaDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -27,7 +27,7 @@ public class ProvinciaConverter extends AbstractConverter<ProvinciaEntity, Provi
     }
 
     @Override
-    protected ProvinciaEntity dtoToEntity(ProvinciaDto dto) {
+    protected ProvinciaEntity dtoToEntity(ProvinciaDto dto) throws Exception {
 
         ProvinciaEntity entity;
 

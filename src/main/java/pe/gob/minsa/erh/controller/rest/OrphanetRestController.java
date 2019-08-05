@@ -27,7 +27,7 @@ public class OrphanetRestController {
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<OrphanetDto> getDtos() {
+    public List<OrphanetDto> getDtos() throws Exception {
 
         return converter.toListDto(orphanetService.listAll());
     }

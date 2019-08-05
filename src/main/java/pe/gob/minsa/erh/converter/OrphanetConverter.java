@@ -14,7 +14,7 @@ public class OrphanetConverter extends AbstractConverter<OrphanetEntity, Orphane
     private OrphanetService orphanetService;
 
     @Override
-    protected OrphanetDto entityToDto(OrphanetEntity entity) {
+    protected OrphanetDto entityToDto(OrphanetEntity entity) throws Exception {
         return OrphanetDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -23,7 +23,7 @@ public class OrphanetConverter extends AbstractConverter<OrphanetEntity, Orphane
     }
 
     @Override
-    protected OrphanetEntity dtoToEntity(OrphanetDto dto) {
+    protected OrphanetEntity dtoToEntity(OrphanetDto dto) throws Exception {
 
         OrphanetEntity entity;
 

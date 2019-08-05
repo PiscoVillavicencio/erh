@@ -17,7 +17,7 @@ public class DistritoConverter extends AbstractConverter<DistritoEntity, Distrit
     private ProvinciaConverter provinciaConverter;
 
     @Override
-    protected DistritoDto entityToDto(DistritoEntity entity) {
+    protected DistritoDto entityToDto(DistritoEntity entity) throws Exception {
         return DistritoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
@@ -27,7 +27,7 @@ public class DistritoConverter extends AbstractConverter<DistritoEntity, Distrit
     }
 
     @Override
-    protected DistritoEntity dtoToEntity(DistritoDto dto) {
+    protected DistritoEntity dtoToEntity(DistritoDto dto) throws Exception {
 
         DistritoEntity entity;
 
