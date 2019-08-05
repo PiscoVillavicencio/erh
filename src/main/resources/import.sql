@@ -3769,4 +3769,4 @@ INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VA
 
 ----------------------- PERSONA ---------------------------
 
-INSERT INTO persona(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, strrutaimagen, iddistrito, datfregistro, datfmodificacion) VALUES ('Juan Pablo','Perez','Gómez',date('now') - interval '20 year', 1, '08076542', '/images/persona/08076542', 1271, NOW(), NOW());
+INSERT INTO persona(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, strRutaImagen, iddistrito, strestavivo, strnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, datfregistro, datfmodificacion) VALUES ('Charles Javier','Cordova','Villavicencio',date('now') - interval '20 year', 1, '08076542', '/images/persona/08076542', 1271, 1 , 'Peru', null, null, null, 'Hospital Daniel Alcides Carrion', 'chacovi@gmail.com', 1271, 'Los Olivos', 'Lima', '5331210', '935386117', NOW(), NOW());

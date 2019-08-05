@@ -35,6 +35,20 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .nroDocumento(entity.getNroDocumento())
                 .rutaImagen(entity.getRutaImagen())
                 .distrito(distritoConverter.toDto(entity.getDistrito()))
+
+                .estado(entity.getEstado())
+                .origenNacionalidad(entity.getOrigenNacionalidad())
+                .origenPais(entity.getOrigenPais())
+                .origenEstado(entity.getOrigenEstado())
+                .origenCiudad(entity.getOrigenCiudad())
+                .lugarNacimiento(entity.getLugarNacimiento())
+                .email(entity.getEmail())
+                .distritoActual(distritoConverter.toDto(entity.getDistritoActual()))
+                .direccionActual(entity.getDireccionActual())
+                .lugarProcedencia(entity.getLugarProcedencia())
+                .telFijo(entity.getTelFijo())
+                .telMovil(entity.getTelMovil())
+
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();
@@ -60,6 +74,20 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setDocumento(documentoConverter.toEntity(dto.getDocumento()));
         entity.setNroDocumento(entity.getNroDocumento());
         entity.setRutaImagen(entity.getRutaImagen());
+
+        entity.setEstado(dto.getEstado());
+        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
+        entity.setOrigenPais(dto.getOrigenPais());
+        entity.setOrigenEstado(dto.getOrigenEstado());
+        entity.setOrigenCiudad(dto.getOrigenCiudad());
+        entity.setLugarNacimiento(dto.getLugarNacimiento());
+        entity.setEmail(dto.getEmail());
+        entity.setDistritoActual(distritoConverter.toEntity(dto.getDistritoActual()));
+        entity.setDireccionActual(dto.getDireccionActual());
+        entity.setLugarProcedencia(dto.getLugarProcedencia());
+        entity.setTelFijo(dto.getTelFijo());
+        entity.setTelMovil(dto.getTelMovil());
+
         entity.setDistrito(distritoConverter.toEntity(dto.getDistrito()));
         entity.setFecModificacion(new Date());
 

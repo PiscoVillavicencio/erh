@@ -2,6 +2,7 @@ package pe.gob.minsa.erh.model.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -38,6 +39,35 @@ public class PersonaEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "iddistrito")
     private DistritoEntity distrito;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "strestavivo")
+    private EstadoEnum estado;
+    @Column(name = "strnacionalidad")
+    private String origenNacionalidad;
+    @Column(name = "strpais")
+    private String origenPais;
+    @Column(name = "strestado")
+    private String origenEstado;
+    @Column(name = "strciudad")
+    private String origenCiudad;
+    @Column(name = "strlugarnacimiento")
+    private String lugarNacimiento;
+    @Column(name = "stremail")
+    private String email;
+    @ManyToOne
+    @JoinColumn(name = "iddistritoactual")
+    private DistritoEntity distritoActual;
+    @Column(name = "strdireccionactual")
+    private String direccionActual;
+    @Column(name = "strlugarprocedencia")
+    private String lugarProcedencia;
+    @Column(name = "strtelefonofijo")
+    private String telFijo;
+    @Column(name = "strtelefonomovil")
+    private String telMovil;
+
+
     @Column(name = "datfregistro")
     private Date fecRegistro;
     @Column(name = "datfmodificacion")

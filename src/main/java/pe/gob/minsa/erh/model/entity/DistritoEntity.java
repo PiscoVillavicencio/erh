@@ -30,8 +30,5 @@ public class DistritoEntity implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<IpressEntity> ipresses;
-    @JsonIgnore
-    @OneToMany(mappedBy = "documento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<PersonaEntity> personas;
 
 }
