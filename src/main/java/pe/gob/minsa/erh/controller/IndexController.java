@@ -17,7 +17,6 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String login(Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("user", globalUser);
 
         return "login";
@@ -25,7 +24,6 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String index(UserDto user, Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
 
         globalUser.setUser(user.getUser());
 

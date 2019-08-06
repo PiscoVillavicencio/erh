@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pe.gob.minsa.erh.converter.PersonaConverter;
 import pe.gob.minsa.erh.model.dto.PersonaDto;
+import pe.gob.minsa.erh.model.dto.UserDto;
 import pe.gob.minsa.erh.service.PersonaService;
 
 @Controller
@@ -15,15 +16,16 @@ import pe.gob.minsa.erh.service.PersonaService;
 public class PersonaController {
 
     @Autowired
+    UserDto globalUser;
+    @Autowired
     private PersonaService personaService;
-
     @Autowired
     private PersonaConverter personaConverter;
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Personas");
+        model.addAttribute("user", globalUser);
         model.addAttribute("personas", personaConverter.toListDto(personaService.listAll()));
         return "persona/listar";
     }
@@ -51,8 +53,7 @@ public class PersonaController {
 
     @RequestMapping(value = "/eliminar/{id}")
     public String delete(@PathVariable(value = "id") Long id) throws Exception {
-
-
+        personaService.delete(id);
         return "redirect:/persona/";
     }
 

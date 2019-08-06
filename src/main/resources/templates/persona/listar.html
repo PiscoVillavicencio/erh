@@ -8,31 +8,13 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <div th:if="${user.user} == 'administrador'">
-            <nav th:replace="layoutAdministrador :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'director'">
-            <nav th:replace="layoutDirector :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'master'">
-            <nav th:replace="layoutMaster :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'medico'">
-            <nav th:replace="layoutMedico :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'paciente'">
-            <nav th:replace="layoutPaciente :: nav"></nav>
-        </div>
+        <nav th:replace="layout :: nav"></nav>
 
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header" th:text="${titulo}">Page Title</h1>
-                    </div>
-                </div>
+                <div th:replace="layout :: images"></div>
 
                 <!-- ... Your content goes here ... -->
                 <!-- /.row -->
@@ -80,9 +62,9 @@
                                 </div>
                                 <!-- /.table-responsive -->
                                 <div class="well">
-                                    <h4>DataTables Usage Information</h4>
-                                    <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                                    <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
+                                    <h4>Ministerio de Salud</h4>
+                                    <p>Av. Salaverry Nº 801</p>
+                                    <p>Teléfono: 315-6600</p>
                                 </div>
                             </div>
                             <!-- /.panel-body -->
@@ -100,7 +82,7 @@
     </div>
 
     <!-- footer -->
-    <footer th:replace="layoutMaster :: footer"></footer>
+    <footer th:replace="layout :: footer"></footer>
 
 </body>
 

@@ -9,14 +9,14 @@
     border-right: none;
 }
 
-.titulo {
+h1 {
     text-align: center;
     color: white;
 }
 
 img {
     margin: 15px;
-    width: 350px;
-    height: 100px;
+    width: 200px;
+    height: 60px;
     display: block;
 }

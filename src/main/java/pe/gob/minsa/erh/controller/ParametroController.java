@@ -13,6 +13,7 @@ import pe.gob.minsa.erh.converter.ParentescoConverter;
 import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.dto.DocumentoDto;
 import pe.gob.minsa.erh.model.dto.ParentescoDto;
+import pe.gob.minsa.erh.model.dto.UserDto;
 import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.DocumentoEntity;
 import pe.gob.minsa.erh.model.entity.ParentescoEntity;
@@ -31,6 +32,8 @@ import java.util.Date;
 public class ParametroController {
 
     @Autowired
+    UserDto globalUser;
+    @Autowired
     private DocumentoService documentoService;
     @Autowired
     private ParentescoService parentescoService;
@@ -42,8 +45,8 @@ public class ParametroController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Parametros");
+        model.addAttribute("user", globalUser);
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("parentescos", parentescoConverter.toListDto(parentescoService.listAll()));
         return "parametro/listar";
@@ -51,24 +54,24 @@ public class ParametroController {
 
     @RequestMapping(value = "documento/editar/{id}", method = RequestMethod.GET)
     public String documentoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Editar Documento");
+        model.addAttribute("user", globalUser);
         model.addAttribute("documento", documentoConverter.toDto(documentoService.getById(id)));
         return "parametro/formularioDocumento";
     }
 
     @RequestMapping(value = "parentesco/editar/{id}", method = RequestMethod.GET)
     public String parentescoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Editar Parentesco");
+        model.addAttribute("user", globalUser);
         model.addAttribute("parentesco", parentescoConverter.toDto(parentescoService.getById(id)));
         return "parametro/formularioParentesco";
     }
 
     @RequestMapping(value = "documento/nuevo", method = RequestMethod.GET)
     public String documentoNuevo(Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Nuevo Documento");
+        model.addAttribute("user", globalUser);
         model.addAttribute("documento", DocumentoDto.builder()
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
@@ -79,8 +82,8 @@ public class ParametroController {
 
     @RequestMapping(value = "parentesco/nuevo", method = RequestMethod.GET)
     public String parentescoNuevo(Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Nuevo Parentesco");
+        model.addAttribute("user", globalUser);
         model.addAttribute("parentesco", ParentescoDto.builder()
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))

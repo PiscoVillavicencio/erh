@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layoutMaster :: head"></head>
+<head th:replace="layout :: head"></head>
 
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
-        <div th:if="${user.user} == 'administrador'">
-            <nav th:replace="layoutAdministrador :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'director'">
-            <nav th:replace="layoutDirector :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'master'">
-            <nav th:replace="layoutMaster :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'medico'">
-            <nav th:replace="layoutMedico :: nav"></nav>
-        </div>
-        <div th:if="${user.user} == 'paciente'">
-            <nav th:replace="layoutPaciente :: nav"></nav>
-        </div>
+        <nav th:replace="layout :: nav"></nav>
 
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header" th:text="${titulo}">Page Title</h1>
-                    </div>
-                </div>
+                <div th:replace="layout :: images"></div>
 
                 <!-- ... Your content goes here ... -->
                 <!-- /.row -->
@@ -92,7 +74,7 @@
     </div>
 
     <!-- footer -->
-    <footer th:replace="layoutMaster :: footer"></footer>
+    <footer th:replace="layout :: footer"></footer>
 
 </body>
 
