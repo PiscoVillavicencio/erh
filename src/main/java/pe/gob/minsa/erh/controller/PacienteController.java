@@ -18,7 +18,7 @@ public class PacienteController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("opcion", "Paciente");
+        model.addAttribute("opcion", "Pacientes");
         model.addAttribute("user", globalUser);
 
         return "paciente/listar";
@@ -51,6 +51,70 @@ public class PacienteController {
     public String delete(@PathVariable(value = "id") Long id) throws Exception {
 
         return "redirect:/paciente/";
+    }
+
+    @RequestMapping(value = "/enfermedad", method = RequestMethod.GET)
+    public String listarEnfermedad(Model model) throws Exception {
+        model.addAttribute("opcion", "Enfermedad");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/enfermedad";
+    }
+
+    @RequestMapping(value = "/familiar", method = RequestMethod.GET)
+    public String listarFamiliar(Model model) throws Exception {
+        model.addAttribute("opcion", "Antecedente Familiar");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/familiar";
+    }
+
+    @RequestMapping(value = "/discapacidad", method = RequestMethod.GET)
+    public String listarDiscapacidad(Model model) throws Exception {
+        model.addAttribute("opcion", "Discapacidad");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/discapacidad";
+    }
+
+    @RequestMapping(value = "/enfermedad/editar", method = RequestMethod.GET)
+    public String editarEnfermedad(Model model) throws Exception {
+        model.addAttribute("opcion", "Editar Enfermedad");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/formularioEnfermedad";
+    }
+
+    @RequestMapping(value = "/enfermedad/detalle", method = RequestMethod.GET)
+    public String detalleEnfermedad(Model model) throws Exception {
+        model.addAttribute("opcion", "Detalle Enfermedad");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/detalleEnfermedad";
+    }
+
+    @RequestMapping(value = "/enfermedad/tratamiento", method = RequestMethod.GET)
+    public String listarTratamiento(Model model) throws Exception {
+        model.addAttribute("opcion", "Tratamiento Enfermedad");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/tratamientoEnfermedad";
+    }
+
+    @RequestMapping(value = "/familiar/editar", method = RequestMethod.GET)
+    public String editarFamiliar(Model model) throws Exception {
+        model.addAttribute("opcion", "Editar Antecedente Familiar");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/formularioFamiliar";
+    }
+
+    @RequestMapping(value = "/familiar/detalle", method = RequestMethod.GET)
+    public String detalleFamiliar(Model model) throws Exception {
+        model.addAttribute("opcion", "Detalle Antecedente Familiar");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/detalleFamiliar";
     }
 
 }
