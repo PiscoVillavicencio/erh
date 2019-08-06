@@ -460,12 +460,12 @@
         <!-- Initialize Toggle -->
         <script>
             $(document).ready(function() {
-                $('#toggle-event').bootstrapToggle();
+                $('.toggle-event').bootstrapToggle();
 
                 if ($('#estado').val() === 'ACTIVO') {
-                    $('#toggle-event').bootstrapToggle('on')
+                    $('.toggle-event').bootstrapToggle('on')
                 } else {
-                    $('#toggle-event').bootstrapToggle('off')
+                    $('.toggle-event').bootstrapToggle('off')
                 }
             });
         </script>
@@ -473,7 +473,7 @@
         <!-- Toogle Event Propagation -->
         <script>
             $(function() {
-                $('#toggle-event').change(function() {
+                $('.toggle-event').change(function() {
                     $('#estado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
                 })
             })
