@@ -55,7 +55,7 @@ public class PacienteController {
 
     @RequestMapping(value = "/enfermedad", method = RequestMethod.GET)
     public String listarEnfermedad(Model model) throws Exception {
-        model.addAttribute("opcion", "Enfermedad");
+        model.addAttribute("opcion", "Enfermedades");
         model.addAttribute("user", globalUser);
 
         return "paciente/enfermedad";
@@ -63,15 +63,23 @@ public class PacienteController {
 
     @RequestMapping(value = "/familiar", method = RequestMethod.GET)
     public String listarFamiliar(Model model) throws Exception {
-        model.addAttribute("opcion", "Antecedente Familiar");
+        model.addAttribute("opcion", "Antecedentes Familiares");
         model.addAttribute("user", globalUser);
 
         return "paciente/familiar";
     }
 
+    @RequestMapping(value = "/cuidador", method = RequestMethod.GET)
+    public String listarCuidador(Model model) throws Exception {
+        model.addAttribute("opcion", "Cuidadores");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/cuidador";
+    }
+
     @RequestMapping(value = "/discapacidad", method = RequestMethod.GET)
     public String listarDiscapacidad(Model model) throws Exception {
-        model.addAttribute("opcion", "Discapacidad");
+        model.addAttribute("opcion", "Discapacidades");
         model.addAttribute("user", globalUser);
 
         return "paciente/discapacidad";
@@ -101,6 +109,14 @@ public class PacienteController {
         return "paciente/tratamientoEnfermedad";
     }
 
+    @RequestMapping(value = "/enfermedad/tratamiento/editar", method = RequestMethod.GET)
+    public String editarEnfermedadTratamiento(Model model) throws Exception {
+        model.addAttribute("opcion", "Editar Tratamiento");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/formularioEnfermedadTratamiento";
+    }
+
     @RequestMapping(value = "/familiar/editar", method = RequestMethod.GET)
     public String editarFamiliar(Model model) throws Exception {
         model.addAttribute("opcion", "Editar Antecedente Familiar");
@@ -115,6 +131,14 @@ public class PacienteController {
         model.addAttribute("user", globalUser);
 
         return "paciente/detalleFamiliar";
+    }
+
+    @RequestMapping(value = "/cuidador/editar", method = RequestMethod.GET)
+    public String editarCuidador(Model model) throws Exception {
+        model.addAttribute("opcion", "Editar Cuidador");
+        model.addAttribute("user", globalUser);
+
+        return "paciente/formularioCuidador";
     }
 
 }
