@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pe.gob.minsa.erh.converter.DirectorConverter;
 import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.model.dto.DirectorDto;
+import pe.gob.minsa.erh.model.dto.UserDto;
 import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
@@ -21,6 +22,9 @@ import java.util.Date;
 @Controller
 @RequestMapping("/director")
 public class DirectorController {
+
+    @Autowired
+    UserDto globalUser;
 
     @Autowired
     private DirectorService directorService;
@@ -38,6 +42,7 @@ public class DirectorController {
     public String listar(Model model) throws Exception {
         model.addAttribute("titulo", "MINSA-ERH");
         model.addAttribute("opcion", "Directores");
+        model.addAttribute("user", globalUser);
         model.addAttribute("directores", directorConverter.toListDto(directorService.listAll()));
         return "director/listar";
     }

@@ -1,5 +1,7 @@
 package pe.gob.minsa.erh.controller;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +12,13 @@ import pe.gob.minsa.erh.model.dto.UserDto;
 @RequestMapping("/")
 public class IndexController {
 
+    @Autowired
+    UserDto globalUser;
+
     @RequestMapping(method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("user", UserDto.builder().build());
+        model.addAttribute("user", globalUser);
 
         return "login";
     }
@@ -22,26 +27,12 @@ public class IndexController {
     public String index(UserDto user, Model model) {
         model.addAttribute("titulo", "MINSA-ERH");
 
-        if(user.getUser().equalsIgnoreCase("master")){
-            model.addAttribute("opcion", "Dashboard Master");
+        globalUser.setUser(user.getUser());
+
+        if(StringUtils.isNotBlank(user.getUser())){
+            model.addAttribute("opcion", "Bienvenido " + user.getUser().toUpperCase());
             model.addAttribute("user", user);
-            return "indexMaster";
-        }else if (user.getUser().equalsIgnoreCase("director")){
-            model.addAttribute("opcion", "Dashboard Director");
-            model.addAttribute("user", user);
-            return "indexDirector";
-        }else if (user.getUser().equalsIgnoreCase("administrador")){
-            model.addAttribute("opcion", "Dashboard Administrador");
-            model.addAttribute("user", user);
-            return "indexAdministrador";
-        }else if (user.getUser().equalsIgnoreCase("medico")){
-            model.addAttribute("opcion", "Dashboard Médico");
-            model.addAttribute("user", user);
-            return "indexMedico";
-        }else if (user.getUser().equalsIgnoreCase("paciente")){
-            model.addAttribute("opcion", "Dashboard Paciente");
-            model.addAttribute("user", user);
-            return "indexPaciente";
+            return "index";
         }
 
         return "redirect:/";
