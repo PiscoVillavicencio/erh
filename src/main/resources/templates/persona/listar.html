@@ -8,7 +8,21 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav th:replace="layout :: nav"></nav>
+        <div th:if="${user.user} == 'administrador'">
+            <nav th:replace="layoutAdministrador :: nav"></nav>
+        </div>
+        <div th:if="${user.user} == 'director'">
+            <nav th:replace="layoutDirector :: nav"></nav>
+        </div>
+        <div th:if="${user.user} == 'master'">
+            <nav th:replace="layoutMaster :: nav"></nav>
+        </div>
+        <div th:if="${user.user} == 'medico'">
+            <nav th:replace="layoutMedico :: nav"></nav>
+        </div>
+        <div th:if="${user.user} == 'paciente'">
+            <nav th:replace="layoutPaciente :: nav"></nav>
+        </div>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -58,7 +72,6 @@
                                                 <td th:text="${persona.nroDocumento}"></td>
                                                 <td th:text="${persona.distrito.nombre}"></td>
 
-
                                                 <td class="text-center"><a th:href="${'/persona/editar/' + persona.id}"><i class="fa fa-edit fa-fw"></i></a></td>
                                                 <td class="text-center"><a th:href="${'/persona/eliminar/' + persona.id}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-times-circle fa-fw"></i></a></td>
                                             </tr>
@@ -87,7 +100,7 @@
     </div>
 
     <!-- footer -->
-    <footer th:replace="layout :: footer"></footer>
+    <footer th:replace="layoutMaster :: footer"></footer>
 
 </body>
 
