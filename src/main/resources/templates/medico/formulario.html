@@ -29,11 +29,36 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <form role="form">
-
-                                            <div class="form-group">
-                                                <label>Nombre</label>
-                                                <input class="form-control" placeholder="Ingrese nombre" />
+                                            <label>Ingrese número documento</label>
+                                            <div class="form-group input-group">
+                                                <input type="text" class="form-control" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></button>
+                                                 </span>
                                             </div>
+                                            <div class="form-group">
+                                                <label>Ap. Paterno</label>
+                                                <input class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ap. Materno</label>
+                                                <input class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nombres</label>
+                                                <input class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tipo documento</label>
+                                                <select class="form-control">
+                                                    <option>---Seleccione---</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Número doc.</label>
+                                                <input class="form-control" placeholder="" />
+                                            </div>
+                                            <label>Ipress</label>
                                             <div class="form-group input-group">
                                                 <input type="text" class="form-control" disabled="true" />
                                                 <span class="input-group-btn">
@@ -41,21 +66,18 @@
                                                  </span>
                                             </div>
                                             <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" id="toggle-event" data-on="Activo" data-off="Inactivo" />Estado
-                                                </label>
+                                                <label>Especialidad</label>
+                                                <select class="form-control">
+                                                    <option>---Seleccione---</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Fecha Registro</label>
-                                                <input class="form-control" placeholder="" disabled="true" />
+                                                <label>CMP</label>
+                                                <input class="form-control" placeholder="" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Fecha Modificación</label>
-                                                <input class="form-control" placeholder=""  disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Perfil</label>
-                                                <input class="form-control" placeholder="" disabled="true" />
+                                                <label>RNE</label>
+                                                <input class="form-control" placeholder="" />
                                             </div>
                                             <button type="submit" class="btn btn-default">Grabar</button>
                                             <button type="button" class="btn btn-default" onclick="location.href='/medico/listar'">Cancelar</button>

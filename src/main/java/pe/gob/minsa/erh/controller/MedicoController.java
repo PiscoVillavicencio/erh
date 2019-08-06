@@ -18,7 +18,7 @@ public class MedicoController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("opcion", "Médicos");
+        model.addAttribute("opcion", "Médicos Tratante");
         model.addAttribute("user", globalUser);
 
         return "medico/listar";
@@ -26,7 +26,7 @@ public class MedicoController {
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("opcion", "Editar Médico");
+        model.addAttribute("opcion", "Editar Médico Tratante");
         model.addAttribute("user", globalUser);
 
         return "medico/formulario";
@@ -34,7 +34,7 @@ public class MedicoController {
 
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
-        model.addAttribute("opcion", "Nuevo Médico");
+        model.addAttribute("opcion", "Nuevo Médico Tratante");
         model.addAttribute("user", globalUser);
 
         return "medico/formulario";
