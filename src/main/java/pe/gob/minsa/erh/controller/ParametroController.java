@@ -42,8 +42,8 @@ public class ParametroController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("opcion", "Parametros");
+        model.addAttribute("titulo", "Parámetro");
+        model.addAttribute("opcion", "Búsqueda");
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("parentescos", parentescoConverter.toListDto(parentescoService.listAll()));
         return "parametro/listar";
@@ -51,7 +51,7 @@ public class ParametroController {
 
     @RequestMapping(value = "documento/editar/{id}", method = RequestMethod.GET)
     public String documentoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Editar Documento");
         model.addAttribute("documento", documentoConverter.toDto(documentoService.getById(id)));
         return "parametro/formularioDocumento";
@@ -59,7 +59,7 @@ public class ParametroController {
 
     @RequestMapping(value = "parentesco/editar/{id}", method = RequestMethod.GET)
     public String parentescoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Editar Parentesco");
         model.addAttribute("parentesco", parentescoConverter.toDto(parentescoService.getById(id)));
         return "parametro/formularioParentesco";
@@ -67,7 +67,7 @@ public class ParametroController {
 
     @RequestMapping(value = "documento/nuevo", method = RequestMethod.GET)
     public String documentoNuevo(Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Nuevo Documento");
         model.addAttribute("documento", DocumentoDto.builder()
                 .estado(EstadoEnum.ACTIVO)
@@ -79,7 +79,7 @@ public class ParametroController {
 
     @RequestMapping(value = "parentesco/nuevo", method = RequestMethod.GET)
     public String parentescoNuevo(Model model) {
-        model.addAttribute("titulo", "MINSA-ERH");
+        model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Nuevo Parentesco");
         model.addAttribute("parentesco", ParentescoDto.builder()
                 .estado(EstadoEnum.ACTIVO)

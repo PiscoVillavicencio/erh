@@ -22,22 +22,24 @@ public class PersonaController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("opcion", "Personas");
+        model.addAttribute("titulo", "Persona");
+        model.addAttribute("opcion", "Búsqueda");
         model.addAttribute("personas", personaConverter.toListDto(personaService.listAll()));
         return "persona/listar";
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-
+        model.addAttribute("titulo", "Persona");
+        model.addAttribute("opcion", "Editar");
 
         return "persona/formulario";
     }
 
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
-
+        model.addAttribute("titulo", "Persona");
+        model.addAttribute("opcion", "Nuevo");
 
         return "persona/formulario";
     }

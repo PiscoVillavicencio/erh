@@ -33,12 +33,6 @@
     <!-- Bootstrap Toggle CSS -->
     <link href="../static/css/bootstrap-toggle.min.css" th:href="@{/css/bootstrap-toggle.min.css}" rel="stylesheet" media="all" />
 
-    <style>
-        .modal-lg {
-            min-width: 80% !important;
-            max-width: 80% !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,7 +42,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:fragment="nav">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Startmin</a>
+                <a class="navbar-brand" href="#">MINSA ERH</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -60,7 +54,7 @@
 
             <!-- Top Navigation: Left Menu -->
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                <li><a href="#"><i class="fa fa-home fa-fw"></i></a></li>
             </ul>
 
             <!-- Top Navigation: Right Menu -->
@@ -97,7 +91,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a th:href="@{/}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -119,86 +113,53 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a th:href="@{/}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Director<span
+                            <a href="#"><i class="fa fa-university fa-fw"></i> Director<span
                                 class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/director">Lista Directores</a>
+                                    <a th:href="@{/director}">Lista Directores</a>
                                 </li>
                                 <li>
-                                    <a href="/director/nuevo">Nuevo director</a>
+                                    <a th:href="@{/director/nuevo}">Nuevo Director</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Parametro<span
-                                class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/parametro">Lista Parametros</a>
-                                </li>
-                                <li>
-                                    <a href="/parametro/documento/nuevo">Nuevo Documento</a>
-                                </li>
-                                <li>
-                                    <a href="/parametro/parentesco/nuevo">Nuevo Parentesco</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Persona<span
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Persona<span
                                                         class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/persona">Lista Personas</a>
+                                    <a th:href="@{/persona}">Lista Personas</a>
                                 </li>
                                 <li>
-                                    <a href="/persona/nuevo">Nuevo Persona</a>
+                                    <a th:href="@{/persona/nuevo}">Nuevo Persona</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Parámetro<span
+                                class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a th:href="@{/parametro}">Lista Parámetros</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/parametro/documento/nuevo}">Nuevo Documento</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/parametro/parentesco/nuevo}">Nuevo Parentesco</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-
                 </div>
             </div>
+
         </nav>
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header" th:text="${titulo}">Page Title</h1>
-                    </div>
-                </div>
-
-                <!-- ... Your content goes here ... -->
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span th:text="${opcion}">OPCION</span>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
 
@@ -234,12 +195,12 @@
         <!-- Initialize Toggle -->
         <script>
             $(document).ready(function() {
-                $('#toggle-event').bootstrapToggle();
+                $('.toggle-estado').bootstrapToggle();
 
                 if ($('#estado').val() === 'ACTIVO') {
-                    $('#toggle-event').bootstrapToggle('on')
+                    $('.toggle-estado').bootstrapToggle('on')
                 } else {
-                    $('#toggle-event').bootstrapToggle('off')
+                    $('.toggle-estado').bootstrapToggle('off')
                 }
             });
         </script>
@@ -247,7 +208,7 @@
         <!-- Toogle Event Propagation -->
         <script>
             $(function() {
-                $('#toggle-event').change(function() {
+                $('.toggle-estado').change(function() {
                     $('#estado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
                 })
             })

@@ -36,16 +36,16 @@ public class DirectorController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("opcion", "Directores");
+        model.addAttribute("titulo", "Director");
+        model.addAttribute("opcion", "Búsqueda");
         model.addAttribute("directores", directorConverter.toListDto(directorService.listAll()));
         return "director/listar";
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("opcion", "Editar Director");
+        model.addAttribute("titulo", "Director");
+        model.addAttribute("opcion", "Editar");
         model.addAttribute("director", directorConverter.toDto(directorService.getById(id)));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "director/formulario";
@@ -53,8 +53,8 @@ public class DirectorController {
 
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
-        model.addAttribute("titulo", "MINSA-ERH");
-        model.addAttribute("opcion", "Nuevo Director");
+        model.addAttribute("titulo", "Director");
+        model.addAttribute("opcion", "Nuevo");
         model.addAttribute("director", DirectorDto.builder()
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))

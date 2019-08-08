@@ -657,3 +657,12 @@ table.dataTable thead .sorting:after {
     color: #fff; /* active text color */
     background-color: #a94442; /* active bg color */
 }
+
+/*
+ * CSS MINSA-ERH
+ */
+
+.modal-lg {
+    min-width: 80% !important;
+    max-width: 90% !important;
+}
