@@ -35,16 +35,22 @@
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
-                                                <th>Nombre Completo</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Materno</th>
-                                                <th>Fecha Nacimiento</th>
+                                                <th>Nombres</th>
+                                                <th>Ape. Paterno</th>
+                                                <th>Ape. Materno</th>
+                                                <th>Fec. Nacimiento</th>
                                                 <th>Edad</th>
-                                                <th>Tipo Documento</th>
-                                                <th>Nro Documento</th>
+                                                <th>Tipo Doc.</th>
+                                                <th>Nro Doc.</th>
                                                 <th>Distrito</th>
 
                                                 <th>Condición</th>
+                                                <th>Email</th>
+                                                <th>Distrito Actual</th>
+                                                <th>Dirección</th>
+                                                <th>Procedencia</th>
+                                                <th>Tel. Fijo</th>
+                                                <th>Tel. Movil</th>
 
 
                                                 <th>Mostrar</th>
@@ -65,8 +71,12 @@
                                                 <td th:text="${persona.distrito.nombre}"></td>
 
                                                 <td th:text="${persona.condicion.label=='Activo' ? 'Vivo' : 'Difunto'}"></td>
-
-
+                                                <td th:text="${persona.email}"></td>
+                                                <td th:text="${persona.distritoActual.nombre}"></td>
+                                                <td th:text="${persona.direccionActual}"></td>
+                                                <td th:text="${persona.lugarProcedencia}"></td>
+                                                <td th:text="${persona.telFijo}"></td>
+                                                <td th:text="${persona.telMovil}"></td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/persona/mostar/' + ${persona.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/persona/editar/' + ${persona.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
