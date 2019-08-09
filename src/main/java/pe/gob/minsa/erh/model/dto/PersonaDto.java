@@ -17,6 +17,7 @@ public class PersonaDto {
     private String apePaterno;
     private String apeMaterno;
     private String fecNacimiento;
+    private Integer edad;
     private DocumentoDto documento;
     private String nroDocumento;
     private String rutaImagen;

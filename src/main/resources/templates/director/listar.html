@@ -48,10 +48,10 @@
                                                 <td th:text="${director.id}"></td>
                                                 <td th:text="${director.nombre}"></td>
                                                 <td th:text="${director.ipress.nombre}"></td>
-                                                <td th:text="${director.perfil}"></td>
-                                                <td th:text="${director.estado}"></td>
-                                                <td class="text-center"><a th:href="@{'/director/editar/' + ${director.id}}"><i class="fa fa-edit fa-fw"></i></a></td>
-                                                <td class="text-center"><a th:href="@{'/director/eliminar/'+ ${director.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-times-circle fa-fw"></i></a></td>
+                                                <td th:text="${director.perfil.label}"></td>
+                                                <td th:text="${director.estado.label}"></td>
+                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/director/editar/' + ${director.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/director/eliminar/'+ ${director.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>

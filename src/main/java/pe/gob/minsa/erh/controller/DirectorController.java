@@ -59,7 +59,7 @@ public class DirectorController {
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
-                .perfil(PerfilEnum.DIRECTOR.getLabel())
+                .perfil(PerfilEnum.DIRECTOR)
                 .build());
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "director/formulario";

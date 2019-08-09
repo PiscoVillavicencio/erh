@@ -34,7 +34,7 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .estado(entity.getEstado())
                 .ipress(ipressConverter.toDto(entity.getIpress()))
-                .perfil(entity.getPerfil().getLabel())
+                .perfil(entity.getPerfil())
                 .build();
     }
 

@@ -183,45 +183,9 @@
         <!-- Bootstrap Toggle JavaScript -->
         <script src="../static/js/bootstrap-toggle.min.js" th:src="@{/js/bootstrap-toggle.min.js}"></script>
 
-        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-        <script>
-            $(document).ready(function() {
-                $('.table').DataTable({
-                    responsive: true
-                });
-            });
-        </script>
+        <!-- MinsaERH JavaScript -->
+        <script src="../static/js/minsaerh.js" th:src="@{/js/minsaerh.js}"></script>
 
-        <!-- Initialize Toggle -->
-        <script>
-            $(document).ready(function() {
-                $('.toggle-estado').bootstrapToggle();
-
-                if ($('#estado').val() === 'ACTIVO') {
-                    $('.toggle-estado').bootstrapToggle('on')
-                } else {
-                    $('.toggle-estado').bootstrapToggle('off')
-                }
-            });
-        </script>
-
-        <!-- Toogle Event Propagation -->
-        <script>
-            $(function() {
-                $('.toggle-estado').change(function() {
-                    $('#estado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
-                })
-            })
-        </script>
-
-        <!-- Select Ipress Event -->
-        <script>
-            function checkIpress(id, nombre) {
-                $('input[id="ipress.id"]').val(id);
-                $('input[id="ipress.nombre"]').val(nombre);
-                $('#myModal').modal('hide');
-            }
-        </script>
     </footer>
 </body>
 

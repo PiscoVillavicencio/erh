@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
 
@@ -20,6 +21,6 @@ public class DirectorDto implements Serializable {
     private String fecModificacion;
     private EstadoEnum estado;
     private IpressDto ipress;
-    private String perfil;
+    private PerfilEnum perfil;
 
 }

@@ -1,5 +1,7 @@
 package pe.gob.minsa.erh.converter;
 
+import org.joda.time.DateTime;
+import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
@@ -32,6 +34,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .apeMaterno(entity.getApeMaterno())
                 .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
                 .documento(documentoConverter.toDto(entity.getDocumento()))
+                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
                 .nroDocumento(entity.getNroDocumento())
                 .rutaImagen(entity.getRutaImagen())
                 .distrito(distritoConverter.toDto(entity.getDistrito()))
