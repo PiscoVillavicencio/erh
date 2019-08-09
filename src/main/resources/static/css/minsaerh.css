@@ -1,0 +1,21 @@
+
+/*
+ *  MINSA-ERH
+ */
+
+.modal-lg {
+    min-width: 80% !important;
+    max-width: 90% !important;
+}
+
+.image-header {
+    display: block;
+    margin: 20px auto 10px;
+    width: 200px;
+    height: 45px;
+}
+
+footer .well-sm {
+    text-align: center;
+    padding: 10px auto 10px;
+}

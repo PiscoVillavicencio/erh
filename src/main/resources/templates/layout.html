@@ -33,6 +33,9 @@
     <!-- Bootstrap Toggle CSS -->
     <link href="../static/css/bootstrap-toggle.min.css" th:href="@{/css/bootstrap-toggle.min.css}" rel="stylesheet" media="all" />
 
+    <!-- Minsa-erh CSS -->
+    <link href="../static/css/minsaerh.css" th:href="@{/css/minsaerh.css}" rel="stylesheet" media="all" />
+
 </head>
 
 <body>
@@ -154,6 +157,10 @@
                                 </li>
                             </ul>
                         </li>
+
+
+                        <img class="image-header" src="../static/images/layout/logo-minsa.png" th:src="@{/images/layout/logo-minsa.png}" />
+                        <img class="image-header" src="../static/images/layout/peru-primero.jpg" th:src="@{/images/layout/peru-primero.jpg}" />
                     </ul>
                 </div>
             </div>
@@ -164,6 +171,15 @@
     <!-- /#wrapper -->
 
     <footer th:fragment="footer">
+
+        <div class="well-sm">
+            <strong>Ministerio de Salud</strong>
+            <p>
+                <span>Av. Salaverry Nº 801</span>
+                <span>Teléfono: 315-6600</span>
+            </p>
+        </div>
+
         <!-- jQuery -->
         <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
@@ -183,7 +199,7 @@
         <!-- Bootstrap Toggle JavaScript -->
         <script src="../static/js/bootstrap-toggle.min.js" th:src="@{/js/bootstrap-toggle.min.js}"></script>
 
-        <!-- MinsaERH JavaScript -->
+        <!-- Minsa-erh JavaScript -->
         <script src="../static/js/minsaerh.js" th:src="@{/js/minsaerh.js}"></script>
 
     </footer>
