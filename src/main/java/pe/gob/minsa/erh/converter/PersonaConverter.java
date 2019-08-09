@@ -39,7 +39,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .rutaImagen(entity.getRutaImagen())
                 .distrito(distritoConverter.toDto(entity.getDistrito()))
 
-                .condicion(entity.getEstado())
+                .condicion(entity.getCondicion())
                 .origenNacionalidad(entity.getOrigenNacionalidad())
                 .origenPais(entity.getOrigenPais())
                 .origenEstado(entity.getOrigenEstado())
@@ -78,7 +78,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setNroDocumento(entity.getNroDocumento());
         entity.setRutaImagen(entity.getRutaImagen());
 
-        entity.setEstado(dto.getCondicion());
+        entity.setCondicion(dto.getCondicion());
         entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
         entity.setOrigenPais(dto.getOrigenPais());
         entity.setOrigenEstado(dto.getOrigenEstado());

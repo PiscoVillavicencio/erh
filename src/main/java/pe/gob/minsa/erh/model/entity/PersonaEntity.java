@@ -42,7 +42,7 @@ public class PersonaEntity implements Serializable {
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "strestavivo")
-    private EstadoEnum estado;
+    private EstadoEnum condicion;
     @Column(name = "strnacionalidad")
     private String origenNacionalidad;
     @Column(name = "strpais")
