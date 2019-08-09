@@ -34,7 +34,7 @@
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
+
                                                 <th>Nombres</th>
                                                 <th>Ipress</th>
                                                 <th>Perfil</th>
@@ -45,7 +45,7 @@
                                         </thead>
                                         <tbody>
                                             <tr th:each="director: ${directores}" class="odd gradeX">
-                                                <td th:text="${director.id}"></td>
+
                                                 <td th:text="${director.nombre}"></td>
                                                 <td th:text="${director.ipress.nombre}"></td>
                                                 <td th:text="${director.perfil.label}"></td>

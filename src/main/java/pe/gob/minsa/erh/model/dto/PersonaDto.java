@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
+import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 
 @Builder
 @Data
@@ -23,15 +24,15 @@ public class PersonaDto {
     private String nroDocumento;
     private GeneroEnum genero;
     private String rutaImagen;
-    private DistritoDto distrito;
+    private DistritoDto distritoNacimiento;
     private EstadoEnum condicion;
-    private String origenNacionalidad;
+    private NacionalidadEnum origenNacionalidad;
     private String origenPais;
     private String origenEstado;
     private String origenCiudad;
     private String lugarNacimiento;
     private String email;
-    private DistritoDto distritoActual;
+    private DistritoDto distritoResidencia;
     private String direccionActual;
     private String lugarProcedencia;
     private String telFijo;

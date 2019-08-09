@@ -4,7 +4,7 @@ $(document).ready(function() {
         responsive: true
     });
 
-    <!-- Initialize Toggle -->
+    <!-- Initialize Toggle Estado-->
     $(function() {
         $('.toggle-estado').bootstrapToggle();
 
@@ -19,6 +19,20 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Initialize Toggle Condicion-->
+    $(function() {
+        $('.toggle-condicion').bootstrapToggle();
+
+        if ($('#condicion').val() === 'ACTIVO') {
+            $('.toggle-condicion').bootstrapToggle('on')
+        } else {
+            $('.toggle-condicion').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-condicion').change(function() {
+            $('#estado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
 
 });
 
@@ -26,7 +40,21 @@ $(document).ready(function() {
 function checkIpress(id, nombre) {
     $('input[id="ipress.id"]').val(id);
     $('input[id="ipress.nombre"]').val(nombre);
-    $('#myModal').modal('hide');
+    $('#ipressModal').modal('hide');
+}
+
+<!-- Select Disitrito Nacimiento Event -->
+function checkDistritoNacimiento(id, nombre) {
+    $('input[id="distritoNacimiento.id"]').val(id);
+    $('input[id="distritoNacimiento.nombre"]').val(nombre);
+    $('#distritoNacimientoModal').modal('hide');
+}
+
+<!-- Select Disitrito Residencia Event -->
+function checkDistritoResidencia(id, nombre) {
+    $('input[id="distritoResidencia.id"]').val(id);
+    $('input[id="distritoResidencia.nombre"]').val(nombre);
+    $('#distritoResidenciaModal').modal('hide');
 }
 
 

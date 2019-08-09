@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.PersonaDto;
 import pe.gob.minsa.erh.model.entity.PersonaEntity;
+import pe.gob.minsa.erh.service.DistritoService;
+import pe.gob.minsa.erh.service.DocumentoService;
 import pe.gob.minsa.erh.service.PersonaService;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +19,12 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
 
     @Autowired
     private PersonaService personaService;
+
+    @Autowired
+    private DocumentoService documentoService;
+
+    @Autowired
+    private DistritoService distritoService;
 
     @Autowired
     private DocumentoConverter documentoConverter;
@@ -38,7 +46,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .nroDocumento(entity.getNroDocumento())
                 .genero(entity.getGenero())
                 .rutaImagen(entity.getRutaImagen())
-                .distrito(distritoConverter.toDto(entity.getDistrito()))
+                .distritoNacimiento(distritoConverter.toDto(entity.getDistritoNacimiento()))
                 .condicion(entity.getCondicion())
                 .origenNacionalidad(entity.getOrigenNacionalidad())
                 .origenPais(entity.getOrigenPais())
@@ -46,7 +54,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .origenCiudad(entity.getOrigenCiudad())
                 .lugarNacimiento(entity.getLugarNacimiento())
                 .email(entity.getEmail())
-                .distritoActual(distritoConverter.toDto(entity.getDistritoActual()))
+                .distritoResidencia(distritoConverter.toDto(entity.getDistritoResidencia()))
                 .direccionActual(entity.getDireccionActual())
                 .lugarProcedencia(entity.getLugarProcedencia())
                 .telFijo(entity.getTelFijo())
@@ -73,10 +81,11 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setApePaterno(dto.getApePaterno().trim());
         entity.setApeMaterno(dto.getApeMaterno().trim());
         entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
-        entity.setDocumento(documentoConverter.toEntity(dto.getDocumento()));
-        entity.setNroDocumento(entity.getNroDocumento());
+        entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
+        entity.setNroDocumento(dto.getNroDocumento());
         entity.setGenero(dto.getGenero());
         entity.setRutaImagen(entity.getRutaImagen());
+        entity.setDistritoNacimiento(distritoService.getById(dto.getDistritoNacimiento().getId()));
         entity.setCondicion(dto.getCondicion());
         entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
         entity.setOrigenPais(dto.getOrigenPais());
@@ -84,12 +93,11 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setOrigenCiudad(dto.getOrigenCiudad());
         entity.setLugarNacimiento(dto.getLugarNacimiento());
         entity.setEmail(dto.getEmail());
-        entity.setDistritoActual(distritoConverter.toEntity(dto.getDistritoActual()));
+        entity.setDistritoResidencia(distritoService.getById(dto.getDistritoResidencia().getId()));
         entity.setDireccionActual(dto.getDireccionActual());
         entity.setLugarProcedencia(dto.getLugarProcedencia());
         entity.setTelFijo(dto.getTelFijo());
         entity.setTelMovil(dto.getTelMovil());
-        entity.setDistrito(distritoConverter.toEntity(dto.getDistrito()));
         entity.setFecModificacion(new Date());
 
         return entity;

@@ -31,27 +31,26 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                     <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
                                                 <th>Nombres</th>
                                                 <th>Ape. Paterno</th>
                                                 <th>Ape. Materno</th>
-                                                <th>Fec. Nacimiento</th>
-                                                <th>Edad</th>
                                                 <th>Tipo Doc.</th>
                                                 <th>Nro Doc.</th>
                                                 <th>Genero</th>
-                                                <th>Distrito</th>
                                                 <th>Condición</th>
-                                                <th>Email</th>
-                                                <th>Distrito Actual</th>
+                                                <th>Fec. Nacimiento</th>
+                                                <th>Edad</th>
+                                                <th>Lugar Procedencia</th>
+                                                <th>Distrito Nacimiento</th>
+                                                <th>Distrito Residencia</th>
                                                 <th>Dirección</th>
-                                                <th>Procedencia</th>
+                                                <th>Nacionalidad Origen</th>
+                                                <th>Email</th>
                                                 <th>Tel. Fijo</th>
                                                 <th>Tel. Movil</th>
-
 
                                                 <th>Mostrar</th>
                                                 <th>Editar</th>
@@ -60,21 +59,21 @@
                                         </thead>
                                         <tbody>
                                             <tr th:each="persona: ${personas}" class="odd gradeX">
-                                                <td th:text="${persona.id}"></td>
                                                 <td th:text="${persona.nombre}"></td>
                                                 <td th:text="${persona.apePaterno}"></td>
                                                 <td th:text="${persona.apeMaterno}"></td>
-                                                <td th:text="${persona.fecNacimiento}"></td>
-                                                <td th:text="${persona.edad}"></td>
                                                 <td th:text="${persona.documento.nombre}"></td>
                                                 <td th:text="${persona.nroDocumento}"></td>
                                                 <td th:text="${persona.genero.label}"></td>
-                                                <td th:text="${persona.distrito.nombre}"></td>
                                                 <td th:text="${persona.condicion.label=='Activo' ? 'Vivo' : 'Difunto'}"></td>
-                                                <td th:text="${persona.email}"></td>
-                                                <td th:text="${persona.distritoActual.nombre}"></td>
-                                                <td th:text="${persona.direccionActual}"></td>
+                                                <td th:text="${persona.fecNacimiento}"></td>
+                                                <td th:text="${persona.edad}"></td>
                                                 <td th:text="${persona.lugarProcedencia}"></td>
+                                                <td th:text="${persona.distritoNacimiento.nombre}"></td>
+                                                <td th:text="${persona.distritoResidencia.nombre}"></td>
+                                                <td th:text="${persona.direccionActual}"></td>
+                                                <td th:text="${persona.origenNacionalidad.label}"></td>
+                                                <td th:text="${persona.email}"></td>
                                                 <td th:text="${persona.telFijo}"></td>
                                                 <td th:text="${persona.telMovil}"></td>
 

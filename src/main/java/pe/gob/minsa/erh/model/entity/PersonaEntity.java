@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
+import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,12 +43,12 @@ public class PersonaEntity implements Serializable {
     private String rutaImagen;
     @ManyToOne
     @JoinColumn(name = "iddistrito")
-    private DistritoEntity distrito;
+    private DistritoEntity distritoNacimiento;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestavivo")
     private EstadoEnum condicion;
-    @Column(name = "strnacionalidad")
-    private String origenNacionalidad;
+    @Column(name = "chrnacionalidad")
+    private NacionalidadEnum origenNacionalidad;
     @Column(name = "strpais")
     private String origenPais;
     @Column(name = "strestado")
@@ -60,7 +61,7 @@ public class PersonaEntity implements Serializable {
     private String email;
     @ManyToOne
     @JoinColumn(name = "iddistritoactual")
-    private DistritoEntity distritoActual;
+    private DistritoEntity distritoResidencia;
     @Column(name = "strdireccionactual")
     private String direccionActual;
     @Column(name = "strlugarprocedencia")
