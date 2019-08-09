@@ -23,7 +23,7 @@ public class PersonaDto {
     private String rutaImagen;
     private DistritoDto distrito;
 
-    private EstadoEnum estado;
+    private EstadoEnum condicion;
     private String origenNacionalidad;
     private String origenPais;
     private String origenEstado;

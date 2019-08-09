@@ -46,8 +46,9 @@
                                                 <td th:text="${doc.id}"></td>
                                                 <td th:text="${doc.nombre}"></td>
                                                 <td th:text="${doc.estado.label}"></td>
-                                                <td class="text-center"><a th:href="@{'/parametro/documento/editar/' + ${doc.id}}"><i class="fa fa-edit fa-fw"></i></a></td>
-                                                <td class="text-center"><a th:href="@{'/parametro/documento/eliminar/' + ${doc.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-times-circle fa-fw"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/parametro/documento/editar/' + ${doc.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/parametro/documento/eliminar/' + ${doc.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -90,7 +91,6 @@
                                                 <td th:text="${parent.estado.label}"></td>
                                                 <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/parametro/parentesco/editar/' + ${parent.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/parametro/parentesco/eliminar/' + ${parent.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-
                                             </tr>
                                         </tbody>
                                     </table>
