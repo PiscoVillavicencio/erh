@@ -26,8 +26,8 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public DirectorEntity saveOrUpdate(DirectorEntity directorEntity) {
-        return directorRepository.save(directorEntity);
+    public DirectorEntity saveOrUpdate(DirectorEntity entity) {
+        return directorRepository.save(entity);
     }
 
     @Override

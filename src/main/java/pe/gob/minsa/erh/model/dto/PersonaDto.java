@@ -8,11 +8,13 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
 import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 
+import java.io.Serializable;
+
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonaDto {
+public class PersonaDto implements Serializable {
 
     private Long id;
     private String nombre;
@@ -37,6 +39,7 @@ public class PersonaDto {
     private String lugarProcedencia;
     private String telFijo;
     private String telMovil;
+
     private String fecRegistro;
     private String fecModificacion;
 

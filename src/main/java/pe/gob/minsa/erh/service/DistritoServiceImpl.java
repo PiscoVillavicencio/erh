@@ -26,8 +26,8 @@ public class DistritoServiceImpl implements DistritoService {
     }
 
     @Override
-    public DistritoEntity saveOrUpdate(DistritoEntity domainObject) {
-        return distritoRepository.save(domainObject);
+    public DistritoEntity saveOrUpdate(DistritoEntity entity) {
+        return distritoRepository.save(entity);
     }
 
     @Override

@@ -22,17 +22,18 @@ public class DirectorEntity implements Serializable {
     @NotEmpty
     @Column(name = "strdirector")
     private String nombre;
-    @Column(name = "datfregistro")
-    private Date fecRegistro;
-    @Column(name = "datfmodificacion")
-    private Date fecModificacion;
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "chrestado")
-    private EstadoEnum estado;
     @ManyToOne
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrestado")
+    private EstadoEnum estado;
+    @Column(name = "datfregistro")
+    private Date fecRegistro;
+    @Column(name = "datfmodificacion")
+    private Date fecModificacion;
 }

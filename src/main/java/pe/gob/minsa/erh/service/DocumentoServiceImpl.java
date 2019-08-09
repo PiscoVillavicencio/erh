@@ -29,8 +29,8 @@ public class DocumentoServiceImpl implements DocumentoService {
     }
 
     @Override
-    public DocumentoEntity saveOrUpdate(DocumentoEntity domainObject) {
-        return documentoRepository.save(domainObject);
+    public DocumentoEntity saveOrUpdate(DocumentoEntity entity) {
+        return documentoRepository.save(entity);
     }
 
     @Override

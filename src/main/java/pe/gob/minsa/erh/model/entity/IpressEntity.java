@@ -26,13 +26,6 @@ public class IpressEntity implements Serializable {
     @NotEmpty
     @Column(name = "strcodipress")
     private String codigo;
-    @Column(name = "datfregistro")
-    private Date fecRegistro;
-    @Column(name = "datfmodificacion")
-    private Date fecModificacion;
-    @NotEmpty
-    @Column(name = "chrestado")
-    private EstadoEnum estado;
     @NotEmpty
     @Column(name = "strdireccion")
     private String direccion;
@@ -48,4 +41,15 @@ public class IpressEntity implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "ipress", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<DirectorEntity> directores;
+    @JsonIgnore
+    @OneToMany(mappedBy = "ipress", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<PacienteEntity> pacientes;
+
+    @Column(name = "chrestado")
+    private EstadoEnum estado;
+    @Column(name = "datfregistro")
+    private Date fecRegistro;
+    @Column(name = "datfmodificacion")
+    private Date fecModificacion;
+
 }

@@ -26,8 +26,8 @@ public class IpressServiceImpl implements IpressService {
     }
 
     @Override
-    public IpressEntity saveOrUpdate(IpressEntity domainObject) {
-        return ipressRepository.save(domainObject);
+    public IpressEntity saveOrUpdate(IpressEntity entity) {
+        return ipressRepository.save(entity);
     }
 
     @Override

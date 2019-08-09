@@ -27,8 +27,8 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     }
 
     @Override
-    public DepartamentoEntity saveOrUpdate(DepartamentoEntity domainObject) {
-        return departamentoRepository.save(domainObject);
+    public DepartamentoEntity saveOrUpdate(DepartamentoEntity entity) {
+        return departamentoRepository.save(entity);
     }
 
     @Override

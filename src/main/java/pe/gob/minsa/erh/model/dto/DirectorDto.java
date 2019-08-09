@@ -17,10 +17,11 @@ public class DirectorDto implements Serializable {
 
     private Long id;
     private String nombre;
-    private String fecRegistro;
-    private String fecModificacion;
-    private EstadoEnum estado;
     private IpressDto ipress;
     private PerfilEnum perfil;
+
+    private EstadoEnum estado;
+    private String fecRegistro;
+    private String fecModificacion;
 
 }

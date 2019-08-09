@@ -26,8 +26,8 @@ public class OrphanetServiceImpl implements OrphanetService {
     }
 
     @Override
-    public OrphanetEntity saveOrUpdate(OrphanetEntity domainObject) {
-        return orphanetRepository.save(domainObject);
+    public OrphanetEntity saveOrUpdate(OrphanetEntity entity) {
+        return orphanetRepository.save(entity);
     }
 
     @Override

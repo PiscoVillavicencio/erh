@@ -8,7 +8,7 @@ public interface CRUDService<T> {
 
     T getById(Long id);
 
-    T saveOrUpdate(T domainObject);
+    T saveOrUpdate(T entity);
 
     void delete(Long id);
 

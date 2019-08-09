@@ -28,8 +28,8 @@ public class ParentescoServiceImpl implements ParentescoService {
     }
 
     @Override
-    public ParentescoEntity saveOrUpdate(ParentescoEntity domainObject) {
-        return parentescoRepository.save(domainObject);
+    public ParentescoEntity saveOrUpdate(ParentescoEntity entity) {
+        return parentescoRepository.save(entity);
     }
 
     @Override

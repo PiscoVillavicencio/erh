@@ -70,6 +70,7 @@ public class PersonaEntity implements Serializable {
     private String telFijo;
     @Column(name = "strtelefonomovil")
     private String telMovil;
+
     @Column(name = "datfregistro")
     private Date fecRegistro;
     @Column(name = "datfmodificacion")

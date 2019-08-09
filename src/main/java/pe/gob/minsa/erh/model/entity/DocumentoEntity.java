@@ -23,15 +23,16 @@ public class DocumentoEntity implements Serializable {
     @NotEmpty
     @Column(name = "documento")
     private String nombre;
+    @JsonIgnore
+    @OneToMany(mappedBy = "documento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<PersonaEntity> personas;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrestado")
+    private EstadoEnum estado;
     @Column(name = "datfregistro")
     private Date fecRegistro;
     @Column(name = "datfmodificacion")
     private Date fecModificacion;
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "chrestado")
-    private EstadoEnum estado;
-    @JsonIgnore
-    @OneToMany(mappedBy = "documento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<PersonaEntity> personas;
 
 }

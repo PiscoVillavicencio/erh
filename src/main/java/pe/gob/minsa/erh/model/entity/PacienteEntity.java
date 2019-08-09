@@ -1,26 +1,32 @@
 package pe.gob.minsa.erh.model.entity;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
 @Data
-@Table(name = "parentesco")
-public class ParentescoEntity implements Serializable {
+@Entity
+@Table(name = "paciente")
+public class PacienteEntity implements Serializable {
 
     private static final Long serialVersionUID = 1L;
     @Id
-    @Column(name = "idparentesco")
+    @Column(name = "idpaciente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
-    @Column(name = "parentesco")
-    private String nombre;
+    @ManyToOne
+    @JoinColumn(name = "idpersona")
+    private PersonaEntity persona;
+    @ManyToOne
+    @JoinColumn(name = "idipress")
+    private IpressEntity ipress;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "idperfil")
+    private PerfilEnum perfil;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

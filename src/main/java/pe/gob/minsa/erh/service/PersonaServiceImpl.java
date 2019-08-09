@@ -28,8 +28,8 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
-    public PersonaEntity saveOrUpdate(PersonaEntity directorEntity) {
-        return personaRepository.save(directorEntity);
+    public PersonaEntity saveOrUpdate(PersonaEntity entity) {
+        return personaRepository.save(entity);
     }
 
     @Override

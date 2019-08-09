@@ -26,8 +26,8 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     }
 
     @Override
-    public ProvinciaEntity saveOrUpdate(ProvinciaEntity domainObject) {
-        return provinciaRepository.save(domainObject);
+    public ProvinciaEntity saveOrUpdate(ProvinciaEntity entity) {
+        return provinciaRepository.save(entity);
     }
 
     @Override

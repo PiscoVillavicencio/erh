@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
 
@@ -12,12 +13,15 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ParentescoDto implements Serializable {
+public class PacienteDto implements Serializable {
 
     private Long id;
-    private String nombre;
+    private PersonaDto persona;
+    private IpressDto ipress;
+    private PerfilEnum perfil;
+
+    private EstadoEnum estado;
     private String fecRegistro;
     private String fecModificacion;
-    private EstadoEnum estado;
 
 }
