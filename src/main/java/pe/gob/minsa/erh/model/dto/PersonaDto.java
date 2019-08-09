@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.GeneroEnum;
 
 @Builder
 @Data
@@ -20,9 +21,9 @@ public class PersonaDto {
     private Integer edad;
     private DocumentoDto documento;
     private String nroDocumento;
+    private GeneroEnum genero;
     private String rutaImagen;
     private DistritoDto distrito;
-
     private EstadoEnum condicion;
     private String origenNacionalidad;
     private String origenPais;
@@ -35,7 +36,6 @@ public class PersonaDto {
     private String lugarProcedencia;
     private String telFijo;
     private String telMovil;
-
     private String fecRegistro;
     private String fecModificacion;
 

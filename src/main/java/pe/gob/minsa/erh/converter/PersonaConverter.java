@@ -33,12 +33,12 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .apePaterno(entity.getApePaterno())
                 .apeMaterno(entity.getApeMaterno())
                 .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
-                .documento(documentoConverter.toDto(entity.getDocumento()))
                 .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
+                .documento(documentoConverter.toDto(entity.getDocumento()))
                 .nroDocumento(entity.getNroDocumento())
+                .genero(entity.getGenero())
                 .rutaImagen(entity.getRutaImagen())
                 .distrito(distritoConverter.toDto(entity.getDistrito()))
-
                 .condicion(entity.getCondicion())
                 .origenNacionalidad(entity.getOrigenNacionalidad())
                 .origenPais(entity.getOrigenPais())
@@ -51,7 +51,6 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .lugarProcedencia(entity.getLugarProcedencia())
                 .telFijo(entity.getTelFijo())
                 .telMovil(entity.getTelMovil())
-
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();
@@ -76,8 +75,8 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
         entity.setDocumento(documentoConverter.toEntity(dto.getDocumento()));
         entity.setNroDocumento(entity.getNroDocumento());
+        entity.setGenero(dto.getGenero());
         entity.setRutaImagen(entity.getRutaImagen());
-
         entity.setCondicion(dto.getCondicion());
         entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
         entity.setOrigenPais(dto.getOrigenPais());
@@ -90,7 +89,6 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setLugarProcedencia(dto.getLugarProcedencia());
         entity.setTelFijo(dto.getTelFijo());
         entity.setTelMovil(dto.getTelMovil());
-
         entity.setDistrito(distritoConverter.toEntity(dto.getDistrito()));
         entity.setFecModificacion(new Date());
 

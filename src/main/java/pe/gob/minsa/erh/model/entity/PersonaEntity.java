@@ -3,6 +3,7 @@ package pe.gob.minsa.erh.model.entity;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.GeneroEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -34,14 +35,16 @@ public class PersonaEntity implements Serializable {
     @NotEmpty
     @Column(name = "strnumdocumento")
     private String nroDocumento;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrgenero")
+    private GeneroEnum genero;
     @Column(name = "strrutaimagen")
     private String rutaImagen;
     @ManyToOne
     @JoinColumn(name = "iddistrito")
     private DistritoEntity distrito;
-
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "strestavivo")
+    @Column(name = "chrestavivo")
     private EstadoEnum condicion;
     @Column(name = "strnacionalidad")
     private String origenNacionalidad;
@@ -66,8 +69,6 @@ public class PersonaEntity implements Serializable {
     private String telFijo;
     @Column(name = "strtelefonomovil")
     private String telMovil;
-
-
     @Column(name = "datfregistro")
     private Date fecRegistro;
     @Column(name = "datfmodificacion")
