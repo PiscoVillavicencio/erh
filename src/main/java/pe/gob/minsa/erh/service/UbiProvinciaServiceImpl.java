@@ -4,35 +4,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.UbiProvinciaEntity;
-import pe.gob.minsa.erh.repository.ProvinciaRepository;
+import pe.gob.minsa.erh.repository.UbiProvinciaRepository;
 
 import java.util.List;
 
 @Service
 @Transactional
-public class ProvinciaServiceImpl implements ProvinciaService {
+public class UbiProvinciaServiceImpl implements UbiProvinciaService {
 
     @Autowired
-    private ProvinciaRepository provinciaRepository;
+    private UbiProvinciaRepository ubiProvinciaRepository;
 
     @Override
     public List<UbiProvinciaEntity> listAll() {
-        return (List<UbiProvinciaEntity>) provinciaRepository.findAll();
+        return (List<UbiProvinciaEntity>) ubiProvinciaRepository.findAll();
     }
 
     @Override
     public UbiProvinciaEntity getById(Long id) {
-        return provinciaRepository.findOne(id);
+        return ubiProvinciaRepository.findOne(id);
     }
 
     @Override
     public UbiProvinciaEntity saveOrUpdate(UbiProvinciaEntity entity) {
-        return provinciaRepository.save(entity);
+        return ubiProvinciaRepository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-        provinciaRepository.delete(id);
+        ubiProvinciaRepository.delete(id);
     }
 
 }

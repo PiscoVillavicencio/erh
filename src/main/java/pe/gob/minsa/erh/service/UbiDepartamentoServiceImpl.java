@@ -4,35 +4,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.UbiDepartamentoEntity;
-import pe.gob.minsa.erh.repository.DepartamentoRepository;
+import pe.gob.minsa.erh.repository.UbiDepartamentoRepository;
 
 import java.util.List;
 
 @Service
 @Transactional
-public class DepartamentoServiceImpl implements DepartamentoService {
+public class UbiDepartamentoServiceImpl implements UbiDepartamentoService {
 
     @Autowired
-    private DepartamentoRepository departamentoRepository;
+    private UbiDepartamentoRepository ubiDepartamentoRepository;
 
 
     @Override
     public List<UbiDepartamentoEntity> listAll() {
-        return (List<UbiDepartamentoEntity>) departamentoRepository.findAll();
+        return (List<UbiDepartamentoEntity>) ubiDepartamentoRepository.findAll();
     }
 
     @Override
     public UbiDepartamentoEntity getById(Long id) {
-        return departamentoRepository.findOne(id);
+        return ubiDepartamentoRepository.findOne(id);
     }
 
     @Override
     public UbiDepartamentoEntity saveOrUpdate(UbiDepartamentoEntity entity) {
-        return departamentoRepository.save(entity);
+        return ubiDepartamentoRepository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-        departamentoRepository.delete(id);
+        ubiDepartamentoRepository.delete(id);
     }
 }

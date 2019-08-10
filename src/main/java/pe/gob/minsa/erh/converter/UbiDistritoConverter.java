@@ -5,23 +5,23 @@ import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.UbiDistritoDto;
 import pe.gob.minsa.erh.model.entity.UbiDistritoEntity;
-import pe.gob.minsa.erh.service.DistritoService;
+import pe.gob.minsa.erh.service.UbiDistritoService;
 
 @Component
-public class DistritoConverter extends AbstractConverter<UbiDistritoEntity, UbiDistritoDto> {
+public class UbiDistritoConverter extends AbstractConverter<UbiDistritoEntity, UbiDistritoDto> {
 
     @Autowired
-    private DistritoService distritoService;
+    private UbiDistritoService ubiDistritoService;
 
     @Autowired
-    private ProvinciaConverter provinciaConverter;
+    private UbiProvinciaConverter ubiProvinciaConverter;
 
     @Override
     protected UbiDistritoDto entityToDto(UbiDistritoEntity entity) throws Exception {
         return UbiDistritoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
-                .provincia(provinciaConverter.toDto(entity.getProvincia()))
+                .provincia(ubiProvinciaConverter.toDto(entity.getProvincia()))
                 .codigo(entity.getCodigo())
                 .build();
     }
@@ -34,7 +34,7 @@ public class DistritoConverter extends AbstractConverter<UbiDistritoEntity, UbiD
         if (dto.getId() == null) {
             entity = new UbiDistritoEntity();
         } else {
-            entity = distritoService.getById(dto.getId());
+            entity = ubiDistritoService.getById(dto.getId());
         }
 
         return entity;

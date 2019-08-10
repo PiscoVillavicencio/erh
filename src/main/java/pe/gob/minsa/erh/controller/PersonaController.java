@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pe.gob.minsa.erh.converter.DistritoConverter;
+import pe.gob.minsa.erh.converter.UbiDistritoConverter;
 import pe.gob.minsa.erh.converter.DocumentoConverter;
 import pe.gob.minsa.erh.converter.PersonaConverter;
 import pe.gob.minsa.erh.model.dto.PersonaDto;
@@ -14,7 +14,7 @@ import pe.gob.minsa.erh.model.entity.PersonaEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
 import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
-import pe.gob.minsa.erh.service.DistritoService;
+import pe.gob.minsa.erh.service.UbiDistritoService;
 import pe.gob.minsa.erh.service.DocumentoService;
 import pe.gob.minsa.erh.service.PersonaService;
 
@@ -31,9 +31,9 @@ public class PersonaController {
     private PersonaConverter personaConverter;
 
     @Autowired
-    private DistritoService distritoService;
+    private UbiDistritoService ubiDistritoService;
     @Autowired
-    private DistritoConverter distritoConverter;
+    private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
     private DocumentoService documentoService;
@@ -64,7 +64,7 @@ public class PersonaController {
         model.addAttribute("generoEnum", GeneroEnum.values());
         model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
-        model.addAttribute("distritos", distritoConverter.toListDto(distritoService.listAll()));
+        model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
         return "persona/formulario";
     }
 
@@ -83,7 +83,7 @@ public class PersonaController {
         model.addAttribute("generoEnum", GeneroEnum.values());
         model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
-        model.addAttribute("distritos", distritoConverter.toListDto(distritoService.listAll()));
+        model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
         return "persona/formulario";
     }
 

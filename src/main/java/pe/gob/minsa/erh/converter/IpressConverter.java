@@ -16,7 +16,7 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
     private IpressService ipressService;
 
     @Autowired
-    private DistritoConverter distritoConverter;
+    private UbiDistritoConverter ubiDistritoConverter;
 
     @Override
     protected IpressDto entityToDto(IpressEntity entity) throws Exception {
@@ -25,7 +25,7 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
                 .nombre(entity.getNombre())
                 .codigo(entity.getCodigo())
                 .direccion(entity.getDireccion())
-                .distrito(distritoConverter.toDto(entity.getDistrito()))
+                .distrito(ubiDistritoConverter.toDto(entity.getDistrito()))
                 .telefono(entity.getTelefono())
                 .ruc(entity.getRuc())
                 .estado(entity.getEstado().getLabel())

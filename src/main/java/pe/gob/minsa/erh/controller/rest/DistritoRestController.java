@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.gob.minsa.erh.converter.DistritoConverter;
+import pe.gob.minsa.erh.converter.UbiDistritoConverter;
 import pe.gob.minsa.erh.model.dto.UbiDistritoDto;
 import pe.gob.minsa.erh.model.entity.UbiDistritoEntity;
-import pe.gob.minsa.erh.service.DistritoService;
+import pe.gob.minsa.erh.service.UbiDistritoService;
 
 import java.util.List;
 
@@ -16,20 +16,20 @@ import java.util.List;
 public class DistritoRestController {
 
     @Autowired
-    private DistritoService distritoService;
+    private UbiDistritoService ubiDistritoService;
     @Autowired
-    private DistritoConverter converter;
+    private UbiDistritoConverter converter;
 
     @GetMapping(value = "/entities", produces = "application/json")
     public List<UbiDistritoEntity> getEntities() {
 
-        return distritoService.listAll();
+        return ubiDistritoService.listAll();
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
     public List<UbiDistritoDto> getDtos() throws Exception {
 
-        return converter.toListDto(distritoService.listAll());
+        return converter.toListDto(ubiDistritoService.listAll());
     }
 
 }
