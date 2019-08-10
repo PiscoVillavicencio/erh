@@ -48,6 +48,14 @@ public class PersonaController {
         return "persona/listar";
     }
 
+    @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
+    public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Persona");
+        model.addAttribute("opcion", "Mostrar");
+        model.addAttribute("persona", personaConverter.toDto(personaService.getById(id)));
+        return "persona/mostrar";
+    }
+
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Persona");
