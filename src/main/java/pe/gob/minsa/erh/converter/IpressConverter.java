@@ -24,13 +24,13 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
                 .id(entity.getId())
                 .nombre(entity.getNombre())
                 .codigo(entity.getCodigo())
-                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
-                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
-                .estado(entity.getEstado().getLabel())
                 .direccion(entity.getDireccion())
                 .distrito(distritoConverter.toDto(entity.getDistrito()))
                 .telefono(entity.getTelefono())
                 .ruc(entity.getRuc())
+                .estado(entity.getEstado().getLabel())
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();
     }
 

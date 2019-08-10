@@ -11,6 +11,7 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.DirectorService;
 import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
+import pe.gob.minsa.erh.service.PersonaService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,46 +23,16 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
     private PacienteService pacienteService;
 
     @Autowired
+    private PersonaService personaService;
+
+    @Autowired
+    private IpressService ipressService;
+
+    @Autowired
     private PersonaConverter personaConverter;
 
     @Autowired
     private IpressConverter ipressConverter;
-
-/*    @Override
-    protected DirectorDto entityToDto(DirectorEntity entity) throws Exception {
-
-        return DirectorDto.builder()
-                .id(entity.getId())
-                .nombre(entity.getNombre())
-                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
-                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
-                .estado(entity.getEstado())
-                .ipress(ipressConverter.toDto(entity.getIpress()))
-                .perfil(entity.getPerfil())
-                .build();
-    }
-
-    @Override
-    protected DirectorEntity dtoToEntity(DirectorDto dto) throws Exception {
-
-        DirectorEntity entity;
-
-        if (dto.getId() == null) {
-            entity = new DirectorEntity();
-            entity.setFecRegistro(new Date());
-        } else {
-            entity = directorService.getById(dto.getId());
-        }
-
-        entity.setId(dto.getId());
-        entity.setNombre(dto.getNombre().trim());
-        entity.setFecModificacion(new Date());
-        entity.setEstado(dto.getEstado());
-        entity.setIpress(ipressService.getById(dto.getIpress().getId()));
-        entity.setPerfil(PerfilEnum.DIRECTOR);
-
-        return entity;
-    }*/
 
     @Override
     protected PacienteDto entityToDto(PacienteEntity entity) throws Exception {
@@ -70,6 +41,9 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
                 .persona(personaConverter.toDto(entity.getPersona()))
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
+                .estado(entity.getEstado())
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();
     }
 
@@ -80,10 +54,19 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
 
         if (dto.getId() == null) {
             entity = new PacienteEntity();
-            //entity.
+            entity.setFecRegistro(new Date());
         }else {
-
+            entity = pacienteService.getById(dto.getId());
         }
-        return null;
+
+        entity.setId(dto.getId());
+        entity.setPersona(personaService.getById(dto.getPersona().getId()));
+        entity.setIpress(ipressService.getById(dto.getIpress().getId()));
+        entity.setPerfil(dto.getPerfil());
+        entity.setEstado(dto.getEstado());
+        entity.setFecModificacion(new Date());
+
+        return entity;
     }
+
 }

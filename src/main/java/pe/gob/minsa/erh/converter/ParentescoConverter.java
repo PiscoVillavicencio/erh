@@ -22,9 +22,9 @@ public class ParentescoConverter extends AbstractConverter<ParentescoEntity, Par
         return ParentescoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
+                .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
-                .estado(entity.getEstado())
                 .build();
     }
 
@@ -41,8 +41,8 @@ public class ParentescoConverter extends AbstractConverter<ParentescoEntity, Par
         }
 
         entity.setNombre(dto.getNombre().trim());
-        entity.setFecModificacion(new Date());
         entity.setEstado(dto.getEstado());
+        entity.setFecModificacion(new Date());
 
         return entity;
     }
