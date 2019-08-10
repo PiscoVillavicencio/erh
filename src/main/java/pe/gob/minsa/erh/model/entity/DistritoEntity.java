@@ -1,12 +1,10 @@
 package pe.gob.minsa.erh.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Data
@@ -27,8 +25,5 @@ public class DistritoEntity implements Serializable {
     @NotEmpty
     @Column(name = "coddistrito")
     private String codigo;
-    @JsonIgnore
-    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<IpressEntity> ipresses;
 
 }

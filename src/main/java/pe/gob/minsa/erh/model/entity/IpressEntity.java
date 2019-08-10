@@ -1,6 +1,5 @@
 package pe.gob.minsa.erh.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
@@ -8,7 +7,6 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -38,12 +36,6 @@ public class IpressEntity implements Serializable {
     @NotEmpty
     @Column(name = "strruc")
     private String ruc;
-    @JsonIgnore
-    @OneToMany(mappedBy = "ipress", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<DirectorEntity> directores;
-    @JsonIgnore
-    @OneToMany(mappedBy = "ipress", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<PacienteEntity> pacientes;
 
     @Column(name = "chrestado")
     private EstadoEnum estado;

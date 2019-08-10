@@ -1,6 +1,5 @@
 package pe.gob.minsa.erh.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
@@ -8,7 +7,6 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -23,9 +21,6 @@ public class DocumentoEntity implements Serializable {
     @NotEmpty
     @Column(name = "documento")
     private String nombre;
-    @JsonIgnore
-    @OneToMany(mappedBy = "documento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<PersonaEntity> personas;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

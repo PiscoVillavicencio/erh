@@ -67,7 +67,7 @@ public class PersonaController {
         model.addAttribute("persona", PersonaDto.builder()
                 .condicion(EstadoEnum.ACTIVO)
                 .genero(GeneroEnum.OTRO)
-                .documento(documentoConverter.toDto(documentoService.getById(2L)))
+                .documento(documentoConverter.toDto(documentoService.getById(1L)))
                 .origenNacionalidad(NacionalidadEnum.NACIONAL)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
