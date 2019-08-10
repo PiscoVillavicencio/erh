@@ -62,7 +62,7 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
         entity.setId(dto.getId());
         entity.setPersona(personaService.getById(dto.getPersona().getId()));
         entity.setIpress(ipressService.getById(dto.getIpress().getId()));
-        entity.setPerfil(dto.getPerfil());
+        entity.setPerfil(PerfilEnum.PACIENTE);
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());
 

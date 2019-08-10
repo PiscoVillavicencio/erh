@@ -11,9 +11,11 @@ import pe.gob.minsa.erh.converter.PacienteConverter;
 import pe.gob.minsa.erh.converter.PersonaConverter;
 import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
+import pe.gob.minsa.erh.model.dto.PersonaDto;
 import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.GeneroEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
@@ -50,6 +52,14 @@ public class PacienteController {
         return "paciente/listar";
     }
 
+    @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
+    public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Paciente");
+        model.addAttribute("opcion", "Mostrar");
+        model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(id)));
+        return "persona/mostrar";
+    }
+
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
@@ -64,6 +74,7 @@ public class PacienteController {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Nuevo");
         model.addAttribute("paciente", PacienteDto.builder()
+                .persona(PersonaDto.builder().genero(GeneroEnum.OTRO).build())
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))

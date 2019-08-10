@@ -67,10 +67,10 @@
                                                 <td th:text="${paciente.perfil.label}"></td>
                                                 <td th:text="${paciente.estado.label}"></td>
 
-                                                <td class="text-center"><input type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/enfermedad'|" /></td>
-                                                <td class="text-center"><input type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/familiar'|" /></td>
-                                                <td class="text-center"><input type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/cuidador'|" /></td>
-                                                <td class="text-center"><input type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/discapacidad'|" /></td>
+                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/enfermedad'|" /></td>
+                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/familiar'|" /></td>
+                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/cuidador'|" /></td>
+                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/discapacidad'|" /></td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/paciente/mostrar/' + ${paciente.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/paciente/editar/' + ${paciente.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>

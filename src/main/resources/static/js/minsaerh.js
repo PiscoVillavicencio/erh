@@ -34,6 +34,13 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Radio Options Reset-->
+    $(function() {
+        $(".rdoption").click(function(){
+            $(".rdoption").prop("checked", false);
+        });
+    });
+
 });
 
 <!-- Select Ipress Event -->
@@ -55,6 +62,23 @@ function checkDistritoResidencia(id, nombre) {
     $('input[id="distritoResidencia.id"]').val(id);
     $('input[id="distritoResidencia.nombre"]').val(nombre);
     $('#distritoResidenciaModal').modal('hide');
+}
+
+<!-- Select Persona Event -->
+function checkPersona(id, nombre, apePaterno, apeMaterno, tipoDoc, nroDoc, genero) {
+
+    let info =  tipoDoc + ': ' + nroDoc + ', ' + nombre + ' ' + apePaterno + ' ' + apeMaterno;
+    $('input[id="txtPersonaInfo"]').val(info);
+
+    $('input[id="persona.id"]').val(id);
+    $('input[id="persona.nombre"]').val(nombre);
+    $('input[id="persona.apePaterno"]').val(apePaterno);
+    $('input[id="persona.apeMaterno"]').val(apeMaterno);
+    $('input[id="persona.documento.nombre"]').val(tipoDoc);
+    $('input[id="persona.nroDocumento"]').val(nroDoc);
+    $('input[id="persona.genero.label"]').val(genero);
+
+    $('#personaModal').modal('hide');
 }
 
 
