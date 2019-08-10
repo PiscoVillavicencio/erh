@@ -27,19 +27,16 @@ public class PersonaController {
 
     @Autowired
     private PersonaService personaService;
-
     @Autowired
     private PersonaConverter personaConverter;
 
     @Autowired
     private DistritoService distritoService;
-
     @Autowired
     private DistritoConverter distritoConverter;
 
     @Autowired
     private DocumentoService documentoService;
-
     @Autowired
     private DocumentoConverter documentoConverter;
 

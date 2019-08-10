@@ -33,9 +33,10 @@ public class ParametroController {
     @Autowired
     private DocumentoService documentoService;
     @Autowired
-    private ParentescoService parentescoService;
-    @Autowired
     private DocumentoConverter documentoConverter;
+
+    @Autowired
+    private ParentescoService parentescoService;
     @Autowired
     private ParentescoConverter parentescoConverter;
 
