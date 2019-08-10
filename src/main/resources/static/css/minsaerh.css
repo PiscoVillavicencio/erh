@@ -9,10 +9,11 @@
 }
 
 .image-header {
-    display: block;
-    margin: 20px auto 10px;
     width: 200px;
-    height: 45px;
+    height: 40px;
+}
+.navbar-brand {
+    padding: 5px 25px 5px 25px;
 }
 
 footer .well-sm {
