@@ -3,12 +3,12 @@ package pe.gob.minsa.erh.converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
-import pe.gob.minsa.erh.model.dto.ProvinciaDto;
-import pe.gob.minsa.erh.model.entity.ProvinciaEntity;
+import pe.gob.minsa.erh.model.dto.UbiProvinciaDto;
+import pe.gob.minsa.erh.model.entity.UbiProvinciaEntity;
 import pe.gob.minsa.erh.service.ProvinciaService;
 
 @Component
-public class ProvinciaConverter extends AbstractConverter<ProvinciaEntity, ProvinciaDto> {
+public class ProvinciaConverter extends AbstractConverter<UbiProvinciaEntity, UbiProvinciaDto> {
 
     @Autowired
     private ProvinciaService provinciaService;
@@ -17,8 +17,8 @@ public class ProvinciaConverter extends AbstractConverter<ProvinciaEntity, Provi
     private DepartamentoConverter departamentoConverter;
 
     @Override
-    protected ProvinciaDto entityToDto(ProvinciaEntity entity) throws Exception {
-        return ProvinciaDto.builder()
+    protected UbiProvinciaDto entityToDto(UbiProvinciaEntity entity) throws Exception {
+        return UbiProvinciaDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
                 .departamento(departamentoConverter.toDto(entity.getDepartamento()))
@@ -27,12 +27,12 @@ public class ProvinciaConverter extends AbstractConverter<ProvinciaEntity, Provi
     }
 
     @Override
-    protected ProvinciaEntity dtoToEntity(ProvinciaDto dto) throws Exception {
+    protected UbiProvinciaEntity dtoToEntity(UbiProvinciaDto dto) throws Exception {
 
-        ProvinciaEntity entity;
+        UbiProvinciaEntity entity;
 
         if (dto.getId() == null) {
-            entity = new ProvinciaEntity();
+            entity = new UbiProvinciaEntity();
         } else {
             entity = provinciaService.getById(dto.getId());
         }

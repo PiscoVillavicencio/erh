@@ -11,11 +11,11 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DistritoDto implements Serializable {
+public class UbiProvinciaDto implements Serializable {
 
     private Long id;
     private String nombre;
-    private ProvinciaDto provincia;
+    private UbiDepartamentoDto departamento;
     private String codigo;
 
 }

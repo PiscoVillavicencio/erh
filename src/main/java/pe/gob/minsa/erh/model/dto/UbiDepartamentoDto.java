@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartamentoDto implements Serializable {
+public class UbiDepartamentoDto implements Serializable {
 
     private Long id;
     private String nombre;

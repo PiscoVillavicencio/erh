@@ -43,7 +43,7 @@ public class PersonaEntity implements Serializable {
     private String rutaImagen;
     @ManyToOne
     @JoinColumn(name = "iddistrito")
-    private DistritoEntity distritoNacimiento;
+    private UbiDistritoEntity distritoNacimiento;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestavivo")
     private EstadoEnum condicion;
@@ -61,7 +61,7 @@ public class PersonaEntity implements Serializable {
     private String email;
     @ManyToOne
     @JoinColumn(name = "iddistritoactual")
-    private DistritoEntity distritoResidencia;
+    private UbiDistritoEntity distritoResidencia;
     @Column(name = "strdireccionactual")
     private String direccionActual;
     @Column(name = "strlugarprocedencia")

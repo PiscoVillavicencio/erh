@@ -26,7 +26,7 @@ public class PersonaDto implements Serializable {
     private String nroDocumento;
     private GeneroEnum genero;
     private String rutaImagen;
-    private DistritoDto distritoNacimiento;
+    private UbiDistritoDto distritoNacimiento;
     private EstadoEnum condicion;
     private NacionalidadEnum origenNacionalidad;
     private String origenPais;
@@ -34,7 +34,7 @@ public class PersonaDto implements Serializable {
     private String origenCiudad;
     private String lugarNacimiento;
     private String email;
-    private DistritoDto distritoResidencia;
+    private UbiDistritoDto distritoResidencia;
     private String direccionActual;
     private String lugarProcedencia;
     private String telFijo;

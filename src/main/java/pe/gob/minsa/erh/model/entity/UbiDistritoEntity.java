@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name = "distritos")
-public class DistritoEntity implements Serializable {
+public class UbiDistritoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -21,7 +21,7 @@ public class DistritoEntity implements Serializable {
     private String nombre;
     @ManyToOne
     @JoinColumn(name = "idprovincia")
-    private ProvinciaEntity provincia;
+    private UbiProvinciaEntity provincia;
     @NotEmpty
     @Column(name = "coddistrito")
     private String codigo;

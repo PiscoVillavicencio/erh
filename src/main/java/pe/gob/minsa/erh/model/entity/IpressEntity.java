@@ -29,7 +29,7 @@ public class IpressEntity implements Serializable {
     private String direccion;
     @ManyToOne
     @JoinColumn(name = "iddistrito")
-    private DistritoEntity distrito;
+    private UbiDistritoEntity distrito;
     @NotEmpty
     @Column(name = "strtelefono")
     private String telefono;

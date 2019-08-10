@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.gob.minsa.erh.converter.DepartamentoConverter;
-import pe.gob.minsa.erh.model.dto.DepartamentoDto;
-import pe.gob.minsa.erh.model.entity.DepartamentoEntity;
+import pe.gob.minsa.erh.model.dto.UbiDepartamentoDto;
+import pe.gob.minsa.erh.model.entity.UbiDepartamentoEntity;
 import pe.gob.minsa.erh.service.DepartamentoService;
 
 import java.util.List;
@@ -21,13 +21,13 @@ public class DepartamentoRestController {
     private DepartamentoConverter converter;
 
     @GetMapping(value = "/entities", produces = "application/json")
-    public List<DepartamentoEntity> getEntities() {
+    public List<UbiDepartamentoEntity> getEntities() {
 
         return departamentoService.listAll();
     }
 
     @GetMapping(value = "/dtos", produces = "application/json")
-    public List<DepartamentoDto> getDtos() throws Exception {
+    public List<UbiDepartamentoDto> getDtos() throws Exception {
         return converter.toListDto(departamentoService.listAll());
     }
 

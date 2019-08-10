@@ -17,7 +17,7 @@ public class IpressDto implements Serializable {
     private String nombre;
     private String codigo;
     private String direccion;
-    private DistritoDto distrito;
+    private UbiDistritoDto distrito;
     private String telefono;
     private String ruc;
 

@@ -3,7 +3,7 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.gob.minsa.erh.model.entity.ProvinciaEntity;
+import pe.gob.minsa.erh.model.entity.UbiProvinciaEntity;
 import pe.gob.minsa.erh.repository.ProvinciaRepository;
 
 import java.util.List;
@@ -16,17 +16,17 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     private ProvinciaRepository provinciaRepository;
 
     @Override
-    public List<ProvinciaEntity> listAll() {
-        return (List<ProvinciaEntity>) provinciaRepository.findAll();
+    public List<UbiProvinciaEntity> listAll() {
+        return (List<UbiProvinciaEntity>) provinciaRepository.findAll();
     }
 
     @Override
-    public ProvinciaEntity getById(Long id) {
+    public UbiProvinciaEntity getById(Long id) {
         return provinciaRepository.findOne(id);
     }
 
     @Override
-    public ProvinciaEntity saveOrUpdate(ProvinciaEntity entity) {
+    public UbiProvinciaEntity saveOrUpdate(UbiProvinciaEntity entity) {
         return provinciaRepository.save(entity);
     }
 
