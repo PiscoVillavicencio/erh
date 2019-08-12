@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/departamentos")
-public class DepartamentoRestController {
+public class UbiDepartamentoRestController {
 
     @Autowired
     private UbiDepartamentoService ubiDepartamentoService;
