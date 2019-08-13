@@ -11,27 +11,40 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "paciente")
-public class PacienteEntity implements Serializable {
+@Table(name = "cuidador")
+public class CuidadorEntity implements Serializable {
 
     private static final Long serialVersionUID = 1L;
+    @ManyToMany
+    @JoinTable(
+            name = "cuidadorxpaciente",
+            joinColumns = @JoinColumn(name = "idpaciente"),
+            inverseJoinColumns = @JoinColumn(name = "idcuidador")
+    )
+    Set<PacienteEntity> pacientes;
     @Id
-    @Column(name = "idpaciente")
+    @Column(name = "idcuidador")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "idpersona")
     private PersonaEntity persona;
     @ManyToOne
+    @JoinColumn(name = "idparentesco")
+    private ParentescoEntity parentesco;
+    @Column(name = "strparentesconinguno")
+    private String detalleParentescoNinguno;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrlaboraactualmente")
+    private EstadoEnum laboraActualmente;
+    @Column(name = "strlugardetrabajo")
+    private String detalleLugarDeTrabajo;
+    @ManyToOne
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
-
-    @ManyToMany(mappedBy = "pacientes")
-    Set<CuidadorEntity> cuidadores;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;
