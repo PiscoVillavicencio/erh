@@ -67,7 +67,6 @@ public class EnfermedadEntity {
     private EstadoEnum diagnosticoInmunologico;
 
 
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;
