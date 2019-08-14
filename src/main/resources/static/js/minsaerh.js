@@ -154,6 +154,96 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Initialize Toggle consentimientoInformado-->
+    $(function() {
+        $('.toggle-consentimientoInformado').bootstrapToggle();
+
+        if ($('#consentimientoInformado').val() === 'ACTIVO') {
+            $('.toggle-consentimientoInformado').bootstrapToggle('on')
+        } else {
+            $('.toggle-medicinaAlternativa').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-consentimientoInformado').change(function() {
+            $('#consentimientoInformado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle diagnosticoClinico-->
+    $(function() {
+        $('.toggle-diagnosticoClinico').bootstrapToggle();
+
+        if ($('#diagnosticoClinico').val() === 'ACTIVO') {
+            $('.toggle-diagnosticoClinico').bootstrapToggle('on')
+        } else {
+            $('.toggle-diagnosticoClinico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-diagnosticoClinico').change(function() {
+            $('#diagnosticoClinico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle diagnosticoPorGenetico-->
+    $(function() {
+        $('.toggle-diagnosticoPorGenetico').bootstrapToggle();
+
+        if ($('#diagnosticoPorGenetico').val() === 'ACTIVO') {
+            $('.toggle-diagnosticoPorGenetico').bootstrapToggle('on')
+        } else {
+            $('.toggle-diagnosticoPorGenetico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-diagnosticoPorGenetico').change(function() {
+            $('#diagnosticoPorGenetico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle diagnosticoBioquimico-->
+    $(function() {
+        $('.toggle-diagnosticoBioquimico').bootstrapToggle();
+
+        if ($('#diagnosticoBioquimico').val() === 'ACTIVO') {
+            $('.toggle-diagnosticoBioquimico').bootstrapToggle('on')
+        } else {
+            $('.toggle-diagnosticoBioquimico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-diagnosticoBioquimico').change(function() {
+            $('#diagnosticoBioquimico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle diagnosticoPorImagenes-->
+    $(function() {
+        $('.toggle-diagnosticoPorImagenes').bootstrapToggle();
+
+        if ($('#diagnosticoPorImagenes').val() === 'ACTIVO') {
+            $('.toggle-diagnosticoPorImagenes').bootstrapToggle('on')
+        } else {
+            $('.toggle-diagnosticoPorImagenes').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-diagnosticoPorImagenes').change(function() {
+            $('#diagnosticoPorImagenes').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle diagnosticoInmunologico-->
+    $(function() {
+        $('.toggle-diagnosticoInmunologico').bootstrapToggle();
+
+        if ($('#diagnosticoInmunologico').val() === 'ACTIVO') {
+            $('.toggle-diagnosticoInmunologico').bootstrapToggle('on')
+        } else {
+            $('.toggle-diagnosticoInmunologico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-diagnosticoInmunologico').change(function() {
+            $('#diagnosticoInmunologico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
     <!-- Radio Options Reset-->
     $(function() {
         $(".rdoption").click(function(){

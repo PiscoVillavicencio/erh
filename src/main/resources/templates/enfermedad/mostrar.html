@@ -118,7 +118,8 @@
                                                 <input class="form-control" placeholder="" th:field="*{fecModificacion}" disabled="true" />
                                             </div>
 
-                                            <a th:href="@{/paciente}" class="btn btn-default">Cancelar</a>
+
+                                            <button class="btn btn-default" type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${enfermedad.paciente.id})}/enfermedad'|">Cancelar</button>
                                         </form>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
