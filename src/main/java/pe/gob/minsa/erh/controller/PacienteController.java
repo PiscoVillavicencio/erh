@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pe.gob.minsa.erh.converter.EnfermedadConverter;
 import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.converter.PacienteConverter;
 import pe.gob.minsa.erh.converter.PersonaConverter;
@@ -17,6 +18,7 @@ import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
+import pe.gob.minsa.erh.service.EnfermedadService;
 import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
 import pe.gob.minsa.erh.service.PersonaService;
@@ -43,8 +45,12 @@ public class PacienteController {
     @Autowired
     private PersonaConverter personaConverter;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @Autowired
+    private EnfermedadService enfermedadService;
+    @Autowired
+    private EnfermedadConverter enfermedadConverter;
 
+    @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Búsqueda");
@@ -96,6 +102,16 @@ public class PacienteController {
     public String delete(@PathVariable(value = "id") Long id) {
         pacienteService.delete(id);
         return "redirect:/paciente/";
+    }
+
+    @RequestMapping(value = "/{id}/enfermedad", method = RequestMethod.GET)
+    public String listarEnfermedades(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Enfermedad");
+        model.addAttribute("opcion", "Búsqueda");
+
+        PacienteEntity entity = pacienteService.getById(id);
+        model.addAttribute("enfermedades", enfermedadConverter.toListDto(enfermedadService.findEnfermedadEntitiesByPaciente(entity)));
+        return "enfermedad/listar";
     }
 
 }

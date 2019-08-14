@@ -15852,8 +15852,6 @@ INSERT INTO director(chrestado, datfmodificacion, datfregistro, strdirector, idp
 INSERT INTO director(chrestado, datfmodificacion, datfregistro, strdirector, idperfil, idipress)  VALUES ('1',NOW(),NOW(),'',1,301);
 
 
-
-
 ----------------------- DOCUMENTO ---------------------------
 
 INSERT INTO documento(documento, datfregistro, datfmodificacion, chrestado) VALUES ('DNI',NOW(),NOW(),1);

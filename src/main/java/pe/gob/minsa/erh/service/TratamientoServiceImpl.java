@@ -3,6 +3,7 @@ package pe.gob.minsa.erh.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
 import pe.gob.minsa.erh.model.entity.TratamientoEntity;
 import pe.gob.minsa.erh.repository.TratamientoRepository;
 
@@ -35,4 +36,8 @@ public class TratamientoServiceImpl implements TratamientoService {
         tratamientoRepository.delete(id);
     }
 
+    @Override
+    public List<TratamientoEntity> findTratamientoEntitiesByEnfermedad(EnfermedadEntity entity) {
+        return tratamientoRepository.findTratamientoEntitiesByEnfermedad(entity);
+    }
 }

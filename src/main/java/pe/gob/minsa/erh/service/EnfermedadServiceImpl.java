@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
+import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.repository.EnfermedadRepository;
 
 import java.util.List;
@@ -34,6 +35,11 @@ public class EnfermedadServiceImpl implements EnfermedadService {
     @Override
     public void delete(Long id) {
         enfermedadRepository.delete(id);
+    }
+
+    @Override
+    public List<EnfermedadEntity> findEnfermedadEntitiesByPaciente(PacienteEntity entity) {
+        return enfermedadRepository.findEnfermedadEntitiesByPaciente(entity);
     }
 
 }

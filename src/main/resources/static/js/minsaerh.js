@@ -30,7 +30,127 @@ $(document).ready(function() {
         }
         <!-- Toogle Event Propagation -->
         $('.toggle-condicion').change(function() {
-            $('#estado').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+            $('#condicion').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle tratamientoFarmacologicoEspecifico-->
+    $(function() {
+        $('.toggle-tratamientoFarmacologicoEspecifico').bootstrapToggle();
+
+        if ($('#tratamientoFarmacologicoEspecifico').val() === 'ACTIVO') {
+            $('.toggle-tratamientoFarmacologicoEspecifico').bootstrapToggle('on')
+        } else {
+            $('.toggle-tratamientoFarmacologicoEspecifico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-tratamientoFarmacologicoEspecifico').change(function() {
+            $('#tratamientoFarmacologicoEspecifico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle tratamientoFarmacologicoNoEspecifico-->
+    $(function() {
+        $('.toggle-tratamientoFarmacologicoNoEspecifico').bootstrapToggle();
+
+        if ($('#tratamientoFarmacologicoNoEspecifico').val() === 'ACTIVO') {
+            $('.toggle-tratamientoFarmacologicoNoEspecifico').bootstrapToggle('on')
+        } else {
+            $('.toggle-tratamientoFarmacologicoNoEspecifico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-tratamientoFarmacologicoNoEspecifico').change(function() {
+            $('#tratamientoFarmacologicoNoEspecifico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle tratamientoNoFarmacologico-->
+    $(function() {
+        $('.toggle-tratamientoNoFarmacologico').bootstrapToggle();
+
+        if ($('#tratamientoNoFarmacologico').val() === 'ACTIVO') {
+            $('.toggle-tratamientoNoFarmacologico').bootstrapToggle('on')
+        } else {
+            $('.toggle-tratamientoNoFarmacologico').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-tratamientoNoFarmacologico').change(function() {
+            $('#tratamientoNoFarmacologico').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle terapiaFisica-->
+    $(function() {
+        $('.toggle-terapiaFisica').bootstrapToggle();
+
+        if ($('#terapiaFisica').val() === 'ACTIVO') {
+            $('.toggle-terapiaFisica').bootstrapToggle('on')
+        } else {
+            $('.toggle-terapiaFisica').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-terapiaFisica').change(function() {
+            $('#terapiaFisica').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle ergoterapia-->
+    $(function() {
+        $('.toggle-ergoterapia').bootstrapToggle();
+
+        if ($('#ergoterapia').val() === 'ACTIVO') {
+            $('.toggle-ergoterapia').bootstrapToggle('on')
+        } else {
+            $('.toggle-ergoterapia').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-ergoterapia').change(function() {
+            $('#ergoterapia').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle terapiaNutricionalEspecifica-->
+    $(function() {
+        $('.toggle-terapiaNutricionalEspecifica').bootstrapToggle();
+
+        if ($('#terapiaNutricionalEspecifica').val() === 'ACTIVO') {
+            $('.toggle-terapiaNutricionalEspecifica').bootstrapToggle('on')
+        } else {
+            $('.toggle-terapiaNutricionalEspecifica').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-terapiaNutricionalEspecifica').change(function() {
+            $('#terapiaNutricionalEspecifica').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle medicinaTradicional-->
+    $(function() {
+        $('.toggle-medicinaTradicional').bootstrapToggle();
+
+        if ($('#medicinaTradicional').val() === 'ACTIVO') {
+            $('.toggle-medicinaTradicional').bootstrapToggle('on')
+        } else {
+            $('.toggle-medicinaTradicional').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-medicinaTradicional').change(function() {
+            $('#medicinaTradicional').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle medicinaAlternativa-->
+    $(function() {
+        $('.toggle-medicinaAlternativa').bootstrapToggle();
+
+        if ($('#medicinaAlternativa').val() === 'ACTIVO') {
+            $('.toggle-medicinaAlternativa').bootstrapToggle('on')
+        } else {
+            $('.toggle-medicinaAlternativa').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-medicinaAlternativa').change(function() {
+            $('#medicinaAlternativa').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
         })
     });
 
