@@ -114,4 +114,14 @@ public class PacienteController {
         return "enfermedad/listar";
     }
 
+    @RequestMapping(value = "/{id}/antecedentefamiliar", method = RequestMethod.GET)
+    public String listarAntecedentesFamiliares(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Antecedente Familiar");
+        model.addAttribute("opcion", "Búsqueda");
+
+        PacienteEntity entity = pacienteService.getById(id);
+        model.addAttribute("paciente", pacienteConverter.toDto(entity));
+        return "antecedentefamiliar/listar";
+    }
+
 }

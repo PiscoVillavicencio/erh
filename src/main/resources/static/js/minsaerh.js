@@ -244,6 +244,36 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Initialize Toggle familiarCondicion-->
+    $(function() {
+        $('.toggle-familiarCondicion').bootstrapToggle();
+
+        if ($('#familiarCondicion').val() === 'ACTIVO') {
+            $('.toggle-familiarCondicion').bootstrapToggle('on')
+        } else {
+            $('.toggle-familiarCondicion').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-familiarCondicion').change(function() {
+            $('#familiarCondicion').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle mismaEnfermedad-->
+    $(function() {
+        $('.toggle-mismaEnfermedad').bootstrapToggle();
+
+        if ($('#mismaEnfermedad').val() === 'ACTIVO') {
+            $('.toggle-mismaEnfermedad').bootstrapToggle('on')
+        } else {
+            $('.toggle-mismaEnfermedad').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-mismaEnfermedad').change(function() {
+            $('#mismaEnfermedad').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
     <!-- Radio Options Reset-->
     $(function() {
         $(".rdoption").click(function(){

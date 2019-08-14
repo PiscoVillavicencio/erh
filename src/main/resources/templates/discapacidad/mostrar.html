@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: head"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav th:replace="layout :: nav"></nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" th:text="${titulo}">Page Title</h1>
+                    </div>
+                </div>
+
+                <!-- ... Your content goes here ... -->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" th:text="${opcion}">Panel title</h3>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <form role="form" th:object="${enfermedad}">
+                                            <input type="hidden" th:field="*{id}" />
+
+                                            <input type="hidden" th:field="*{consentimientoInformado}" />
+                                            <input type="hidden" th:field="*{diagnosticoClinico}" />
+                                            <input type="hidden" th:field="*{diagnosticoPorGenetico}" />
+                                            <input type="hidden" th:field="*{diagnosticoBioquimico}" />
+                                            <input type="hidden" th:field="*{diagnosticoPorImagenes}" />
+                                            <input type="hidden" th:field="*{diagnosticoInmunologico}" />
+
+                                            <input type="hidden" th:field="*{estado}" />
+
+                                            <label>Consentimiento Informado</label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-consentimientoInformado" data-on="Activo" data-off="Inactivo" />
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>CIE-10</label>
+                                                <input class="form-control" placeholder="" th:field="*{cie10Carpeta.nombre}" disabled="true" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Código CIE-10</label>
+                                                <input class="form-control" placeholder="" th:field="*{orphanet.codigo}" disabled="true" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Cod. Orphanet</label>
+                                                <input class="form-control" placeholder="" th:field="*{cie10Carpeta.codigo}" disabled="true" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Detalle Diagnóstico</label>
+                                                <input class="form-control" placeholder="" th:field="*{detalleDiagnostico}" disabled="true" />
+                                            </div>
+
+                                            <label>Elija Uno o Varios Diagnósticos Definitivos</label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-diagnosticoClinico" data-on="Si" data-off="No" />
+                                                    Clínico
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-diagnosticoPorGenetico" data-on="Si" data-off="No" />
+                                                    Por Genético
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-diagnosticoBioquimico" data-on="Si" data-off="No" />
+                                                    Bioquímico
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-diagnosticoPorImagenes" data-on="Si" data-off="No" />
+                                                    Por Imágenes
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-diagnosticoInmunologico" data-on="Si" data-off="No" />
+                                                    Inmunológico
+                                                </label>
+                                            </div>
+
+                                            <label>Estado</label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="toggle-estado" data-on="Activo" data-off="Inactivo" />
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fecha Registro</label>
+                                                <input class="form-control" placeholder="" th:field="*{fecRegistro}" disabled="true" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fecha Modificación</label>
+                                                <input class="form-control" placeholder="" th:field="*{fecModificacion}" disabled="true" />
+                                            </div>
+
+
+                                            <button class="btn btn-default" type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${enfermedad.paciente.id})}/enfermedad'|">Cancelar</button>
+                                        </form>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+    <!-- footer -->
+    <footer th:replace="layout :: footer"></footer>
+
+</body>
+
+</html>
