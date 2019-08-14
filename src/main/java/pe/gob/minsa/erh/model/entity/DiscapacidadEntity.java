@@ -17,21 +17,16 @@ public class DiscapacidadEntity {
     @Column(name = "iddiscapacidad")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrlimitacionfuncional")
     private EstadoEnum limitacionFuncional;
-
     @Column(name = "strlimitacionfuncional")
     private String detallelimitacionfuncional;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrinscritoconadis")
     private EstadoEnum inscritoConadis;
-
     @Column(name = "strobservaciones")
     private String detalleObservaciones;
-
     @ManyToOne
     @JoinColumn(name = "idpaciente")
     private PacienteEntity paciente;

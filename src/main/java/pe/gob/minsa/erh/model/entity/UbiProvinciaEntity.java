@@ -25,4 +25,5 @@ public class UbiProvinciaEntity implements Serializable {
     @NotEmpty
     @Column(name = "codprovincia")
     private String codigo;
+
 }

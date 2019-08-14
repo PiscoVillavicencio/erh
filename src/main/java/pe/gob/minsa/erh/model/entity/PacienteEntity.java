@@ -7,6 +7,7 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -28,9 +29,8 @@ public class PacienteEntity implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
-
     @ManyToMany(mappedBy = "pacientes")
-    Set<CuidadorEntity> cuidadores;
+    private List<CuidadorEntity> cuidadores;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

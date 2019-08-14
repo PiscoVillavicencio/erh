@@ -28,6 +28,7 @@ public class PersonaEntity implements Serializable {
     private String apePaterno;
     @Column(name = "strapematerno")
     private String apeMaterno;
+    @NotEmpty
     @Column(name = "datfnacimiento")
     private Date fecNacimiento;
     @ManyToOne

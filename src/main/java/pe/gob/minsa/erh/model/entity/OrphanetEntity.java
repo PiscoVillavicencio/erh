@@ -22,4 +22,5 @@ public class OrphanetEntity implements Serializable {
     @NotEmpty
     @Column(name = "strcodorphanet")
     private String codigo;
+
 }

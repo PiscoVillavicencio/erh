@@ -17,31 +17,21 @@ public class TratamientoEntity {
     @Column(name = "idtratamiento")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrtratamientofarmacologicoespecifico")
     private EstadoEnum tratamientoFarmacologicoEspecifico;
-
-    @NotEmpty
     @Column(name = "strtratamientofarmacologicoespecifico")
     private String detalleTratamientoFarmacologicoEspecifico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrtratamientofarmacologiconoespecifico")
     private EstadoEnum tratamientoFarmacologicoNoEspecifico;
-
-    @NotEmpty
     @Column(name = "strtratamientofarmacologiconoespecifico")
     private String detalleTratamientoFarmacologicoNoEspecifico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrtratamientonofarmacologico")
     private EstadoEnum tratamientoNoFarmacologico;
-
-    @NotEmpty
     @Column(name = "strtratamientonofarmacologico")
     private String detalleTratamientoNoFarmacologico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrterapiafisica")
     private EstadoEnum terapiaFisica;
@@ -57,7 +47,6 @@ public class TratamientoEntity {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrmedicinaalternativacomplementaria")
     private EstadoEnum medicinaAlternativa;
-
     @ManyToOne
     @JoinColumn(name = "idenfermedad")
     private EnfermedadEntity enfermedad;

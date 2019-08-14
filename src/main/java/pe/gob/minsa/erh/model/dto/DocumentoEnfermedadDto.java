@@ -17,6 +17,7 @@ public class DocumentoEnfermedadDto implements Serializable {
     private Long id;
     private String detalleDocumento;
     private EnfermedadDto enfermedad;
+
     private EstadoEnum estado;
     private String fecRegistro;
     private String fecModificacion;

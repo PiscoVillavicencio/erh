@@ -25,4 +25,5 @@ public class Cie10CarpetaEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idbloquecie10")
     private Cie10BloqueEntity cie10Bloque;
+
 }

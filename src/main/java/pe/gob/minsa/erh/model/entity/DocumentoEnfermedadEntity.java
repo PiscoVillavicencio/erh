@@ -24,6 +24,7 @@ public class DocumentoEnfermedadEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idenfermedad")
     private EnfermedadEntity enfermedad;
+
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;

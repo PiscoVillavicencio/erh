@@ -22,6 +22,7 @@ public class DocumentoConverter extends AbstractConverter<DocumentoEntity, Docum
         return DocumentoDto.builder()
                 .id(entity.getId())
                 .nombre(entity.getNombre())
+
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
@@ -40,7 +41,9 @@ public class DocumentoConverter extends AbstractConverter<DocumentoEntity, Docum
             entity = documentoService.getById(dto.getId());
         }
 
+        entity.setId(dto.getId());
         entity.setNombre(dto.getNombre().trim());
+
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());
 

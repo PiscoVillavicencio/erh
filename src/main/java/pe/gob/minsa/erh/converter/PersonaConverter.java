@@ -59,6 +59,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
                 .lugarProcedencia(entity.getLugarProcedencia())
                 .telFijo(entity.getTelFijo())
                 .telMovil(entity.getTelMovil())
+
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();
@@ -98,6 +99,7 @@ public class PersonaConverter extends AbstractConverter<PersonaEntity, PersonaDt
         entity.setLugarProcedencia(dto.getLugarProcedencia());
         entity.setTelFijo(dto.getTelFijo());
         entity.setTelMovil(dto.getTelMovil());
+
         entity.setFecModificacion(new Date());
 
         return entity;

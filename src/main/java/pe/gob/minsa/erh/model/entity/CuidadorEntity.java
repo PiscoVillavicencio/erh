@@ -7,6 +7,7 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -21,7 +22,7 @@ public class CuidadorEntity implements Serializable {
             joinColumns = @JoinColumn(name = "idpaciente"),
             inverseJoinColumns = @JoinColumn(name = "idcuidador")
     )
-    Set<PacienteEntity> pacientes;
+    private List<PacienteEntity> pacientes;
     @Id
     @Column(name = "idcuidador")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +46,7 @@ public class CuidadorEntity implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
+
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")
     private EstadoEnum estado;

@@ -12,6 +12,7 @@ public enum PerfilEnum {
     MEDICO("Medico"),
     PACIENTE("Paciente"),
     CUIDADOR("Cuidador"),
+    ANTECEDENTE_FAMILIAR("Antecedente Familiar"),
     ;
 
     private String label;

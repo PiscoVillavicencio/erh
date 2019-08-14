@@ -17,55 +17,40 @@ public class EnfermedadEntity {
     @Column(name = "idenfermedad")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotEmpty
     @Column(name = "strdetatallediagnostico")
     private String detalleDiagnostico;
-
-    @NotEmpty
     @Column(name = "strexamenesauxiliares")
     private String detalleExamenesAuxiliares;
-
     @ManyToOne
     @JoinColumn(name = "idpaciente")
     private PacienteEntity paciente;
-
     @ManyToOne
     @JoinColumn(name = "idmedicotratante")
     private MedicoEntity medico;
-
     @ManyToOne
     @JoinColumn(name = "idcarpetacie10")
     private Cie10CarpetaEntity cie10Carpeta;
-
     @ManyToOne
     @JoinColumn(name = "idorphanet")
     private OrphanetEntity orphanet;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrconsentimientoinformado")
     private EstadoEnum consentimientoInformado;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrdiagnosticoclinico")
     private EstadoEnum diagnosticoClinico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrdiagnosticoporgenetico")
     private EstadoEnum diagnosticoPorGenetico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrdiagnosticobioquimico")
     private EstadoEnum diagnosticoBioquimico;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrdiagnosticoporimagenes")
     private EstadoEnum diagnosticoPorImagenes;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrdiagnosticoinmunologico")
     private EstadoEnum diagnosticoInmunologico;
-
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

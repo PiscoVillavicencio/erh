@@ -32,6 +32,7 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
                 .nombre(entity.getNombre())
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
+
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
@@ -54,6 +55,7 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
         entity.setNombre(dto.getNombre().trim());
         entity.setIpress(ipressService.getById(dto.getIpress().getId()));
         entity.setPerfil(PerfilEnum.DIRECTOR);
+
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());
 

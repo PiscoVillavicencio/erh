@@ -16,8 +16,10 @@ public class ParentescoDto implements Serializable {
 
     private Long id;
     private String nombre;
+
+    private EstadoEnum estado;
     private String fecRegistro;
     private String fecModificacion;
-    private EstadoEnum estado;
+
 
 }

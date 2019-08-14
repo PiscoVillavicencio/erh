@@ -7,6 +7,7 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -21,7 +22,7 @@ public class AntecedenteFamiliarEntity implements Serializable {
             joinColumns = @JoinColumn(name = "idpaciente"),
             inverseJoinColumns = @JoinColumn(name = "idantecedentefamiliar")
     )
-    Set<PacienteEntity> pacientes;
+    private List<PacienteEntity> pacientes;
     @Id
     @Column(name = "idantecedentefamiliar")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,21 +33,16 @@ public class AntecedenteFamiliarEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idparentesco")
     private ParentescoEntity parentesco;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrfamiliarcondicion")
     private EstadoEnum familiarCondicion;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrmismaenfermedad")
-    private EstadoEnum mismaenfermedad;
-
+    private EstadoEnum mismaEnfermedad;
     @Column(name = "datfdiagnostico")
     private Date fecDiagnostico;
-
     @Column(name = "strdetalle")
     private String detalleEnfermedad;
-
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;
