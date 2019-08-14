@@ -26,6 +26,14 @@ public class EnfermedadController {
     @Autowired
     private TratamientoConverter tratamientoConverter;
 
+    @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
+    public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Enfermedad");
+        model.addAttribute("opcion", "Mostrar");
+        model.addAttribute("enfermedad", enfermedadConverter.toDto(enfermedadService.getById(id)));
+        return "enfermedad/mostrar";
+    }
+
     @RequestMapping(value = "/{id}/tratamiento", method = RequestMethod.GET)
     public String listarTratamiento(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Tratamiento");

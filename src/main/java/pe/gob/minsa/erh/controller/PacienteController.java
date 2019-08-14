@@ -63,7 +63,7 @@ public class PacienteController {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Mostrar");
         model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(id)));
-        return "persona/mostrar";
+        return "paciente/mostrar";
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
