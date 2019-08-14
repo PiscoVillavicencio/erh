@@ -23,9 +23,6 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
     private ParentescoConverter parentescoConverter;
 
     @Autowired
-    private PacienteConverter pacienteConverter;
-
-    @Autowired
     private AntecedenteFamiliarService antecedenteFamiliarService;
 
     @Autowired
@@ -46,7 +43,6 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
                 .fecDiagnostico(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecDiagnostico()))
                 .detalleEnfermedad(entity.getDetalleEnfermedad())
                 .perfil(entity.getPerfil())
-                .pacientes(pacienteConverter.toListDto(entity.getPacientes()))
 
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
@@ -74,7 +70,6 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
         entity.setFecDiagnostico(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecDiagnostico()));
         entity.setDetalleEnfermedad(entity.getDetalleEnfermedad().trim());
         entity.setPerfil(PerfilEnum.ANTECEDENTE_FAMILIAR);
-        //entity.setPacientes();
 
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());

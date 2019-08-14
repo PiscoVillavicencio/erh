@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.CuidadorDto;
-import pe.gob.minsa.erh.model.dto.CuidadorDto;
-import pe.gob.minsa.erh.model.entity.CuidadorEntity;
 import pe.gob.minsa.erh.model.entity.CuidadorEntity;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
-import pe.gob.minsa.erh.service.*;
+import pe.gob.minsa.erh.service.CuidadorService;
+import pe.gob.minsa.erh.service.IpressService;
+import pe.gob.minsa.erh.service.ParentescoService;
+import pe.gob.minsa.erh.service.PersonaService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,9 +25,6 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
 
     @Autowired
     private IpressConverter ipressConverter;
-
-    @Autowired
-    private PacienteConverter pacienteConverter;
 
     @Autowired
     private CuidadorService cuidadorService;
@@ -52,7 +50,6 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
                 .detalleLugarDeTrabajo(entity.getDetalleLugarDeTrabajo())
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
-                .pacientes(pacienteConverter.toListDto(entity.getPacientes()))
 
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
@@ -80,7 +77,6 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
         entity.setDetalleLugarDeTrabajo(dto.getDetalleLugarDeTrabajo().trim());
         entity.setIpress(ipressService.getById(dto.getIpress().getId()));
         entity.setPerfil(PerfilEnum.CUIDADOR);
-        //entity.setPacientes();
 
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());

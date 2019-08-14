@@ -19,6 +19,7 @@ public class DirectorEntity implements Serializable {
     @Column(name = "iddirector")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     @Column(name = "strdirector")
     private String nombre;
     @ManyToOne

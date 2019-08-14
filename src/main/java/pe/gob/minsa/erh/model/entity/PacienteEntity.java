@@ -30,7 +30,9 @@ public class PacienteEntity implements Serializable {
     @Column(name = "idperfil")
     private PerfilEnum perfil;
     @ManyToMany(mappedBy = "pacientes")
-    private List<CuidadorEntity> cuidadores;
+    private List<CuidadorEntity> cuidadorEntities;
+    @ManyToMany(mappedBy = "pacientes")
+    private List<AntecedenteFamiliarEntity> antecedenteFamiliarEntities;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

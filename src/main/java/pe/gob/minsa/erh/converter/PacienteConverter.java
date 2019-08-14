@@ -8,16 +8,25 @@ import pe.gob.minsa.erh.model.dto.PacienteDto;
 import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
-import pe.gob.minsa.erh.service.DirectorService;
-import pe.gob.minsa.erh.service.IpressService;
-import pe.gob.minsa.erh.service.PacienteService;
-import pe.gob.minsa.erh.service.PersonaService;
+import pe.gob.minsa.erh.service.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
 public class PacienteConverter extends AbstractConverter<PacienteEntity, PacienteDto> {
+
+    @Autowired
+    private PersonaConverter personaConverter;
+
+    @Autowired
+    private IpressConverter ipressConverter;
+
+    @Autowired
+    private CuidadorConverter cuidadorConverter;
+
+    @Autowired
+    private AntecedenteFamiliarConverter antecedenteFamiliarConverter;
 
     @Autowired
     private PacienteService pacienteService;
@@ -29,10 +38,11 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
     private IpressService ipressService;
 
     @Autowired
-    private PersonaConverter personaConverter;
+    private CuidadorService cuidadorService;
 
     @Autowired
-    private IpressConverter ipressConverter;
+    private AntecedenteFamiliarService antecedenteFamiliarService;
+
 
     @Override
     protected PacienteDto entityToDto(PacienteEntity entity) throws Exception {
@@ -41,6 +51,8 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
                 .persona(personaConverter.toDto(entity.getPersona()))
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
+                .cuidadorDtos(cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPacientes(entity)))
+                .antecedenteFamiliarDtos(antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPacientes(entity)))
 
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))

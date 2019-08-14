@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.CuidadorEntity;
+import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.repository.CuidadorRepository;
 
 import java.util.List;
@@ -33,6 +34,11 @@ public class CuidadorServiceImpl implements CuidadorService {
     @Override
     public void delete(Long id) {
         cuidadorRepository.delete(id);
+    }
+
+    @Override
+    public List<CuidadorEntity> findCuidadorEntitiesByPacientes(PacienteEntity entity) {
+        return cuidadorRepository.findCuidadorEntitiesByPacientes(entity);
     }
 
 }

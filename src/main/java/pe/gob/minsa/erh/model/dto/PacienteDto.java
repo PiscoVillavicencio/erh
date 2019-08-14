@@ -8,6 +8,7 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Builder
 @Data
@@ -19,6 +20,8 @@ public class PacienteDto implements Serializable {
     private PersonaDto persona;
     private IpressDto ipress;
     private PerfilEnum perfil;
+    private List<CuidadorDto> cuidadorDtos;
+    private List<AntecedenteFamiliarDto> antecedenteFamiliarDtos;
 
     private EstadoEnum estado;
     private String fecRegistro;

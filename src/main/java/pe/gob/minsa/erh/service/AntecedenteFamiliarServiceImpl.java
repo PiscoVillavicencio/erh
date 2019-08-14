@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.AntecedenteFamiliarEntity;
+import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.repository.AntecedenteFamiliarRepository;
 
 import java.util.List;
@@ -33,5 +34,10 @@ public class AntecedenteFamiliarServiceImpl implements AntecedenteFamiliarServic
     @Override
     public void delete(Long id) {
         antecedenteFamiliarRepository.delete(id);
+    }
+
+    @Override
+    public List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPacientes(PacienteEntity entity) {
+        return antecedenteFamiliarRepository.findAntecedenteFamiliarEntitiesByPacientes(entity);
     }
 }
