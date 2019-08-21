@@ -88,7 +88,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> <span th:text="${username}"></span> <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -97,10 +97,9 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                        <!--<a th:href="@{/}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>-->
                             <form id="logoutForm" th:action="@{/logout}" method="post">
-                                    <button class="dropdown-item" onclick="document.getElementById('logoutForm').submit();" type="submit">Logout</button>
-                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                <a onclick="document.getElementById('logoutForm').submit();"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                             </form>
                         </li>
                     </ul>

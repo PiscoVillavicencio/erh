@@ -1,5 +1,7 @@
 package pe.gob.minsa.erh.controller;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String login(Model model) {
+    public String login(Model model, Authentication auth) {
         model.addAttribute("titulo", "Dashboard");
-        model.addAttribute("opcion", "Bienvenido");
+        model.addAttribute("opcion", "Bienvenido " + StringUtils.capitalize(auth.getName()));
+        model.addAttribute("username", StringUtils.capitalize(auth.getName()));
         return "index";
     }
 

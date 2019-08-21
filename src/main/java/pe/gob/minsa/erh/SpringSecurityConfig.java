@@ -1,11 +1,9 @@
 package pe.gob.minsa.erh;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -19,12 +17,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                    //.successHandler(successHandler)
-                    .loginPage("/login")
-                    .permitAll()
+                //.successHandler(successHandler)
+                .loginPage("/login")
+                .permitAll()
                 .and()
                 .logout()
-                    .permitAll()
+                .permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/error_403");
     }
