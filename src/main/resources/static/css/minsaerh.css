@@ -20,3 +20,28 @@ footer .well-sm {
     text-align: center;
     padding: 10px auto 10px;
 }
+
+.login-background {
+    background: url('../images/layout/wallpapers-hd.jpg') no-repeat center center fixed;
+}
+
+.login-page-wrapper {
+    margin-right: 250px;
+    background-color: rgba(0,0,0,.075);
+    border-left: none;
+    border-right: none;
+}
+
+.h1-login {
+    text-align: center;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.img-login {
+    margin: 15px;
+    width: 200px;
+    height: 40px;
+    display: block;
+}
