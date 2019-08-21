@@ -14,7 +14,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model, Authentication auth) {
         model.addAttribute("titulo", "Dashboard");
-        model.addAttribute("opcion", "Bienvenido " + StringUtils.capitalize(auth.getName()));
+        model.addAttribute("opcion", "Bienvenido " + StringUtils.capitalize(auth.getName()) + " / ROLE: " + auth.getAuthorities().toString());
         model.addAttribute("username", StringUtils.capitalize(auth.getName()));
         return "index";
     }
