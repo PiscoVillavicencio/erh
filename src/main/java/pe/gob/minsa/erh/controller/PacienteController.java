@@ -1,6 +1,7 @@
 package pe.gob.minsa.erh.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@Secured({"ROLE_MASTER", "ROLE_DIRECTOR", "ROLE_MEDICO", "ROLE_PACIENTE"})
 @RequestMapping("/paciente")
 public class PacienteController {
 
@@ -66,6 +68,7 @@ public class PacienteController {
         return "paciente/mostrar";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
@@ -75,6 +78,7 @@ public class PacienteController {
         return "paciente/formulario";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
@@ -98,6 +102,7 @@ public class PacienteController {
         return "redirect:/paciente/";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/eliminar/{id}")
     public String delete(@PathVariable(value = "id") Long id) {
         pacienteService.delete(id);

@@ -1,32 +1,27 @@
 package pe.gob.minsa.erh.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pe.gob.minsa.erh.converter.DirectorConverter;
 import pe.gob.minsa.erh.converter.DocumentoConverter;
-import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.converter.ParentescoConverter;
-import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.dto.DocumentoDto;
 import pe.gob.minsa.erh.model.dto.ParentescoDto;
-import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.DocumentoEntity;
 import pe.gob.minsa.erh.model.entity.ParentescoEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
-import pe.gob.minsa.erh.model.enums.PerfilEnum;
-import pe.gob.minsa.erh.service.DirectorService;
 import pe.gob.minsa.erh.service.DocumentoService;
-import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.ParentescoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
 @RequestMapping("/parametro")
 public class ParametroController {
 
@@ -39,7 +34,6 @@ public class ParametroController {
     private ParentescoService parentescoService;
     @Autowired
     private ParentescoConverter parentescoConverter;
-
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {

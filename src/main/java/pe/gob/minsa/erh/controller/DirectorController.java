@@ -1,6 +1,7 @@
 package pe.gob.minsa.erh.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR", "ROLE_DIRECTOR"})
 @RequestMapping("/director")
 public class DirectorController {
 
@@ -40,6 +42,7 @@ public class DirectorController {
         return "director/listar";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Director");
@@ -49,6 +52,7 @@ public class DirectorController {
         return "director/formulario";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
         model.addAttribute("titulo", "Director");
@@ -70,6 +74,7 @@ public class DirectorController {
         return "redirect:/director/";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/eliminar/{id}")
     public String delete(@PathVariable(value = "id") Long id) {
         directorService.delete(id);
