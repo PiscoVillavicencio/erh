@@ -31,6 +31,7 @@ public class IndexController {
 
     @GetMapping("/login")
     public String login(@RequestParam(value="error", required=false) String error,
+                        @RequestParam(value="logout", required=false) String logout,
                         Model model, Principal principal, RedirectAttributes flash) {
 
         if(principal != null) {
@@ -40,6 +41,10 @@ public class IndexController {
 
         if(error != null) {
             model.addAttribute("error", "Error de ingreso al sistema, usuario o contraseña incorrecta.");
+        }
+
+        if(logout != null) {
+            model.addAttribute("success", "He cerrado sessión con éxito.");
         }
 
         return "login";

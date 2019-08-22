@@ -16,27 +16,29 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">ERROR 403</h1>
+                        <h1 class="page-header">Acceso Denegado</h1>
                     </div>
                 </div>
 
                 <!-- ... Your content goes here ... -->
                 <!-- /.row -->
                 <div class="row">
+
                     <div class="col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-danger">
                             <div class="panel-heading">
-                                <h3 class="panel-title"">Acceso denegado</h3>
+                                Error 403
                             </div>
-                            <!-- /.panel-heading -->
                             <div class="panel-body">
+                                <h5 class="card-title ">Los sentimos <span th:text="${#authentication.name}"></span>, NO tienes permisos para acceder a este recurso.</h5>
+                            </div>
+                            <div class="panel-footer">
 
                             </div>
-                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel -->
                     </div>
-                    <!-- /.col-lg-12 -->
+                    <!-- /.col-lg-4 -->
+
                 </div>
                 <!-- /.row -->
             </div>
@@ -47,7 +49,7 @@
     </div>
 
     <!-- footer -->
-    <footer th:replace="layout :: footer"></footer>
+    <footer th:replace="layout :: footer "></footer>
 
 </body>
 
