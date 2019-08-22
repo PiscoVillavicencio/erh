@@ -38,3 +38,8 @@ footer .well-sm {
     height: 40px;
     display: block;
 }
+
+.img-inicio {
+    max-width: 100%;
+    max-height: 100%;
+}

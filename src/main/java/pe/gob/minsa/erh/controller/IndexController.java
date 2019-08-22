@@ -1,8 +1,5 @@
 package pe.gob.minsa.erh.controller;
 
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,20 +22,20 @@ public class IndexController {
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(value="error", required=false) String error,
-                        @RequestParam(value="logout", required=false) String logout,
+    public String login(@RequestParam(value = "error", required = false) String error,
+                        @RequestParam(value = "logout", required = false) String logout,
                         Model model, Principal principal, RedirectAttributes flash) {
 
-        if(principal != null) {
+        if (principal != null) {
             flash.addFlashAttribute("info", "Usuario logueado en el sistema.");
             return "redirect:/";
         }
 
-        if(error != null) {
+        if (error != null) {
             model.addAttribute("error", "Error de ingreso al sistema, usuario o contraseña incorrecta.");
         }
 
-        if(logout != null) {
+        if (logout != null) {
             model.addAttribute("success", "He cerrado sessión con éxito.");
         }
 
