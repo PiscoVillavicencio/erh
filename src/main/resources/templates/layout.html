@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head lang="es" th:fragment="head">
 
@@ -143,43 +143,42 @@
                         <li>
                             <a th:href="@{/}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li>
+                        <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_DIRECTOR', 'ROLE_MEDICO', 'ROLE_PACIENTE')">
                             <a href="#"><i class="fa fa-ambulance fa-fw"></i> Paciente<span
                                 class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a th:href="@{/paciente}">Lista Pacientes</a>
                                 </li>
-                                <li>
+                                <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_MEDICO')">
                                     <a th:href="@{/paciente/nuevo}">Nuevo Paciente</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR', 'ROLE_DIRECTOR')">
                             <a href="#"><i class="fa fa-university fa-fw"></i> Director<span
                                 class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a th:href="@{/director}">Lista Directores</a>
                                 </li>
-                                <li>
+                                <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR')">
                                     <a th:href="@{/director/nuevo}">Nuevo Director</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                         <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR', 'ROLE_DIRECTOR')">
                             <a href="#"><i class="fa fa-user-md fa-fw"></i> Médico Tratante<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">Lista Médicos</a>
                                 </li>
-                                <li>
+                                <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR')">
                                     <a href="#">Nuevo Médico</a>
                                 </li>
                             </ul>
                         </li>
-
-                        <li>
+                         <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR')">
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Parámetro<span
                                 class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -194,13 +193,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                         <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR', 'ROLE_DIRECTOR', 'ROLE_MEDICO', 'ROLE_PACIENTE')">
                             <a href="#"><i class="fa fa-plus-square fa-fw"></i> Enlaces de interés<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">Lista Enlaces</a>
                                 </li>
-                                <li>
+                                <li sec:authorize="hasAnyRole('ROLE_MASTER')">
                                     <a href="#">Nuevo Enlace</a>
                                 </li>
                             </ul>
