@@ -17,14 +17,9 @@ import java.security.Principal;
 public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model, Authentication auth) {
+    public String index(Model model) {
         model.addAttribute("titulo", "Dashboard");
-        model.addAttribute("opcion", "Bienvenido " + StringUtils.capitalize(auth.getName()));
-        model.addAttribute("username", StringUtils.capitalize(auth.getName()));
-
-        for (GrantedAuthority grantedAuthority : auth.getAuthorities()) {
-            model.addAttribute("userrol", grantedAuthority.getAuthority());
-        }
+        model.addAttribute("opcion", "Bienvenido");
 
         return "index";
     }

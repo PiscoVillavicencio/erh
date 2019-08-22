@@ -53,9 +53,34 @@ public class ParametroController {
     @RequestMapping(value = "documento/editar/{id}", method = RequestMethod.GET)
     public String documentoEditar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Parámetro");
-        model.addAttribute("opcion", "Editar Documento");
+        model.addAttribute("opcion", "Editar Tipo Documento");
         model.addAttribute("documento", documentoConverter.toDto(documentoService.getById(id)));
         return "parametro/formularioDocumento";
+    }
+
+    @RequestMapping(value = "documento/nuevo", method = RequestMethod.GET)
+    public String documentoNuevo(Model model) {
+        model.addAttribute("titulo", "Parámetro");
+        model.addAttribute("opcion", "Nuevo Tipo Documento");
+        model.addAttribute("documento", DocumentoDto.builder()
+                .estado(EstadoEnum.ACTIVO)
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
+                .build());
+        return "parametro/formularioDocumento";
+    }
+
+    @RequestMapping(value = "/documento", method = RequestMethod.POST)
+    public String documentoSaveOrUpdate(DocumentoDto dto, Model model) throws Exception {
+        DocumentoEntity newEntity = documentoService.saveOrUpdate(documentoConverter.toEntity(dto));
+        model.addAttribute("newEntity", documentoConverter.toDto(newEntity));
+        return "redirect:/parametro/";
+    }
+
+    @RequestMapping(value = "documento/eliminar/{id}")
+    public String documentoDelete(@PathVariable(value = "id") Long id) {
+        documentoService.delete(id);
+        return "redirect:/parametro/";
     }
 
     @RequestMapping(value = "parentesco/editar/{id}", method = RequestMethod.GET)
@@ -64,18 +89,6 @@ public class ParametroController {
         model.addAttribute("opcion", "Editar Parentesco");
         model.addAttribute("parentesco", parentescoConverter.toDto(parentescoService.getById(id)));
         return "parametro/formularioParentesco";
-    }
-
-    @RequestMapping(value = "documento/nuevo", method = RequestMethod.GET)
-    public String documentoNuevo(Model model) {
-        model.addAttribute("titulo", "Parámetro");
-        model.addAttribute("opcion", "Nuevo Documento");
-        model.addAttribute("documento", DocumentoDto.builder()
-                .estado(EstadoEnum.ACTIVO)
-                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
-                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
-                .build());
-        return "parametro/formularioDocumento";
     }
 
     @RequestMapping(value = "parentesco/nuevo", method = RequestMethod.GET)
@@ -90,23 +103,10 @@ public class ParametroController {
         return "parametro/formularioParentesco";
     }
 
-    @RequestMapping(value = "/documento", method = RequestMethod.POST)
-    public String documentoSaveOrUpdate(DocumentoDto dto, Model model) throws Exception {
-        DocumentoEntity newEntity = documentoService.saveOrUpdate(documentoConverter.toEntity(dto));
-        model.addAttribute("newEntity", documentoConverter.toDto(newEntity));
-        return "redirect:/parametro/";
-    }
-
     @RequestMapping(value = "/parentesco", method = RequestMethod.POST)
     public String parentescoSaveOrUpdate(ParentescoDto dto, Model model) throws Exception {
         ParentescoEntity newEntity = parentescoService.saveOrUpdate(parentescoConverter.toEntity(dto));
         model.addAttribute("newEntity", parentescoConverter.toDto(newEntity));
-        return "redirect:/parametro/";
-    }
-
-    @RequestMapping(value = "documento/eliminar/{id}")
-    public String documentoDelete(@PathVariable(value = "id") Long id) {
-        documentoService.delete(id);
         return "redirect:/parametro/";
     }
 

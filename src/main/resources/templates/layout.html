@@ -49,13 +49,13 @@
             </div>
             <div class="alert alert-info alert-dismissible" th:if="${info != null}">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                 <span th:text="${info}"></span>
+                <span th:text="${info}"></span>
             </div>
             <div class="alert alert-warning alert-dismissible" th:if="${warning != null}" th:text="${warning}">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
             </div>
-            <div class="alert alert-danger alert-dismissible" th:if="${error != null}" >
+            <div class="alert alert-danger alert-dismissible" th:if="${error != null}">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <span th:text="${error}"></span>
             </div>
@@ -107,7 +107,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <span th:text="${username}"></span> <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> <span th:text="${#authentication.name}"></span> <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -168,17 +168,17 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Persona<span
-                                                        class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user-md fa-fw"></i> Médico Tratante<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a th:href="@{/persona}">Lista Personas</a>
+                                    <a href="#">Lista Médicos</a>
                                 </li>
                                 <li>
-                                    <a th:href="@{/persona/nuevo}">Nuevo Persona</a>
+                                    <a href="#">Nuevo Médico</a>
                                 </li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Parámetro<span
                                 class="fa arrow"></span></a>
@@ -191,6 +191,17 @@
                                 </li>
                                 <li>
                                     <a th:href="@{/parametro/parentesco/nuevo}">Nuevo Parentesco</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-plus-square fa-fw"></i> Enlaces de interés<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Lista Enlaces</a>
+                                </li>
+                                <li>
+                                    <a href="#">Nuevo Enlace</a>
                                 </li>
                             </ul>
                         </li>
