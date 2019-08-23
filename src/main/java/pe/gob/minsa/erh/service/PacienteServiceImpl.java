@@ -37,4 +37,8 @@ public class PacienteServiceImpl implements PacienteService {
         pacienteRepository.delete(id);
     }
 
+    @Override
+    public PacienteEntity findPacienteEntityByNroDocumento(String nroDocuemento) {
+        return pacienteRepository.findPacienteEntityByNroDocumento(nroDocuemento);
+    }
 }

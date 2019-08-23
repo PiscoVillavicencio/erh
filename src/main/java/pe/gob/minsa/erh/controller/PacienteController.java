@@ -1,5 +1,6 @@
 package pe.gob.minsa.erh.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import pe.gob.minsa.erh.converter.EnfermedadConverter;
 import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.converter.PacienteConverter;
@@ -20,7 +22,9 @@ import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @Secured({"ROLE_MASTER", "ROLE_DIRECTOR", "ROLE_MEDICO", "ROLE_PACIENTE"})
@@ -43,10 +47,29 @@ public class PacienteController {
     private EnfermedadConverter enfermedadConverter;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listar(Model model) throws Exception {
+    public String listar(@RequestParam(value = "search", required = false) String search, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Búsqueda");
-        model.addAttribute("pacientes", pacienteConverter.toListDto(pacienteService.listAll()));
+
+        if (StringUtils.isNotBlank(search)) {
+
+            List<PacienteDto> pacientes  = new ArrayList<>();
+
+            PacienteEntity entity = pacienteService.findPacienteEntityByNroDocumento(search);
+
+            if(entity != null){
+                pacientes.add(pacienteConverter.toDto(entity));
+            }
+
+            if (pacientes.size() > 0) {
+                model.addAttribute("pacientes", pacientes);
+                model.addAttribute("success",  String.format("Se encontró paciente con el documento nro %s", search));
+            } else {
+                model.addAttribute("warning", String.format("No se encontró paciente con el documento nro %s", search));
+            }
+
+        }
+
         return "paciente/listar";
     }
 

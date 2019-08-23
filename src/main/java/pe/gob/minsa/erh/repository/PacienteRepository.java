@@ -6,4 +6,8 @@ import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 
 @Repository
-public interface PacienteRepository extends CrudRepository<PacienteEntity, Long> { }
+public interface PacienteRepository extends CrudRepository<PacienteEntity, Long> {
+
+    PacienteEntity findPacienteEntityByNroDocumento(String nroDocumento);
+
+}
