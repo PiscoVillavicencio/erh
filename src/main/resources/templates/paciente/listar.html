@@ -57,12 +57,12 @@
                                         <tbody>
                                             <tr th:each="paciente: ${pacientes}" class="odd gradeX">
 
-                                                <td th:text="${paciente.persona.nombre}"></td>
-                                                <td th:text="${paciente.persona.apePaterno}"></td>
-                                                <td th:text="${paciente.persona.apeMaterno}"></td>
-                                                <td th:text="${paciente.persona.documento.nombre}"></td>
-                                                <td th:text="${paciente.persona.nroDocumento}"></td>
-                                                <td th:text="${paciente.persona.genero.label}"></td>
+                                                <td th:text="${paciente.nombre}"></td>
+                                                <td th:text="${paciente.apePaterno}"></td>
+                                                <td th:text="${paciente.apeMaterno}"></td>
+                                                <td th:text="${paciente.documento.nombre}"></td>
+                                                <td th:text="${paciente.nroDocumento}"></td>
+                                                <td th:text="${paciente.genero.label}"></td>
                                                 <td th:text="${paciente.ipress.nombre}"></td>
                                                 <td th:text="${paciente.perfil.label}"></td>
                                                 <td th:text="${paciente.estado.label}"></td>
