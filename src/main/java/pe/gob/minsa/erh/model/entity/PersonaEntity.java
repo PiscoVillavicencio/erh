@@ -1,6 +1,5 @@
 package pe.gob.minsa.erh.model.entity;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
@@ -10,9 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
-@Entity
-@Table(name = "persona")
 public class PersonaEntity implements Serializable {
 
     private static final Long serialVersionUID = 1L;

@@ -1,11 +1,11 @@
 package pe.gob.minsa.erh.converter;
 
+import org.joda.time.DateTime;
+import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
-import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
-import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.*;
@@ -17,7 +17,10 @@ import java.util.Date;
 public class PacienteConverter extends AbstractConverter<PacienteEntity, PacienteDto> {
 
     @Autowired
-    private PersonaConverter personaConverter;
+    private DocumentoConverter documentoConverter;
+
+    @Autowired
+    private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
     private IpressConverter ipressConverter;
@@ -32,7 +35,10 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
     private PacienteService pacienteService;
 
     @Autowired
-    private PersonaService personaService;
+    private DocumentoService documentoService;
+
+    @Autowired
+    private UbiDistritoService ubiDistritoService;
 
     @Autowired
     private IpressService ipressService;
@@ -48,7 +54,30 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
     protected PacienteDto entityToDto(PacienteEntity entity) throws Exception {
         return PacienteDto.builder()
                 .id(entity.getId())
-                .persona(personaConverter.toDto(entity.getPersona()))
+
+                .nombre(entity.getNombre())
+                .apePaterno(entity.getApePaterno())
+                .apeMaterno(entity.getApeMaterno())
+                .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
+                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
+                .documento(documentoConverter.toDto(entity.getDocumento()))
+                .nroDocumento(entity.getNroDocumento())
+                .genero(entity.getGenero())
+                .rutaImagen(entity.getRutaImagen())
+                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
+                .condicion(entity.getCondicion())
+                .origenNacionalidad(entity.getOrigenNacionalidad())
+                .origenPais(entity.getOrigenPais())
+                .origenEstado(entity.getOrigenEstado())
+                .origenCiudad(entity.getOrigenCiudad())
+                .lugarNacimiento(entity.getLugarNacimiento())
+                .email(entity.getEmail())
+                .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
+                .direccionActual(entity.getDireccionActual())
+                .lugarProcedencia(entity.getLugarProcedencia())
+                .telFijo(entity.getTelFijo())
+                .telMovil(entity.getTelMovil())
+
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
                 .cuidadorDtos(cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPacientes(entity)))
@@ -73,7 +102,29 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
         }
 
         entity.setId(dto.getId());
-        entity.setPersona(personaService.getById(dto.getPersona().getId()));
+
+        entity.setNombre(dto.getNombre().trim());
+        entity.setApePaterno(dto.getApePaterno().trim());
+        entity.setApeMaterno(dto.getApeMaterno().trim());
+        entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
+        entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
+        entity.setNroDocumento(dto.getNroDocumento());
+        entity.setGenero(dto.getGenero());
+        entity.setRutaImagen(entity.getRutaImagen());
+        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
+        entity.setCondicion(dto.getCondicion());
+        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
+        entity.setOrigenPais(dto.getOrigenPais());
+        entity.setOrigenEstado(dto.getOrigenEstado());
+        entity.setOrigenCiudad(dto.getOrigenCiudad());
+        entity.setLugarNacimiento(dto.getLugarNacimiento());
+        entity.setEmail(dto.getEmail());
+        entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
+        entity.setDireccionActual(dto.getDireccionActual());
+        entity.setLugarProcedencia(dto.getLugarProcedencia());
+        entity.setTelFijo(dto.getTelFijo());
+        entity.setTelMovil(dto.getTelMovil());
+
         entity.setIpress(ipressService.getById(dto.getIpress().getId()));
         entity.setPerfil(PerfilEnum.PACIENTE);
 

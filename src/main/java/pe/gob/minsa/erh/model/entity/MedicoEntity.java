@@ -3,6 +3,8 @@ package pe.gob.minsa.erh.model.entity;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.GeneroEnum;
+import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
@@ -19,9 +21,55 @@ public class MedicoEntity implements Serializable {
     @Column(name = "idmedicotratante")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "strnombres")
+    private String nombre;
+    @Column(name = "strapepaterno")
+    private String apePaterno;
+    @Column(name = "strapematerno")
+    private String apeMaterno;
+    @Column(name = "datfnacimiento")
+    private Date fecNacimiento;
     @ManyToOne
-    @JoinColumn(name = "idpersona")
-    private PersonaEntity persona;
+    @JoinColumn(name = "iddocumento")
+    private DocumentoEntity documento;
+    @Column(name = "strnumdocumento")
+    private String nroDocumento;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrgenero")
+    private GeneroEnum genero;
+    @Column(name = "strrutaimagen")
+    private String rutaImagen;
+    @ManyToOne
+    @JoinColumn(name = "iddistrito")
+    private UbiDistritoEntity distritoNacimiento;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "chrestavivo")
+    private EstadoEnum condicion;
+    @Column(name = "chrnacionalidad")
+    private NacionalidadEnum origenNacionalidad;
+    @Column(name = "strpais")
+    private String origenPais;
+    @Column(name = "strestado")
+    private String origenEstado;
+    @Column(name = "strciudad")
+    private String origenCiudad;
+    @Column(name = "strlugarnacimiento")
+    private String lugarNacimiento;
+    @Column(name = "stremail")
+    private String email;
+    @ManyToOne
+    @JoinColumn(name = "iddistritoactual")
+    private UbiDistritoEntity distritoResidencia;
+    @Column(name = "strdireccionactual")
+    private String direccionActual;
+    @Column(name = "strlugarprocedencia")
+    private String lugarProcedencia;
+    @Column(name = "strtelefonofijo")
+    private String telFijo;
+    @Column(name = "strtelefonomovil")
+    private String telMovil;
+
     @NotEmpty
     @Column(name = "strcmp")
     private String cmp;
@@ -34,6 +82,7 @@ public class MedicoEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
+
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")
     private PerfilEnum perfil;

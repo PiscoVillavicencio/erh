@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pe.gob.minsa.erh.converter.EnfermedadConverter;
 import pe.gob.minsa.erh.converter.IpressConverter;
 import pe.gob.minsa.erh.converter.PacienteConverter;
-import pe.gob.minsa.erh.converter.PersonaConverter;
-import pe.gob.minsa.erh.model.dto.DirectorDto;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
-import pe.gob.minsa.erh.model.dto.PersonaDto;
-import pe.gob.minsa.erh.model.entity.DirectorEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
@@ -22,7 +18,6 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.EnfermedadService;
 import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
-import pe.gob.minsa.erh.service.PersonaService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,11 +36,6 @@ public class PacienteController {
     private IpressService ipressService;
     @Autowired
     private IpressConverter ipressConverter;
-
-    @Autowired
-    private PersonaService personaService;
-    @Autowired
-    private PersonaConverter personaConverter;
 
     @Autowired
     private EnfermedadService enfermedadService;
@@ -84,13 +74,12 @@ public class PacienteController {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Nuevo");
         model.addAttribute("paciente", PacienteDto.builder()
-                .persona(PersonaDto.builder().genero(GeneroEnum.OTRO).build())
+                .genero(GeneroEnum.OTRO)
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .perfil(PerfilEnum.DIRECTOR)
                 .build());
-        model.addAttribute("personas", personaConverter.toListDto(personaService.listAll()));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "paciente/formulario";
     }

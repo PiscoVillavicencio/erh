@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.model.enums.GeneroEnum;
+import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
@@ -18,14 +20,39 @@ import java.util.Set;
 public class AntecedenteFamiliarDto implements Serializable {
 
     private Long id;
-    private PersonaDto persona;
+
+    private String nombre;
+    private String apePaterno;
+    private String apeMaterno;
+    private String fecNacimiento;
+    private Integer edad;
+    private DocumentoDto documento;
+    private String nroDocumento;
+    private GeneroEnum genero;
+    private String rutaImagen;
+    private UbiDistritoDto distritoNacimiento;
+    private EstadoEnum condicion;
+    private NacionalidadEnum origenNacionalidad;
+    private String origenPais;
+    private String origenEstado;
+    private String origenCiudad;
+    private String lugarNacimiento;
+    private String email;
+    private UbiDistritoDto distritoResidencia;
+    private String direccionActual;
+    private String lugarProcedencia;
+    private String telFijo;
+    private String telMovil;
+
     private ParentescoDto parentesco;
     private EstadoEnum familiarCondicion;
     private EstadoEnum mismaEnfermedad;
     private String fecDiagnostico;
     private String detalleEnfermedad;
-    private PerfilEnum perfil;
+
     List<PacienteDto> pacientes;
+
+    private PerfilEnum perfil;
 
     private EstadoEnum estado;
     private String fecRegistro;

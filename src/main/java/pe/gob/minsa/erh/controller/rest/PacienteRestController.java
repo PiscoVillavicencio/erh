@@ -5,13 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.gob.minsa.erh.converter.PacienteConverter;
-import pe.gob.minsa.erh.converter.PersonaConverter;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
-import pe.gob.minsa.erh.model.dto.PersonaDto;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
-import pe.gob.minsa.erh.model.entity.PersonaEntity;
 import pe.gob.minsa.erh.service.PacienteService;
-import pe.gob.minsa.erh.service.PersonaService;
 
 import java.util.List;
 
