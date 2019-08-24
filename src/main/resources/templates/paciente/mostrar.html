@@ -31,65 +31,115 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <form role="form" th:object="${paciente}">
+                                    <div class="col-lg-12">
+
+                                        <div class="row">
+                                            <div class="col-sm-4 col-sm-offset-4">
+                                                <div class="hero-widget well well-sm">
+                                                    <div class="icon">
+                                                        <i class="glyphicon glyphicon-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form role="form-horizontal" th:object="${paciente}">
                                             <input type="hidden" th:field="*{id}" />
-                                            <input type="hidden" th:field="*{ipress.id}" />
                                             <input type="hidden" th:field="*{estado}" />
 
-                                            <div class="hero-widget well well-sm">
-                                                <div class="icon">
-                                                    <i class="glyphicon glyphicon-user"></i>
+                                            <div class="row">
+
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{nombre}">Nombres</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{apePaterno}">Ape. Paterno</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{apePaterno}" disabled="true" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{apeMaterno}">Ape. Materno</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{apeMaterno}" disabled="true" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{documento.nombre}">Tipo Documento</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{documento.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{nroDocumento}">Nro. Documento</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{nroDocumento}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{genero.label}">Género</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{genero.label}" disabled="true" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-sm-8 form-group form-group-sm">
+                                                    <label class="col-sm-2 control-label" th:for="*{ipress.nombre}">Ipress</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" placeholder="" th:field="*{ipress.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" for="estado">Estado</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="estado" name="estado" type="checkbox" class="toggle-estado" data-on="Activo" data-off="Inactivo" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{fecRegistro}">Fecha Registro</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{fecRegistro}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{fecModificacion}">Fecha Modificación</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{fecModificacion}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{perfil}">Perfil</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{perfil}" disabled="true" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2 col-sm-offset-5 text-center" >
+                                                    <a th:href="@{/paciente}" class="btn btn-default">Volver</a>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label>Nombres</label>
-                                                <input class="form-control" placeholder="" th:field="*{nombre}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Ape. Paterno</label>
-                                                <input class="form-control" placeholder="" th:field="*{apePaterno}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Ape. Materno</label>
-                                                <input class="form-control" placeholder="" th:field="*{apeMaterno}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Tipo Documento</label>
-                                                <input class="form-control" placeholder="" th:field="*{documento.nombre}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Nro. Documento</label>
-                                                <input class="form-control" placeholder="" th:field="*{nroDocumento}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Género</label>
-                                                <input class="form-control" placeholder="" th:field="*{genero.label}" disabled="true" />
-                                            </div>
-                                            <label>Ipress</label>
-                                            <div class="form-group">
-                                                <input class="form-control"  placeholder="" th:field="*{ipress.nombre}" disabled="true" />
-                                            </div>
-                                            <label>Estado</label>
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" class="toggle-estado" data-on="Activo" data-off="Inactivo" />
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Fecha Registro</label>
-                                                <input class="form-control" placeholder="" th:field="*{fecRegistro}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Fecha Modificación</label>
-                                                <input class="form-control" placeholder="" th:field="*{fecModificacion}" disabled="true" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Perfil</label>
-                                                <input class="form-control" placeholder="" th:field="*{perfil}" disabled="true" />
-                                            </div>
-                                            <a th:href="@{/paciente}" class="btn btn-default">Cancelar</a>
                                         </form>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
