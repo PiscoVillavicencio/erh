@@ -136,7 +136,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-2 col-sm-offset-5 text-center" >
-                                                    <a th:href="@{/paciente}" class="btn btn-default">Volver</a>
+                                                    <!-- <a th:href="@{/paciente}" class="btn btn-default">Volver</a> -->
+                                                    <input type="button" th:onclick="|window.location.href='@{/paciente(search=${paciente.nroDocumento})}'|" class="btn btn-default" value="Volver" />
                                                 </div>
                                             </div>
 
