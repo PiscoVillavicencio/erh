@@ -44,36 +44,36 @@
                                         </div>
 
                                         <form role="form-horizontal" th:object="${paciente}">
+
                                             <input type="hidden" th:field="*{id}" />
                                             <input type="hidden" th:field="*{estado}" />
 
+                                            <hr/>
+                                            <h5>Información Personal: </h5>
+                                            <hr/>
+
                                             <div class="row">
-
-                                                <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{nombre}">Nombres</label>
-                                                    <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{nombre}" disabled="true" />
-                                                    </div>
-                                                </div>
-
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{apePaterno}">Ape. Paterno</label>
                                                     <div class="col-sm-8">
                                                         <input class="form-control" placeholder="" th:field="*{apePaterno}" disabled="true" />
                                                     </div>
                                                 </div>
-
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{apeMaterno}">Ape. Materno</label>
                                                     <div class="col-sm-8">
                                                         <input class="form-control" placeholder="" th:field="*{apeMaterno}" disabled="true" />
                                                     </div>
                                                 </div>
-
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{nombre}">Nombres</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="row">
-
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{documento.nombre}">Tipo Documento</label>
                                                     <div class="col-sm-8">
@@ -89,14 +89,159 @@
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{genero.label}">Género</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{genero.label}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:id="*{genero}" th:name="*{genero}" th:value="*{genero.label}" disabled="true" />
                                                     </div>
                                                 </div>
-
                                             </div>
 
                                             <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{condicion}">Condición</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:id="*{condicion}" th:name="*{condicion}" th:value="*{condicion.label=='Activo' ? 'Vivo' : 'Difunto'}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{fecNacimiento}">Fecha Nacimiento</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{fecNacimiento}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{edad}">Edad</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{edad}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{origenNacionalidad}">Nacionalidad</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:id="*{origenNacionalidad}" th:name="*{origenNacionalidad}" th:value="*{origenNacionalidad.label}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr/>
+                                            <h5>Ubicación Nacimiento: </h5>
+                                            <hr/>
+
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{origenPais}">País</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{origenPais}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{origenEstado}">País Estado</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{origenEstado}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{origenCiudad}">País Ciudad</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{origenCiudad}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoNacimiento.provincia.departamento.nombre}">Departamento</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoNacimiento.provincia.departamento.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoNacimiento.provincia.nombre}">Provincia</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoNacimiento.provincia.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoNacimiento.nombre}">Distrito</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoNacimiento.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-8 form-group form-group-sm">
+                                                    <label class="col-sm-2 control-label" th:for="*{lugarNacimiento}">Lugar Nacimiento</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" placeholder="" th:field="*{lugarNacimiento}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{email}">Email</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{email}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr/>
+                                            <h5>Ubicación Actual: </h5>
+                                            <hr/>
+
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoResidencia.provincia.departamento.nombre}">Departamento</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoResidencia.provincia.departamento.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoResidencia.provincia.nombre}">Provincia</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoResidencia.provincia.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{distritoResidencia.nombre}">Distrito</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{distritoResidencia.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-8 form-group form-group-sm">
+                                                    <label class="col-sm-2 control-label" th:for="*{direccionActual}">Dirección Actual</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" placeholder="" th:field="*{direccionActual}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{lugarProcedencia}">Lugar Procedencia</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{lugarProcedencia}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{telFijo}">Teléfono Fijo</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{telFijo}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-4 control-label" th:for="*{telMovil}">Teléfono Móvil</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="" th:field="*{telMovil}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr/>
+
+                                            <div class="row">
                                                 <div class="col-sm-8 form-group form-group-sm">
                                                     <label class="col-sm-2 control-label" th:for="*{ipress.nombre}">Ipress</label>
                                                     <div class="col-sm-10">
@@ -104,16 +249,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" for="estado">Estado</label>
+                                                    <label class="col-sm-4 control-label" th:for="*{estado}">Estado</label>
                                                     <div class="col-sm-8">
-                                                        <input id="estado" name="estado" type="checkbox" class="toggle-estado" data-on="Activo" data-off="Inactivo" />
+                                                        <input class="form-control" placeholder="" th:id="*{estado}" th:name="*{estado}" th:value="*{estado.label}" disabled="true" />
                                                     </div>
                                                 </div>
-
                                             </div>
-
                                             <div class="row">
-
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{fecRegistro}">Fecha Registro</label>
                                                     <div class="col-sm-8">
@@ -132,8 +274,10 @@
                                                         <input class="form-control" placeholder="" th:field="*{perfil}" disabled="true" />
                                                     </div>
                                                 </div>
-
                                             </div>
+
+                                            <hr/>
+
                                             <div class="row">
                                                 <div class="col-sm-2 col-sm-offset-5 text-center" >
                                                     <!-- <a th:href="@{/paciente}" class="btn btn-default">Volver</a> -->

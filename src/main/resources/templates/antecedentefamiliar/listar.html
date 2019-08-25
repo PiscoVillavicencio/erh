@@ -51,12 +51,12 @@
                                         <tbody>
                                             <tr th:each="antFam: ${paciente.antecedenteFamiliarDtos}" class="odd gradeX">
 
-                                                <td th:text="${antFam.persona.documento.nombre}"></td>
-                                                <td th:text="${antFam.persona.nroDocumento}"></td>
-                                                <td th:text="${antFam.persona.nombre}"></td>
-                                                <td th:text="${antFam.persona.apePaterno}"></td>
-                                                <td th:text="${antFam.persona.apeMaterno}"></td>
-                                                <td th:text="${antFam.parentesco.nombre}"></td>
+                                                <td th:text="${antFam.documento.nombre}"></td>
+                                                <td th:text="${antFam.nroDocumento}"></td>
+                                                <td th:text="${antFam.nombre}"></td>
+                                                <td th:text="${antFam.apePaterno}"></td>
+                                                <td th:text="${antFam.apeMaterno}"></td>
+                                                <td th:text="${antFam.nombre}"></td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/antecedentefamiliar/mostrar/' + ${antFam.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/antecedentefamiliar/editar/' + ${antFam.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>

@@ -54,8 +54,8 @@
                                         <tbody>
                                             <tr th:each="enfermedad: ${enfermedades}" class="odd gradeX">
 
-                                                <td th:text="${enfermedad.paciente.persona.documento.nombre}"></td>
-                                                <td th:text="${enfermedad.paciente.persona.nroDocumento}"></td>
+                                                <td th:text="${enfermedad.paciente.documento.nombre}"></td>
+                                                <td th:text="${enfermedad.paciente.nroDocumento}"></td>
                                                 <td th:text="${enfermedad.cie10Carpeta.cie10Bloque.Cie10Categoria.nombre}"></td>
                                                 <td th:text="${enfermedad.cie10Carpeta.cie10Bloque.nombre}"></td>
                                                 <td th:text="${enfermedad.cie10Carpeta.nombre}"></td>

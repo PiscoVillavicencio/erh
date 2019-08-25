@@ -51,8 +51,8 @@
                                         <tbody>
                                             <tr th:each="tratamiento: ${tratamientos}" class="odd gradeX">
 
-                                                <td th:text="${tratamiento.enfermedad.paciente.persona.documento.nombre}"></td>
-                                                <td th:text="${tratamiento.enfermedad.paciente.persona.nroDocumento}"></td>
+                                                <td th:text="${tratamiento.enfermedad.paciente.documento.nombre}"></td>
+                                                <td th:text="${tratamiento.enfermedad.paciente.nroDocumento}"></td>
                                                 <td th:text="${tratamiento.enfermedad.orphanet.nombre}"></td>
                                                 <td th:text="${tratamiento.tratamientoFarmacologicoEspecifico.label=='Activo' ? 'Si' : 'No'}"></td>
                                                 <td th:text="${tratamiento.tratamientoFarmacologicoNoEspecifico.label=='Activo' ? 'Si' : 'No'}"></td>
