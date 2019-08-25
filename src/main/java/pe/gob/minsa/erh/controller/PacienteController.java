@@ -9,17 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import pe.gob.minsa.erh.converter.EnfermedadConverter;
-import pe.gob.minsa.erh.converter.IpressConverter;
-import pe.gob.minsa.erh.converter.PacienteConverter;
+import pe.gob.minsa.erh.converter.*;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
+import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
-import pe.gob.minsa.erh.service.EnfermedadService;
-import pe.gob.minsa.erh.service.IpressService;
-import pe.gob.minsa.erh.service.PacienteService;
+import pe.gob.minsa.erh.service.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,6 +42,16 @@ public class PacienteController {
     private EnfermedadService enfermedadService;
     @Autowired
     private EnfermedadConverter enfermedadConverter;
+
+    @Autowired
+    private DocumentoService documentoService;
+    @Autowired
+    private DocumentoConverter documentoConverter;
+
+    @Autowired
+    private UbiDistritoService ubiDistritoService;
+    @Autowired
+    private UbiDistritoConverter ubiDistritoConverter;
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(@RequestParam(value = "search", required = false) String search, Model model) throws Exception {
@@ -86,6 +93,12 @@ public class PacienteController {
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Editar");
+
+        model.addAttribute("generoEnum", GeneroEnum.values());
+        model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
+        model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
+        model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
+
         model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(id)));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "paciente/formulario";
