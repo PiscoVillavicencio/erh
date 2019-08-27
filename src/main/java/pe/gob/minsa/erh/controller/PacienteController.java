@@ -60,17 +60,17 @@ public class PacienteController {
 
         if (StringUtils.isNotBlank(search)) {
 
-            List<PacienteDto> pacientes  = new ArrayList<>();
+            List<PacienteDto> pacientes = new ArrayList<>();
 
             PacienteEntity entity = pacienteService.findPacienteEntityByNroDocumento(search);
 
-            if(entity != null){
+            if (entity != null) {
                 pacientes.add(pacienteConverter.toDto(entity));
             }
 
             if (pacientes.size() > 0) {
                 model.addAttribute("pacientes", pacientes);
-                model.addAttribute("success",  String.format("Se encontró paciente con el documento nro %s", search));
+                model.addAttribute("success", String.format("Se encontró paciente con el documento nro %s", search));
             } else {
                 model.addAttribute("warning", String.format("No se encontró paciente con el documento nro %s", search));
             }
@@ -133,16 +133,16 @@ public class PacienteController {
     public String saveOrUpdate(PacienteDto dto, Model model) throws Exception {
 
         PacienteEntity newEntity = pacienteService.saveOrUpdate(pacienteConverter.toEntity(dto));
-        List<PacienteDto> pacientes  = new ArrayList<>();
+        List<PacienteDto> pacientes = new ArrayList<>();
 
-        if(newEntity != null){
+        if (newEntity != null) {
             pacientes.add(pacienteConverter.toDto(newEntity));
         }
 
         if (pacientes.size() > 0) {
             model.addAttribute("pacientes", pacientes);
-            model.addAttribute("success",  "El registro de paciente se realizó con éxito.");
-        }else {
+            model.addAttribute("success", "El registro de paciente se realizó con éxito.");
+        } else {
             model.addAttribute("warning", "Ocurrió un error al registrar el paciente.");
         }
 
