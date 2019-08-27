@@ -162,7 +162,10 @@ public class PacienteController {
         model.addAttribute("opcion", "Búsqueda");
 
         PacienteEntity entity = pacienteService.getById(id);
+
+        model.addAttribute("paciente", pacienteConverter.toDto(entity));
         model.addAttribute("enfermedades", enfermedadConverter.toListDto(enfermedadService.findEnfermedadEntitiesByPaciente(entity)));
+
         return "enfermedad/listar";
     }
 

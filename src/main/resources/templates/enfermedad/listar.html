@@ -62,7 +62,9 @@
                                                 <td th:text="${enfermedad.orphanet.nombre}"></td>
                                                 <td th:text="${enfermedad.fecRegistro}"></td>
 
-                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/enfermedad/{id}(id=${enfermedad.id})}/tratamiento'|" /></td>
+                                                <td class="text-center">
+                                                    <input class="rdoption" type="radio" th:onclick="|window.location.href='@{/enfermedad/{id}(id=${enfermedad.id})}/tratamiento'|" />
+                                                </td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/enfermedad/mostrar/' + ${enfermedad.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/enfermedad/editar/' + ${enfermedad.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
@@ -72,9 +74,12 @@
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
-                                <div class="well well-sm">
 
+                                <div class="well well-sm text-left">
+                                    <input type="button" th:onclick="|window.location.href='@{/paciente(search=${paciente.nroDocumento})}'|" class="btn btn-default" value="Volver" />
+                                    <input type="button" class="btn btn-primary" value="Nuevo" />
                                 </div>
+
                             </div>
                             <!-- /.panel-body -->
                         </div>
