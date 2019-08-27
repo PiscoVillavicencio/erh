@@ -98,9 +98,9 @@ public class PacienteController {
         model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
+        model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
 
         model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(id)));
-        model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
         return "paciente/formulario";
     }
 
@@ -110,13 +110,22 @@ public class PacienteController {
         model.addAttribute("titulo", "Paciente");
         model.addAttribute("opcion", "Nuevo");
         model.addAttribute("paciente", PacienteDto.builder()
+                .condicion(EstadoEnum.ACTIVO)
                 .genero(GeneroEnum.OTRO)
+                .documento(documentoConverter.toDto(documentoService.getById(1L)))
+                .origenNacionalidad(NacionalidadEnum.NACIONAL)
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
-                .perfil(PerfilEnum.DIRECTOR)
+                .perfil(PerfilEnum.PACIENTE)
                 .build());
+
+        model.addAttribute("generoEnum", GeneroEnum.values());
+        model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
+        model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
+        model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
+
         return "paciente/formulario";
     }
 
