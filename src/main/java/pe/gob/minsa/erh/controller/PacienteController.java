@@ -131,9 +131,22 @@ public class PacienteController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String saveOrUpdate(PacienteDto dto, Model model) throws Exception {
+
         PacienteEntity newEntity = pacienteService.saveOrUpdate(pacienteConverter.toEntity(dto));
-        model.addAttribute("newEntity", pacienteConverter.toDto(newEntity));
-        return "redirect:/paciente/";
+        List<PacienteDto> pacientes  = new ArrayList<>();
+
+        if(newEntity != null){
+            pacientes.add(pacienteConverter.toDto(newEntity));
+        }
+
+        if (pacientes.size() > 0) {
+            model.addAttribute("pacientes", pacientes);
+            model.addAttribute("success",  "El registro de paciente se realizó con éxito.");
+        }else {
+            model.addAttribute("warning", "Ocurrió un error al registrar el paciente.");
+        }
+
+        return "paciente/listar";
     }
 
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
