@@ -24,7 +24,7 @@ public class IndexController {
     @GetMapping("/login")
     public String login(@RequestParam(value = "error", required = false) String error,
                         @RequestParam(value = "logout", required = false) String logout,
-                        Model model, Principal principal, RedirectAttributes flash) {
+                        Model model, Principal principal, RedirectAttributes flash) throws Exception {
 
         if (principal != null) {
             flash.addFlashAttribute("info", "Usuario logueado en el sistema.");

@@ -76,7 +76,7 @@ public class DirectorController {
 
     @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/eliminar/{id}")
-    public String delete(@PathVariable(value = "id") Long id) {
+    public String delete(@PathVariable(value = "id") Long id) throws Exception {
         directorService.delete(id);
         return "redirect:/director/";
     }

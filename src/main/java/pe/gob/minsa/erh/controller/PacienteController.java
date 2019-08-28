@@ -129,18 +129,19 @@ public class PacienteController {
         return "paciente/formulario";
     }
 
+    @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(method = RequestMethod.POST)
     public String saveOrUpdate(PacienteDto dto, Model model) throws Exception {
 
         PacienteEntity newEntity = pacienteService.saveOrUpdate(pacienteConverter.toEntity(dto));
-        List<PacienteDto> pacientes = new ArrayList<>();
+        List<PacienteDto> entities = new ArrayList<>();
 
         if (newEntity != null) {
-            pacientes.add(pacienteConverter.toDto(newEntity));
+            entities.add(pacienteConverter.toDto(newEntity));
         }
 
-        if (pacientes.size() > 0) {
-            model.addAttribute("pacientes", pacientes);
+        if (entities.size() > 0) {
+            model.addAttribute("pacientes", entities);
             model.addAttribute("success", "El registro de paciente se realizó con éxito.");
         } else {
             model.addAttribute("warning", "Ocurrió un error al registrar el paciente.");
@@ -151,7 +152,7 @@ public class PacienteController {
 
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/eliminar/{id}")
-    public String delete(@PathVariable(value = "id") Long id) {
+    public String delete(@PathVariable(value = "id") Long id) throws Exception {
         pacienteService.delete(id);
         return "redirect:/paciente/";
     }

@@ -53,7 +53,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "documento/nuevo", method = RequestMethod.GET)
-    public String documentoNuevo(Model model) {
+    public String documentoNuevo(Model model) throws Exception {
         model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Nuevo Tipo Documento");
         model.addAttribute("documento", DocumentoDto.builder()
@@ -72,7 +72,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "documento/eliminar/{id}")
-    public String documentoDelete(@PathVariable(value = "id") Long id) {
+    public String documentoDelete(@PathVariable(value = "id") Long id) throws Exception {
         documentoService.delete(id);
         return "redirect:/parametro/";
     }
@@ -86,7 +86,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "parentesco/nuevo", method = RequestMethod.GET)
-    public String parentescoNuevo(Model model) {
+    public String parentescoNuevo(Model model) throws Exception {
         model.addAttribute("titulo", "Parámetro");
         model.addAttribute("opcion", "Nuevo Parentesco");
         model.addAttribute("parentesco", ParentescoDto.builder()
@@ -105,7 +105,7 @@ public class ParametroController {
     }
 
     @RequestMapping(value = "parentesco/eliminar/{id}")
-    public String parentescoDelete(@PathVariable(value = "id") Long id) {
+    public String parentescoDelete(@PathVariable(value = "id") Long id) throws Exception {
         parentescoService.delete(id);
         return "redirect:/parametro/";
     }
