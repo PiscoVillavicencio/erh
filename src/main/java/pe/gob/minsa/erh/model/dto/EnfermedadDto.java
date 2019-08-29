@@ -19,7 +19,6 @@ public class EnfermedadDto implements Serializable {
     private String detalleDiagnostico;
     private String detalleExamenesAuxiliares;
     private PacienteDto paciente;
-    private MedicoDto medico;
     private Cie10CarpetaDto cie10Carpeta;
     private OrphanetDto orphanet;
     private EstadoEnum consentimientoInformado;

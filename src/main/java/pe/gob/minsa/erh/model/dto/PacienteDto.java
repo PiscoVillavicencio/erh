@@ -43,6 +43,8 @@ public class PacienteDto implements Serializable {
     private String telFijo;
     private String telMovil;
 
+    private MedicoDto medico;
+
     private IpressDto ipress;
 
     private List<CuidadorDto> cuidadorDtos;

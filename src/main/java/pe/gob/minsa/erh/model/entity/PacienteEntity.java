@@ -73,6 +73,10 @@ public class PacienteEntity implements Serializable {
     private String telMovil;
 
     @ManyToOne
+    @JoinColumn(name = "idmedicotratante")
+    private MedicoEntity medico;
+
+    @ManyToOne
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
     @Enumerated(EnumType.ORDINAL)

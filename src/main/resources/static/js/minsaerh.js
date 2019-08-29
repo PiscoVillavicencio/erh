@@ -84,6 +84,34 @@ $(document).ready(function() {
         }
     });
 
+    $('#table-datatable-4').DataTable({
+        responsive: true,
+        language: {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    });
+
     <!-- Initialize Toggle Estado-->
     $(function() {
         $('.toggle-estado').bootstrapToggle();
@@ -384,21 +412,17 @@ function checkDistritoResidencia(id, nombre) {
     $('#distritoResidenciaModal').modal('hide');
 }
 
-<!-- Select Persona Event -->
-function checkPersona(id, nombre, apePaterno, apeMaterno, tipoDoc, nroDoc, genero) {
+<!-- Select Medico Event -->
+function checkMedico(id, nombre, apePaterno, apeMaterno, especialidad, cmp) {
 
-    let info =  tipoDoc + ': ' + nroDoc + ', ' + nombre + ' ' + apePaterno + ' ' + apeMaterno;
-    $('input[id="txtPersonaInfo"]').val(info);
+    let info = nombre + ' ' + apePaterno + ' ' + apeMaterno;
+    $('input[id="txtMedicoInfo"]').val(info);
 
-    $('input[id="persona.id"]').val(id);
-    $('input[id="persona.nombre"]').val(nombre);
-    $('input[id="persona.apePaterno"]').val(apePaterno);
-    $('input[id="persona.apeMaterno"]').val(apeMaterno);
-    $('input[id="persona.documento.nombre"]').val(tipoDoc);
-    $('input[id="persona.nroDocumento"]').val(nroDoc);
-    $('input[id="persona.genero.label"]').val(genero);
+    $('input[id="medico.id"]').val(id);
+    $('input[id="medico.especialidad"]').val(especialidad);
+    $('input[id="medico.cmp"]').val(cmp);
 
-    $('#personaModal').modal('hide');
+    $('#medicoModal').modal('hide');
 }
 
 <!-- Select Cie10 Event -->

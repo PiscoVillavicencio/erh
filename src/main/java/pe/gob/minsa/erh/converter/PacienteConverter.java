@@ -23,6 +23,9 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
     private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
+    private MedicoConverter medicoConverter;
+
+    @Autowired
     private IpressConverter ipressConverter;
 
     @Autowired
@@ -39,6 +42,9 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
 
     @Autowired
     private UbiDistritoService ubiDistritoService;
+
+    @Autowired
+    private MedicoService medicoService;
 
     @Autowired
     private IpressService ipressService;
@@ -78,6 +84,7 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
                 .telFijo(entity.getTelFijo())
                 .telMovil(entity.getTelMovil())
 
+                .medico(medicoConverter.toDto(entity.getMedico()))
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
                 .cuidadorDtos(cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPacientes(entity)))
@@ -125,6 +132,7 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
         entity.setTelFijo(dto.getTelFijo());
         entity.setTelMovil(dto.getTelMovil());
 
+        entity.setMedico(medicoService.getById(dto.getMedico().getId()));
         entity.setIpress(ipressService.getById(dto.getIpress().getId()));
         entity.setPerfil(PerfilEnum.PACIENTE);
 

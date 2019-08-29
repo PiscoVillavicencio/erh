@@ -50,7 +50,6 @@ public class EnfermedadConverter extends AbstractConverter<EnfermedadEntity, Enf
                 .detalleDiagnostico(entity.getDetalleDiagnostico())
                 .detalleExamenesAuxiliares(entity.getDetalleExamenesAuxiliares())
                 .paciente(pacienteConverter.toDto(entity.getPaciente()))
-                .medico(medicoConverter.toDto(entity.getMedico()))
                 .cie10Carpeta(cie10CarpetaConverter.toDto(entity.getCie10Carpeta()))
                 .orphanet(orphanetConverter.toDto(entity.getOrphanet()))
                 .consentimientoInformado(entity.getConsentimientoInformado())
@@ -82,7 +81,6 @@ public class EnfermedadConverter extends AbstractConverter<EnfermedadEntity, Enf
         entity.setDetalleDiagnostico(dto.getDetalleDiagnostico().trim());
         entity.setDetalleExamenesAuxiliares(dto.getDetalleExamenesAuxiliares().trim());
         entity.setPaciente(pacienteService.getById(dto.getPaciente().getId()));
-        entity.setMedico(medicoService.getById(dto.getMedico().getId()));
         entity.setCie10Carpeta(cie10CarpetaService.getById(dto.getCie10Carpeta().getId()));
         entity.setOrphanet(orphanetService.getById(dto.getOrphanet().getId()));
         entity.setConsentimientoInformado(dto.getConsentimientoInformado());

@@ -34,6 +34,11 @@ public class PacienteController {
     private PacienteConverter pacienteConverter;
 
     @Autowired
+    private MedicoService medicoService;
+    @Autowired
+    private MedicoConverter medicoConverter;
+
+    @Autowired
     private IpressService ipressService;
     @Autowired
     private IpressConverter ipressConverter;
@@ -98,6 +103,7 @@ public class PacienteController {
         model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
+        model.addAttribute("medicos", medicoConverter.toListDto(medicoService.listAll()));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
 
         model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(id)));
@@ -114,6 +120,7 @@ public class PacienteController {
                 .genero(GeneroEnum.OTRO)
                 .documento(documentoConverter.toDto(documentoService.getById(1L)))
                 .origenNacionalidad(NacionalidadEnum.NACIONAL)
+                .medico(medicoConverter.toDto(medicoService.getById(1L)))
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
@@ -124,6 +131,7 @@ public class PacienteController {
         model.addAttribute("nacionalidadEnum", NacionalidadEnum.values());
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
         model.addAttribute("distritos", ubiDistritoConverter.toListDto(ubiDistritoService.listAll()));
+        model.addAttribute("medicos", medicoConverter.toListDto(medicoService.listAll()));
         model.addAttribute("ipresses", ipressConverter.toListDto(ipressService.listAll()));
 
         return "paciente/formulario";

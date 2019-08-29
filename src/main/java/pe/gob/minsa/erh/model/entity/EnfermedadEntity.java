@@ -25,9 +25,6 @@ public class EnfermedadEntity {
     @JoinColumn(name = "idpaciente")
     private PacienteEntity paciente;
     @ManyToOne
-    @JoinColumn(name = "idmedicotratante")
-    private MedicoEntity medico;
-    @ManyToOne
     @JoinColumn(name = "idcarpetacie10")
     private Cie10CarpetaEntity cie10Carpeta;
     @ManyToOne
