@@ -7,25 +7,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pe.gob.minsa.erh.converter.Cie10CarpetaConverter;
-import pe.gob.minsa.erh.converter.EnfermedadConverter;
-import pe.gob.minsa.erh.converter.OrphanetConverter;
-import pe.gob.minsa.erh.converter.TratamientoConverter;
+import org.springframework.web.bind.annotation.RequestParam;
+import pe.gob.minsa.erh.converter.*;
 import pe.gob.minsa.erh.model.dto.EnfermedadDto;
+import pe.gob.minsa.erh.model.dto.PacienteDto;
 import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
-import pe.gob.minsa.erh.service.Cie10CarpetaService;
-import pe.gob.minsa.erh.service.EnfermedadService;
-import pe.gob.minsa.erh.service.OrphanetService;
-import pe.gob.minsa.erh.service.TratamientoService;
+import pe.gob.minsa.erh.model.enums.EstadoEnum;
+import pe.gob.minsa.erh.service.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @Secured({"ROLE_MASTER", "ROLE_DIRECTOR", "ROLE_MEDICO", "ROLE_PACIENTE"})
 @RequestMapping("/enfermedad")
 public class EnfermedadController {
+
+    @Autowired
+    private PacienteService pacienteService;
+    @Autowired
+    private PacienteConverter pacienteConverter;
 
     @Autowired
     private EnfermedadService enfermedadService;
@@ -75,13 +79,21 @@ public class EnfermedadController {
 
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
-    public String nuevo(Model model) throws Exception {
+    public String nuevo(@RequestParam(value = "pacienteId", required = false) Long pacienteId, Model model) throws Exception {
         model.addAttribute("titulo", "Enfermedad");
         model.addAttribute("opcion", "Nuevo");
 
-        model.addAttribute("enfermedad", EnfermedadDto.builder()
+        PacienteDto pacienteDto = pacienteConverter.toDto(pacienteService.getById(pacienteId));
 
+        model.addAttribute("enfermedad", EnfermedadDto.builder()
+                .paciente(pacienteDto)
+                .estado(EstadoEnum.ACTIVO)
+                .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
+                .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .build());
+
+        model.addAttribute("cie10Carpetas", cie10CarpetaConverter.toListDto(cie10CarpetaService.listAll()));
+        model.addAttribute("orphanets", orphanetConverter.toListDto(orphanetService.listAll()));
 
         return "enfermedad/formulario";
     }
@@ -94,7 +106,7 @@ public class EnfermedadController {
         EnfermedadEntity newEntity = enfermedadService.saveOrUpdate(enfermedadConverter.toEntity(dto));
 
         if(newEntity != null){
-            entities.add(enfermedadConverter.toDto(newEntity));
+            entities.addAll(enfermedadConverter.toListDto(enfermedadService.findEnfermedadEntitiesByPaciente(newEntity.getPaciente())));
         }
 
         if (entities.size() > 0) {

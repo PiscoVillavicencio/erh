@@ -77,7 +77,7 @@
 
                                 <div class="well well-sm text-left">
                                     <input type="button" th:onclick="|window.location.href='@{/paciente(search=${paciente.nroDocumento})}'|" class="btn btn-default" value="Volver" />
-                                    <input type="button" th:onclick="|window.location.href='@{/paciente(search=${paciente.nroDocumento})}'|" class="btn btn-primary" value="Nuevo" />
+                                    <input type="button" th:onclick="|window.location.href='@{/enfermedad/nuevo(pacienteId=${paciente.id})}'|" class="btn btn-primary" value="Nuevo" />
                                 </div>
 
                             </div>
