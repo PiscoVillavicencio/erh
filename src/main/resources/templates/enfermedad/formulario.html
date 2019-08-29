@@ -56,10 +56,16 @@
                                                        <input type="checkbox" class="toggle-consentimientoInformado" data-on="Si" data-off="No" />
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-8 form-group form-group-sm">
-                                                    <label class="col-sm-2 control-label" for="nombrePaciente">Paciente</label>
-                                                    <div class="col-sm-10">
-                                                        <input class="form-control" id="nombrePaciente" name="nombrePaciente" th:value="*{paciente.nombre + ' ' + paciente.apePaterno + ' ' + paciente.apeMaterno}" disabled="true" />
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-3 control-label" for="txtPacienteInfo">Paciente</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" id="txtPacienteInfo" name="txtPacienteInfo" th:value="*{paciente.nombre + ' ' + paciente.apePaterno + ' ' + paciente.apeMaterno}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-3 control-label" for="txtMedicoInfo">Médico Tratante</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" id="txtMedicoInfo" name="txtMedicoInfo" th:value="*{paciente.medico.nombre + ' ' + paciente.medico.apePaterno + ' ' + paciente.medico.apeMaterno}" disabled="true" />
                                                     </div>
                                                 </div>
                                             </div>
