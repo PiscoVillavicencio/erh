@@ -15877,15 +15877,15 @@ INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VA
 INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Madrastra',NOW(),NOW(),1);
 INSERT INTO parentesco(parentesco, datfregistro, datfmodificacion, chrestado) VALUES ('Ninguno',NOW(),NOW(),1);
 
------------------------ PACIENTE ---------------------------
-
-INSERT INTO paciente (strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, chrestado, datfmodificacion, datfregistro, idperfil, idipress) VALUES ('Luis','Gonzales','Binasco', date('now') - interval '30 year', 1, '10549869', 1, '10549869.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'gonzalesb.luis@gmail.com', 1271, 'Calle Los Alvares 425', 'Lima', '4325589', '939832658', 1, NOW(), NOW(), 3, 1);
-
 ----------------------- MEDICO TRATANTE ---------------------------
 
 INSERT INTO medicotratante(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strcmp, strespecialidad, chrestado, datfmodificacion, datfregistro, idperfil, strrne, idipress) VALUES ('Lucia','Jimenez','Quispe',date('now') - interval '60 year', 1, '06045789', 2, '06045789.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'l.jimenez@hotmail', 1271, 'Calle Los Alcanfores 549', 'Lima', '5432278', '991367852', '154875', 'Especialidad en Obstetricia', '1', NOW(), NOW(), 2, '1245', 29);
 INSERT INTO medicotratante(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strcmp, strespecialidad, chrestado, datfmodificacion, datfregistro, idperfil, strrne, idipress) VALUES ('Guillermo','Juarez','Figueroa',date('now') - interval '45 year', 1, '10714588', 1, '10714588.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'guilermo@gmail.com', 1271, 'Calle Las Flores 123', 'Lima', '4345789', '993145789', '154578', 'Especialidad en Cirujía Estética', '1', NOW(), NOW(), 2, '1045', 29);
 INSERT INTO medicotratante(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strcmp, strespecialidad, chrestado, datfmodificacion, datfregistro, idperfil, strrne, idipress) VALUES ('Josefina','Suarez','Benvenuto',date('now') - interval '65 year', 1, '01455954', 2, '01455954.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'josefina.suarez@hotmail', 1271, 'Avenida Los Geranios 549', 'Lima', '5432278', '991345789', '184512', 'Especialidad en Obstetricia', '1', NOW(), NOW(), 2, '1045', 1);
+
+----------------------- PACIENTE ---------------------------
+
+INSERT INTO paciente (strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, chrestado, datfmodificacion, datfregistro, idperfil, idipress, idmedicotratante) VALUES ('Luis','Gonzales','Binasco', date('now') - interval '30 year', 1, '10549869', 1, '10549869.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'gonzalesb.luis@gmail.com', 1271, 'Calle Los Alvares 425', 'Lima', '4325589', '939832658', 1, NOW(), NOW(), 3, 1, 1);
 
 ----------------------- CUIDADOR ---------------------------
 
@@ -15909,7 +15909,7 @@ INSERT INTO discapacidad(strobservaciones, strlimitacionfuncional, chrestado, da
 
 ----------------------- ENFERMEDAD ---------------------------
 
-INSERT INTO enfermedad(chrconsentimientoinformado, strdetatallediagnostico, strexamenesauxiliares, chrdiagnosticobioquimico, chrdiagnosticoclinico, chrdiagnosticoinmunologico, chrdiagnosticoporgenetico, chrdiagnosticoporimagenes, chrestado, datfmodificacion, datfregistro, idcarpetacie10, idmedicotratante, idorphanet, idpaciente) VALUES (1, 'El detalle del diagnostico es...', 'Los examenes auxiliares son...', 0, 1, 1, 0, 0, '1', NOW(), NOW(), 449, 3, 209, 1);
+INSERT INTO enfermedad(chrconsentimientoinformado, strdetatallediagnostico, strexamenesauxiliares, chrdiagnosticobioquimico, chrdiagnosticoclinico, chrdiagnosticoinmunologico, chrdiagnosticoporgenetico, chrdiagnosticoporimagenes, chrestado, datfmodificacion, datfregistro, idcarpetacie10, idorphanet, idpaciente) VALUES (1, 'El detalle del diagnostico es...', 'Los examenes auxiliares son...', 0, 1, 1, 0, 0, '1', NOW(), NOW(), 449, 209, 1);
 
 ----------------------- TRATAMIENTO ---------------------------
 

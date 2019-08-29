@@ -7,12 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pe.gob.minsa.erh.converter.Cie10CarpetaConverter;
 import pe.gob.minsa.erh.converter.EnfermedadConverter;
+import pe.gob.minsa.erh.converter.OrphanetConverter;
 import pe.gob.minsa.erh.converter.TratamientoConverter;
 import pe.gob.minsa.erh.model.dto.EnfermedadDto;
 import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
+import pe.gob.minsa.erh.service.Cie10CarpetaService;
 import pe.gob.minsa.erh.service.EnfermedadService;
+import pe.gob.minsa.erh.service.OrphanetService;
 import pe.gob.minsa.erh.service.TratamientoService;
 
 import java.util.ArrayList;
@@ -33,6 +37,18 @@ public class EnfermedadController {
     @Autowired
     private TratamientoConverter tratamientoConverter;
 
+    @Autowired
+    private Cie10CarpetaService cie10CarpetaService;
+
+    @Autowired
+    private Cie10CarpetaConverter cie10CarpetaConverter;
+
+    @Autowired
+    private OrphanetService orphanetService;
+
+    @Autowired
+    private OrphanetConverter orphanetConverter;
+
     @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
     public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Enfermedad");
@@ -48,6 +64,9 @@ public class EnfermedadController {
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Enfermedad");
         model.addAttribute("opcion", "Editar");
+
+        model.addAttribute("cie10Carpetas", cie10CarpetaConverter.toListDto(cie10CarpetaService.listAll()));
+        model.addAttribute("orphanets", orphanetConverter.toListDto(orphanetService.listAll()));
 
         model.addAttribute("enfermedad", enfermedadConverter.toDto(enfermedadService.getById(id)));
 

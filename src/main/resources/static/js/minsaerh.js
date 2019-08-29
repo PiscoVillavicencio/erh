@@ -401,7 +401,20 @@ function checkPersona(id, nombre, apePaterno, apeMaterno, tipoDoc, nroDoc, gener
     $('#personaModal').modal('hide');
 }
 
+<!-- Select Cie10 Event -->
+function checkCie10(id, codigo, nombre) {
+    $('input[id="cie10Carpeta.id"]').val(id);
+    $('input[id="cie10Carpeta.codigo"]').val(codigo);
+    $('input[id="cie10Carpeta.nombre"]').val(nombre);
+    $('#cie10Modal').modal('hide');
+}
 
+<!-- Select Orphanet Event -->
+function checkOrphanet(id, nombre) {
+    $('input[id="orphanet.id"]').val(id);
+    $('input[id="orphanet.nombre"]').val(nombre);
+    $('#orphanetModal').modal('hide');
+}
 
 
 

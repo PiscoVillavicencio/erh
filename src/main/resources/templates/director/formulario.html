@@ -66,8 +66,8 @@
                                                                             <thead>
                                                                                 <tr>
 
+                                                                                    <th>Código</th>
                                                                                     <th>Nombre</th>
-                                                                                    <th>codigo</th>
                                                                                     <th>Teléfono</th>
                                                                                     <th>RUC</th>
                                                                                     <th>Direccion</th>
@@ -81,8 +81,8 @@
                                                                             <tbody>
                                                                                 <tr th:each="ipress: ${ipresses}" class="odd gradeX">
 
-                                                                                    <td th:text="${ipress.nombre}"></td>
                                                                                     <td th:text="${ipress.codigo}"></td>
+                                                                                    <td th:text="${ipress.nombre}"></td>
                                                                                     <td th:text="${ipress.telefono}"></td>
                                                                                     <td th:text="${ipress.ruc}"></td>
                                                                                     <td th:text="${ipress.direccion}"></td>

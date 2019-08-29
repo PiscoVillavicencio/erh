@@ -62,23 +62,23 @@
                                             <hr/>
 
                                             <div class="row">
-                                                <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{cie10Carpeta.codigo}">Código CIE-10</label>
-                                                    <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{cie10Carpeta.codigo}" disabled="true" />
-                                                    </div>
-                                                </div>
                                                 <div class="col-sm-8 form-group form-group-sm">
                                                     <label class="col-sm-2 control-label" th:for="*{cie10Carpeta.nombre}">CIE-10</label>
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-8">
                                                         <input class="form-control" placeholder="" th:field="*{cie10Carpeta.nombre}" disabled="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 form-group form-group-sm">
+                                                    <label class="col-sm-6 control-label" th:for="*{cie10Carpeta.codigo}">Código CIE-10</label>
+                                                    <div class="col-sm-6">
+                                                        <input class="form-control" placeholder="" th:field="*{cie10Carpeta.codigo}" disabled="true" />
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{orphanet.nombre}">Código Orphanet</label>
+                                                <div class="col-sm-8 form-group form-group-sm">
+                                                    <label class="col-sm-2 control-label" th:for="*{orphanet.nombre}">Código Orphanet</label>
                                                     <div class="col-sm-8">
                                                         <input class="form-control" placeholder="" th:field="*{orphanet.nombre}" disabled="true" />
                                                     </div>
@@ -86,13 +86,13 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-8 form-group form-group-sm">
+                                                <div class="col-sm-12 form-group form-group-sm">
                                                     <label class="col-sm-2 control-label" th:for="*{detalleDiagnostico}">Diagnóstico</label>
                                                     <div class="col-sm-10">
                                                         <textarea class="form-control" placeholder="" th:field="*{detalleDiagnostico}" disabled="true" />
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-8 form-group form-group-sm">
+                                                <div class="col-sm-12 form-group form-group-sm">
                                                     <label class="col-sm-2 control-label" th:for="*{detalleExamenesAuxiliares}">Exámenes Auxiliares</label>
                                                     <div class="col-sm-10">
                                                         <textarea class="form-control" placeholder="" th:field="*{detalleExamenesAuxiliares}" disabled="true" />
