@@ -16,6 +16,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
+                        <div th:replace="layout :: alert"></div>
                         <h1 class="page-header" th:text="${titulo}">Page Title</h1>
                     </div>
                 </div>
@@ -66,8 +67,9 @@
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
-                                <div class="well well-sm">
-
+                                <div class="well well-sm text-left">
+                                    <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${enfermedad.paciente.id})}/enfermedad'|" class="btn btn-default" value="Volver" />
+                                    <input type="button" th:onclick="|window.location.href='@{/tratamiento/nuevo(pacienteId=${enfermedad.paciente.id})}'|" class="btn btn-primary" value="Nuevo" />
                                 </div>
                             </div>
                             <!-- /.panel-body -->

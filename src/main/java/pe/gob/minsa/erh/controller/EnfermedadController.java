@@ -134,12 +134,13 @@ public class EnfermedadController {
         return String.format("redirect:/%s/enfermedad", enfermedadConverter.toDto(entity).getPaciente().getId());
     }
 
-    @RequestMapping(value = "/{id}/tratamiento", method = RequestMethod.GET)
-    public String listarTratamiento(@PathVariable(value = "id") Long id, Model model) throws Exception {
+    @RequestMapping(value = "/{enfermedadId}/tratamiento", method = RequestMethod.GET)
+    public String listarTratamiento(@PathVariable(value = "enfermedadId") Long enfermedadId, Model model) throws Exception {
         model.addAttribute("titulo", "Tratamiento");
         model.addAttribute("opcion", "Búsqueda");
 
-        EnfermedadEntity entity = enfermedadService.getById(id);
+        EnfermedadEntity entity = enfermedadService.getById(enfermedadId);
+        model.addAttribute("enfermedad", enfermedadConverter.toDto(entity));
         model.addAttribute("tratamientos", tratamientoConverter.toListDto(tratamientoService.findTratamientoEntitiesByEnfermedad(entity)));
         return "tratamiento/listar";
     }

@@ -140,7 +140,7 @@
                                                 <input class="form-control" placeholder="" th:field="*{fecModificacion}" disabled="true" />
                                             </div>
 
-                                            <button class="btn btn-default" type="button" th:onclick="|window.location.href='@{/enfermedad/{id}(id=${tratamiento.enfermedad.id})}/tratamiento'|">Cancelar</button>
+                                            <input type="button" th:onclick="|window.location.href='@{/enfermedad/{id}(id=${tratamiento.enfermedad.id})}/tratamiento'|" class="btn btn-default" value="Volver" />
 
                                         </form>
                                     </div>
