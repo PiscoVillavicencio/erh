@@ -117,6 +117,9 @@ public class EnfermedadController {
             model.addAttribute("warning", "Ocurrió un error al registrar la enfermedad.");
         }
 
+        model.addAttribute("titulo", "Enfermedad");
+        model.addAttribute("opcion", "Búsqueda");
+
         return "enfermedad/listar";
 
     }
