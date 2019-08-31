@@ -171,10 +171,10 @@
                             <a href="#"><i class="fa fa-user-md fa-fw"></i> Médico Tratante<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Lista Médicos</a>
+                                    <a th:href="@{/medico}">Lista Médicos</a>
                                 </li>
                                 <li sec:authorize="hasAnyRole('ROLE_MASTER', 'ROLE_ADMINISTRADOR')">
-                                    <a href="#">Nuevo Médico</a>
+                                    <a th:href="@{/medico/nuevo}">Nuevo Médico</a>
                                 </li>
                             </ul>
                         </li>

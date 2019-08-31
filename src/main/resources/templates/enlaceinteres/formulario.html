@@ -106,10 +106,10 @@
 
                                             <div class="row">
                                                 <div class="col-sm-2 col-sm-offset-4">
-                                                    <button type="submit" class="btn btn-primary">Grabar</button>
+                                                    <input type="submit" class="btn btn-primary" value="Guardar" />
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <a th:href="@{/enlaceinteres}" class="btn btn-default">Cancelar</a>
+                                                    <input type="button" th:onclick="|window.location.href='@{/enlaceinteres}'|" class="btn btn-default" value="Cancelar" />
                                                 </div>
                                             </div>
 

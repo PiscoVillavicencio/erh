@@ -49,25 +49,25 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
                 .nombre(entity.getNombre())
                 .apePaterno(entity.getApePaterno())
                 .apeMaterno(entity.getApeMaterno())
-                .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
-                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
+//                .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
+//                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
                 .documento(documentoConverter.toDto(entity.getDocumento()))
                 .nroDocumento(entity.getNroDocumento())
-                .genero(entity.getGenero())
+//                .genero(entity.getGenero())
                 .rutaImagen(entity.getRutaImagen())
-                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
-                .condicion(entity.getCondicion())
-                .origenNacionalidad(entity.getOrigenNacionalidad())
-                .origenPais(entity.getOrigenPais())
-                .origenEstado(entity.getOrigenEstado())
-                .origenCiudad(entity.getOrigenCiudad())
-                .lugarNacimiento(entity.getLugarNacimiento())
-                .email(entity.getEmail())
-                .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
-                .direccionActual(entity.getDireccionActual())
-                .lugarProcedencia(entity.getLugarProcedencia())
-                .telFijo(entity.getTelFijo())
-                .telMovil(entity.getTelMovil())
+//                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
+//                .condicion(entity.getCondicion())
+//                .origenNacionalidad(entity.getOrigenNacionalidad())
+//                .origenPais(entity.getOrigenPais())
+//                .origenEstado(entity.getOrigenEstado())
+//                .origenCiudad(entity.getOrigenCiudad())
+//                .lugarNacimiento(entity.getLugarNacimiento())
+//                .email(entity.getEmail())
+//                .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
+//                .direccionActual(entity.getDireccionActual())
+//                .lugarProcedencia(entity.getLugarProcedencia())
+//                .telFijo(entity.getTelFijo())
+//                .telMovil(entity.getTelMovil())
 
                 .cmp(entity.getCmp())
                 .rne(entity.getRne())
@@ -98,24 +98,24 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
         entity.setNombre(dto.getNombre().trim());
         entity.setApePaterno(dto.getApePaterno().trim());
         entity.setApeMaterno(dto.getApeMaterno().trim());
-        entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
+//        entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
         entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
         entity.setNroDocumento(dto.getNroDocumento());
-        entity.setGenero(dto.getGenero());
+//        entity.setGenero(dto.getGenero());
         entity.setRutaImagen(entity.getRutaImagen());
-        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
-        entity.setCondicion(dto.getCondicion());
-        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
-        entity.setOrigenPais(dto.getOrigenPais());
-        entity.setOrigenEstado(dto.getOrigenEstado());
-        entity.setOrigenCiudad(dto.getOrigenCiudad());
-        entity.setLugarNacimiento(dto.getLugarNacimiento());
-        entity.setEmail(dto.getEmail());
-        entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
-        entity.setDireccionActual(dto.getDireccionActual());
-        entity.setLugarProcedencia(dto.getLugarProcedencia());
-        entity.setTelFijo(dto.getTelFijo());
-        entity.setTelMovil(dto.getTelMovil());
+//        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
+//        entity.setCondicion(dto.getCondicion());
+//        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
+//        entity.setOrigenPais(dto.getOrigenPais());
+//        entity.setOrigenEstado(dto.getOrigenEstado());
+//        entity.setOrigenCiudad(dto.getOrigenCiudad());
+//        entity.setLugarNacimiento(dto.getLugarNacimiento());
+//        entity.setEmail(dto.getEmail());
+//        entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
+//        entity.setDireccionActual(dto.getDireccionActual());
+//        entity.setLugarProcedencia(dto.getLugarProcedencia());
+//        entity.setTelFijo(dto.getTelFijo());
+//        entity.setTelMovil(dto.getTelMovil());
 
         entity.setCmp(dto.getCmp().trim());
         entity.setRne(dto.getRne().trim());
