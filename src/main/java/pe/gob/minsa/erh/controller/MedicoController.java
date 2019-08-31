@@ -44,7 +44,7 @@ public class MedicoController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(Model model) throws Exception {
-        model.addAttribute("titulo", "Médico");
+        model.addAttribute("titulo", "Médico Tratante");
         model.addAttribute("opcion", "Búsqueda");
         model.addAttribute("medicos", medicoConverter.toListDto(medicoService.listAll()));
         return "medico/listar";
@@ -52,7 +52,7 @@ public class MedicoController {
 
     @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
     public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "Médico");
+        model.addAttribute("titulo", "Médico Tratante");
         model.addAttribute("opcion", "Mostrar");
         model.addAttribute("medico", medicoConverter.toDto(medicoService.getById(id)));
         return "medico/mostrar";
@@ -62,7 +62,7 @@ public class MedicoController {
     @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
-        model.addAttribute("titulo", "Médico");
+        model.addAttribute("titulo", "Médico Tratante");
         model.addAttribute("opcion", "Editar");
 
         model.addAttribute("medico", medicoConverter.toDto(medicoService.getById(id)));
@@ -75,7 +75,7 @@ public class MedicoController {
     @Secured({"ROLE_MASTER", "ROLE_ADMINISTRADOR"})
     @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
     public String nuevo(Model model) throws Exception {
-        model.addAttribute("titulo", "Médico");
+        model.addAttribute("titulo", "Médico Tratante");
         model.addAttribute("opcion", "Nuevo");
         model.addAttribute("medico", MedicoDto.builder()
                 .documento(documentoConverter.toDto(documentoService.getById(1L)))
