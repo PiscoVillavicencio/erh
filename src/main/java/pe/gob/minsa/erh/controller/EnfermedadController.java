@@ -101,6 +101,8 @@ public class EnfermedadController {
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(method = RequestMethod.POST)
     public String saveOrUpdate(EnfermedadDto dto, Model model) throws Exception {
+        model.addAttribute("titulo", "Enfermedad");
+        model.addAttribute("opcion", "Búsqueda");
 
         List<EnfermedadDto> entities = new ArrayList<>();
         EnfermedadEntity newEntity = enfermedadService.saveOrUpdate(enfermedadConverter.toEntity(dto));
@@ -116,9 +118,6 @@ public class EnfermedadController {
         } else {
             model.addAttribute("warning", "Ocurrió un error al registrar la enfermedad.");
         }
-
-        model.addAttribute("titulo", "Enfermedad");
-        model.addAttribute("opcion", "Búsqueda");
 
         return "enfermedad/listar";
 

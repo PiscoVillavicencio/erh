@@ -16,7 +16,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Error Desconocido</h1>
+                        <h1 class="page-header"> <span th:text="${error}"></span> </h1>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                Error XXX
+                                Error <span th:text="${status}"></span>
                             </div>
                             <div class="panel-body">
 
@@ -83,7 +83,7 @@
                             </div>
                             <div class="panel-footer">
 
-                                <h5 class="card-title ">Los sentimos, Ocurrió un error desconocido. Dar clic en <a th:href="@{/}" class="active"><i class="fa fa-dashboard fa-fw"></i> Inicio</a> para retornar.</h5>
+                                <h5 class="card-title ">Los sentimos, Ocurrió un error. Dar clic en <a th:href="@{/}" class="active"><i class="fa fa-dashboard fa-fw"></i> Inicio</a> para retornar.</h5>
 
                             </div>
                         </div>

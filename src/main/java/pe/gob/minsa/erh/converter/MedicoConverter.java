@@ -1,7 +1,5 @@
 package pe.gob.minsa.erh.converter;
 
-import org.joda.time.DateTime;
-import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
@@ -11,7 +9,6 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.DocumentoService;
 import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.MedicoService;
-import pe.gob.minsa.erh.service.UbiDistritoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,8 +19,8 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
     @Autowired
     private DocumentoConverter documentoConverter;
 
-    @Autowired
-    private UbiDistritoConverter ubiDistritoConverter;
+//    @Autowired
+//    private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
     private IpressConverter ipressConverter;
@@ -34,8 +31,8 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
     @Autowired
     private DocumentoService documentoService;
 
-    @Autowired
-    private UbiDistritoService ubiDistritoService;
+//    @Autowired
+//    private UbiDistritoService ubiDistritoService;
 
     @Autowired
     private IpressService ipressService;

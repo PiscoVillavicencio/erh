@@ -3,7 +3,6 @@ package pe.gob.minsa.erh.model.entity;
 import lombok.Data;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
-import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
@@ -40,42 +39,42 @@ public class AntecedenteFamiliarEntity implements Serializable {
     private GeneroEnum genero;
     @Column(name = "strrutaimagen")
     private String rutaImagen;
-    @ManyToOne
-    @JoinColumn(name = "iddistrito")
-    private UbiDistritoEntity distritoNacimiento;
+//    @ManyToOne
+//    @JoinColumn(name = "iddistrito")
+//    private UbiDistritoEntity distritoNacimiento;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestavivo")
     private EstadoEnum condicion;
-    @Column(name = "chrnacionalidad")
-    private NacionalidadEnum origenNacionalidad;
-    @Column(name = "strpais")
-    private String origenPais;
-    @Column(name = "strestado")
-    private String origenEstado;
-    @Column(name = "strciudad")
-    private String origenCiudad;
-    @Column(name = "strlugarnacimiento")
-    private String lugarNacimiento;
-    @Column(name = "stremail")
-    private String email;
-    @ManyToOne
-    @JoinColumn(name = "iddistritoactual")
-    private UbiDistritoEntity distritoResidencia;
-    @Column(name = "strdireccionactual")
-    private String direccionActual;
-    @Column(name = "strlugarprocedencia")
-    private String lugarProcedencia;
-    @Column(name = "strtelefonofijo")
-    private String telFijo;
-    @Column(name = "strtelefonomovil")
-    private String telMovil;
+//    @Column(name = "chrnacionalidad")
+//    private NacionalidadEnum origenNacionalidad;
+//    @Column(name = "strpais")
+//    private String origenPais;
+//    @Column(name = "strestado")
+//    private String origenEstado;
+//    @Column(name = "strciudad")
+//    private String origenCiudad;
+//    @Column(name = "strlugarnacimiento")
+//    private String lugarNacimiento;
+//    @Column(name = "stremail")
+//    private String email;
+//    @ManyToOne
+//    @JoinColumn(name = "iddistritoactual")
+//    private UbiDistritoEntity distritoResidencia;
+//    @Column(name = "strdireccionactual")
+//    private String direccionActual;
+//    @Column(name = "strlugarprocedencia")
+//    private String lugarProcedencia;
+//    @Column(name = "strtelefonofijo")
+//    private String telFijo;
+//    @Column(name = "strtelefonomovil")
+//    private String telMovil;
 
     @ManyToOne
     @JoinColumn(name = "idparentesco")
     private ParentescoEntity parentesco;
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "chrfamiliarcondicion")
-    private EstadoEnum familiarCondicion;
+//    @Enumerated(EnumType.ORDINAL)
+//    @Column(name = "chrfamiliarcondicion")
+//    private EstadoEnum familiarCondicion;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrmismaenfermedad")
     private EstadoEnum mismaEnfermedad;

@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import pe.gob.minsa.erh.converter.AntecedenteFamiliarConverter;
+import pe.gob.minsa.erh.converter.PacienteConverter;
 import pe.gob.minsa.erh.converter.TratamientoConverter;
 import pe.gob.minsa.erh.service.AntecedenteFamiliarService;
+import pe.gob.minsa.erh.service.PacienteService;
 import pe.gob.minsa.erh.service.TratamientoService;
 
 @Controller
@@ -20,11 +23,19 @@ public class AntecedenteFamiliarController {
     @Autowired
     private AntecedenteFamiliarConverter antecedenteFamiliarConverter;
 
+    @Autowired
+    private PacienteService pacienteService;
+    @Autowired
+    private PacienteConverter pacienteConverter;
+
     @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
-    public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
+    public String mostrar(@PathVariable(value = "id") Long id, @RequestParam(value = "pacienteId") Long pacienteId, Model model) throws Exception {
         model.addAttribute("titulo", "Antecedente Familiar");
         model.addAttribute("opcion", "Mostrar");
+
         model.addAttribute("antecedenteFamiliar", antecedenteFamiliarConverter.toDto(antecedenteFamiliarService.getById(id)));
+        model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(pacienteId)));
+
         return "antecedentefamiliar/mostrar";
     }
 

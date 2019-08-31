@@ -11,7 +11,6 @@ import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.AntecedenteFamiliarService;
 import pe.gob.minsa.erh.service.DocumentoService;
 import pe.gob.minsa.erh.service.ParentescoService;
-import pe.gob.minsa.erh.service.UbiDistritoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,8 +21,8 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
     @Autowired
     private DocumentoConverter documentoConverter;
 
-    @Autowired
-    private UbiDistritoConverter ubiDistritoConverter;
+//    @Autowired
+//    private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
     private ParentescoConverter parentescoConverter;
@@ -34,8 +33,8 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
     @Autowired
     private DocumentoService documentoService;
 
-    @Autowired
-    private UbiDistritoService ubiDistritoService;
+//    @Autowired
+//    private UbiDistritoService ubiDistritoService;
 
     @Autowired
     private ParentescoService parentescoService;
@@ -55,22 +54,22 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
                 .nroDocumento(entity.getNroDocumento())
                 .genero(entity.getGenero())
                 .rutaImagen(entity.getRutaImagen())
-                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
+//                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
                 .condicion(entity.getCondicion())
-                .origenNacionalidad(entity.getOrigenNacionalidad())
-                .origenPais(entity.getOrigenPais())
-                .origenEstado(entity.getOrigenEstado())
-                .origenCiudad(entity.getOrigenCiudad())
-                .lugarNacimiento(entity.getLugarNacimiento())
-                .email(entity.getEmail())
-                .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
-                .direccionActual(entity.getDireccionActual())
-                .lugarProcedencia(entity.getLugarProcedencia())
-                .telFijo(entity.getTelFijo())
-                .telMovil(entity.getTelMovil())
+//                .origenNacionalidad(entity.getOrigenNacionalidad())
+//                .origenPais(entity.getOrigenPais())
+//                .origenEstado(entity.getOrigenEstado())
+//                .origenCiudad(entity.getOrigenCiudad())
+//                .lugarNacimiento(entity.getLugarNacimiento())
+//                .email(entity.getEmail())
+//                .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
+//                .direccionActual(entity.getDireccionActual())
+//                .lugarProcedencia(entity.getLugarProcedencia())
+//                .telFijo(entity.getTelFijo())
+//                .telMovil(entity.getTelMovil())
 
                 .parentesco(parentescoConverter.toDto(entity.getParentesco()))
-                .familiarCondicion(entity.getFamiliarCondicion())
+//                .familiarCondicion(entity.getFamiliarCondicion())
                 .mismaEnfermedad(entity.getMismaEnfermedad())
                 .fecDiagnostico(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecDiagnostico()))
                 .detalleEnfermedad(entity.getDetalleEnfermedad())
@@ -90,7 +89,7 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
         if (dto.getId() == null) {
             entity = new AntecedenteFamiliarEntity();
             entity.setFecRegistro(new Date());
-        }else {
+        } else {
             entity = antecedenteFamiliarService.getById(dto.getId());
         }
 
@@ -104,22 +103,22 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
         entity.setNroDocumento(dto.getNroDocumento());
         entity.setGenero(dto.getGenero());
         entity.setRutaImagen(entity.getRutaImagen());
-        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
+//        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
         entity.setCondicion(dto.getCondicion());
-        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
-        entity.setOrigenPais(dto.getOrigenPais());
-        entity.setOrigenEstado(dto.getOrigenEstado());
-        entity.setOrigenCiudad(dto.getOrigenCiudad());
-        entity.setLugarNacimiento(dto.getLugarNacimiento());
-        entity.setEmail(dto.getEmail());
-        entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
-        entity.setDireccionActual(dto.getDireccionActual());
-        entity.setLugarProcedencia(dto.getLugarProcedencia());
-        entity.setTelFijo(dto.getTelFijo());
-        entity.setTelMovil(dto.getTelMovil());
+//        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
+//        entity.setOrigenPais(dto.getOrigenPais());
+//        entity.setOrigenEstado(dto.getOrigenEstado());
+//        entity.setOrigenCiudad(dto.getOrigenCiudad());
+//        entity.setLugarNacimiento(dto.getLugarNacimiento());
+//        entity.setEmail(dto.getEmail());
+//        entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
+//        entity.setDireccionActual(dto.getDireccionActual());
+//        entity.setLugarProcedencia(dto.getLugarProcedencia());
+//        entity.setTelFijo(dto.getTelFijo());
+//        entity.setTelMovil(dto.getTelMovil());
 
         entity.setParentesco(parentescoService.getById(dto.getParentesco().getId()));
-        entity.setFamiliarCondicion(dto.getFamiliarCondicion());
+//        entity.setFamiliarCondicion(dto.getFamiliarCondicion());
         entity.setMismaEnfermedad(dto.getMismaEnfermedad());
         entity.setFecDiagnostico(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecDiagnostico()));
         entity.setDetalleEnfermedad(entity.getDetalleEnfermedad().trim());
