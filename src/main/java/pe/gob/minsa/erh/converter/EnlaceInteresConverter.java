@@ -12,6 +12,7 @@ import pe.gob.minsa.erh.service.EnlaceInteresService;
 import pe.gob.minsa.erh.service.IpressService;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Component
 public class EnlaceInteresConverter extends AbstractConverter<EnlaceInteresEntity, EnlaceInteresDto> {
@@ -42,9 +43,21 @@ public class EnlaceInteresConverter extends AbstractConverter<EnlaceInteresEntit
         EnlaceInteresEntity entity;
         if (dto.getId() == null) {
             entity = new EnlaceInteresEntity();
+            entity.setFecRegistro(new Date());
         } else {
             entity = enlaceInteresService.getById(dto.getId());
         }
+        entity.setId(dto.getId());
+        entity.setNombre(dto.getNombre().trim());
+        entity.setUrl(dto.getUrl());
+        entity.setDirigido(dto.getDirigido());
+        entity.setDireccion(dto.getDireccion());
+        entity.setTelefono(dto.getTelefono());
+        entity.setEmail(dto.getEmail());
+
+        entity.setEstado(dto.getEstado());
+        entity.setFecModificacion(new Date());
+
         return entity;
 
     }

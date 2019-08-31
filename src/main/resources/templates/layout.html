@@ -197,10 +197,10 @@
                             <a href="#"><i class="fa fa-plus-square fa-fw"></i> Enlaces de interés<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Lista Enlaces</a>
+                                    <a th:href="@{/enlaceinteres}">Lista Enlaces</a>
                                 </li>
                                 <li sec:authorize="hasAnyRole('ROLE_MASTER')">
-                                    <a href="#">Nuevo Enlace</a>
+                                    <a th:href="@{/enlaceinteres/nuevo}">Nuevo Enlace</a>
                                 </li>
                             </ul>
                         </li>
