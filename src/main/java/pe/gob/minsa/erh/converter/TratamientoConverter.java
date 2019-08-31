@@ -33,6 +33,7 @@ public class TratamientoConverter extends AbstractConverter<TratamientoEntity, T
                 .tratamientoFarmacologicoEspecifico(entity.getTratamientoFarmacologicoEspecifico())
                 .detalleTratamientoFarmacologicoEspecifico(entity.getDetalleTratamientoFarmacologicoEspecifico())
                 .tratamientoFarmacologicoNoEspecifico(entity.getTratamientoFarmacologicoNoEspecifico())
+                .detalleTratamientoFarmacologicoNoEspecifico(entity.getDetalleTratamientoFarmacologicoNoEspecifico())
                 .tratamientoNoFarmacologico(entity.getTratamientoNoFarmacologico())
                 .detalleTratamientoNoFarmacologico(entity.getDetalleTratamientoNoFarmacologico())
                 .terapiaFisica(entity.getTerapiaFisica())

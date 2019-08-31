@@ -110,7 +110,7 @@ public class EnfermedadController {
         }
 
         if (entities.size() > 0) {
-            model.addAttribute("paciente", entities.get(0).getPaciente());
+            model.addAttribute("paciente", enfermedadConverter.toDto(newEntity).getPaciente());
             model.addAttribute("enfermedades", entities);
             model.addAttribute("success", "El registro de enfermedad se realizó con éxito.");
         } else {
@@ -131,7 +131,7 @@ public class EnfermedadController {
         EnfermedadEntity entity = enfermedadService.getById(id);
         enfermedadService.delete(id);
 
-        return String.format("redirect:/%s/enfermedad", enfermedadConverter.toDto(entity).getPaciente().getId());
+        return String.format("redirect:/paciente/%s/enfermedad", enfermedadConverter.toDto(entity).getPaciente().getId());
     }
 
     @RequestMapping(value = "/{enfermedadId}/tratamiento", method = RequestMethod.GET)

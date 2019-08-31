@@ -69,7 +69,7 @@
                                 <!-- /.table-responsive -->
                                 <div class="well well-sm text-left">
                                     <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${enfermedad.paciente.id})}/enfermedad'|" class="btn btn-default" value="Volver" />
-                                    <input type="button" th:onclick="|window.location.href='@{/tratamiento/nuevo(pacienteId=${enfermedad.paciente.id})}'|" class="btn btn-primary" value="Nuevo" />
+                                    <input type="button" th:onclick="|window.location.href='@{/tratamiento/nuevo(enfermedadId=${enfermedad.id})}'|" class="btn btn-primary" value="Nuevo" />
                                 </div>
                             </div>
                             <!-- /.panel-body -->
