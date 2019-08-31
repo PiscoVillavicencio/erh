@@ -29,7 +29,7 @@ public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> 
                 .telefono(entity.getTelefono())
                 .ruc(entity.getRuc())
 
-                .estado(entity.getEstado().getLabel())
+                .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
                 .build();

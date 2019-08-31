@@ -12,18 +12,19 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IpressDto implements Serializable {
+public class EnlaceInteresDto implements Serializable {
 
     private Long id;
     private String nombre;
-    private String codigo;
+    private String url;
+    private String dirigido;
     private String direccion;
-    private UbiDistritoDto distrito;
     private String telefono;
-    private String ruc;
+    private String email;
 
     private EstadoEnum estado;
     private String fecRegistro;
     private String fecModificacion;
+
 
 }
