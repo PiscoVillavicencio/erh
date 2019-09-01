@@ -81,12 +81,6 @@ public class PacienteEntity implements Serializable {
     private IpressEntity ipress;
     @Enumerated(EnumType.ORDINAL)
 
-    @ManyToMany(mappedBy = "pacientes")
-    private List<CuidadorEntity> cuidadorEntities;
-
-    @ManyToMany(mappedBy = "pacientes")
-    private List<AntecedenteFamiliarEntity> antecedenteFamiliarEntities;
-
     @Column(name = "idperfil")
     private PerfilEnum perfil;
 

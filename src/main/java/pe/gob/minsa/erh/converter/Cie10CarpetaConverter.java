@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.Cie10CarpetaDto;
 import pe.gob.minsa.erh.model.entity.Cie10CarpetaEntity;
-import pe.gob.minsa.erh.service.Cie10BloqueService;
 import pe.gob.minsa.erh.service.Cie10CarpetaService;
 
 @Component
@@ -34,7 +33,7 @@ public class Cie10CarpetaConverter extends AbstractConverter<Cie10CarpetaEntity,
 
         if (dto.getId() == null) {
             entity = new Cie10CarpetaEntity();
-        }else {
+        } else {
             entity = cie10CarpetaService.getById(dto.getId());
         }
 

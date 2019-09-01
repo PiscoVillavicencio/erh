@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.TratamientoDto;
-import pe.gob.minsa.erh.model.dto.TratamientoDto;
 import pe.gob.minsa.erh.model.entity.TratamientoEntity;
-import pe.gob.minsa.erh.model.entity.TratamientoEntity;
-import pe.gob.minsa.erh.service.DocumentoEnfermedadService;
 import pe.gob.minsa.erh.service.EnfermedadService;
 import pe.gob.minsa.erh.service.TratamientoService;
 
@@ -22,7 +19,6 @@ public class TratamientoConverter extends AbstractConverter<TratamientoEntity, T
 
     @Autowired
     private TratamientoService tratamientoService;
-
     @Autowired
     private EnfermedadService enfermedadService;
 
@@ -42,7 +38,7 @@ public class TratamientoConverter extends AbstractConverter<TratamientoEntity, T
                 .medicinaTradicional(entity.getMedicinaTradicional())
                 .medicinaAlternativa(entity.getMedicinaAlternativa())
                 .enfermedad(enfermedadConverter.toDto(entity.getEnfermedad()))
-                
+
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
@@ -74,7 +70,7 @@ public class TratamientoConverter extends AbstractConverter<TratamientoEntity, T
         entity.setMedicinaTradicional(dto.getMedicinaTradicional());
         entity.setMedicinaAlternativa(dto.getMedicinaAlternativa());
         entity.setEnfermedad(enfermedadService.getById(dto.getEnfermedad().getId()));
-        
+
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());
 

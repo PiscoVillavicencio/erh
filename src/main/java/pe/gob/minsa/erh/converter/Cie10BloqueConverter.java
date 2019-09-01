@@ -6,7 +6,6 @@ import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.Cie10BloqueDto;
 import pe.gob.minsa.erh.model.entity.Cie10BloqueEntity;
 import pe.gob.minsa.erh.service.Cie10BloqueService;
-import pe.gob.minsa.erh.service.Cie10CategoriaService;
 
 @Component
 public class Cie10BloqueConverter extends AbstractConverter<Cie10BloqueEntity, Cie10BloqueDto> {
@@ -34,7 +33,7 @@ public class Cie10BloqueConverter extends AbstractConverter<Cie10BloqueEntity, C
 
         if (dto.getId() == null) {
             entity = new Cie10BloqueEntity();
-        }else {
+        } else {
             entity = cie10BloqueService.getById(dto.getId());
         }
 

@@ -37,8 +37,8 @@ public class CuidadorServiceImpl implements CuidadorService {
     }
 
     @Override
-    public List<CuidadorEntity> findCuidadorEntitiesByPacientes(PacienteEntity entity) {
-        return cuidadorRepository.findCuidadorEntitiesByPacientes(entity);
+    public List<CuidadorEntity> findCuidadorEntitiesByPaciente(PacienteEntity entity) {
+        return cuidadorRepository.findCuidadorEntitiesByPaciente(entity);
     }
 
 }

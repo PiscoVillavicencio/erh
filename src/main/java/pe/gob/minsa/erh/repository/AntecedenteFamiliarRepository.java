@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface AntecedenteFamiliarRepository extends CrudRepository<AntecedenteFamiliarEntity, Long> {
 
-    List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPacientes(PacienteEntity entity);
+    List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPaciente(PacienteEntity entity);
 
 }

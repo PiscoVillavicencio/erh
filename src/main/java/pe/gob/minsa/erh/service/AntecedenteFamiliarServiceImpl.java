@@ -37,7 +37,7 @@ public class AntecedenteFamiliarServiceImpl implements AntecedenteFamiliarServic
     }
 
     @Override
-    public List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPacientes(PacienteEntity entity) {
-        return antecedenteFamiliarRepository.findAntecedenteFamiliarEntitiesByPacientes(entity);
+    public List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPaciente(PacienteEntity entity) {
+        return antecedenteFamiliarRepository.findAntecedenteFamiliarEntitiesByPaciente(entity);
     }
 }

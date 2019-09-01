@@ -48,7 +48,7 @@ public class AntecedenteFamiliarDto implements Serializable {
     private String fecDiagnostico;
     private String detalleEnfermedad;
 
-    List<PacienteDto> pacientes;
+    private PacienteDto paciente;
 
     private PerfilEnum perfil;
 

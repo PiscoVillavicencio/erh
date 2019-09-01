@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CuidadorService extends CRUDService<CuidadorEntity> {
 
-    List<CuidadorEntity> findCuidadorEntitiesByPacientes(PacienteEntity entity);
+    List<CuidadorEntity> findCuidadorEntitiesByPaciente(PacienteEntity entity);
 
 }

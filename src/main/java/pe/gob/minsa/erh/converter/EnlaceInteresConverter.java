@@ -4,12 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.EnlaceInteresDto;
-import pe.gob.minsa.erh.model.dto.EnlaceInteresDto;
 import pe.gob.minsa.erh.model.entity.EnlaceInteresEntity;
-import pe.gob.minsa.erh.model.entity.EnlaceInteresEntity;
-import pe.gob.minsa.erh.repository.EnlaceInteresRepository;
 import pe.gob.minsa.erh.service.EnlaceInteresService;
-import pe.gob.minsa.erh.service.IpressService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

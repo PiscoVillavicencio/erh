@@ -17,7 +17,6 @@ public class DirectorConverter extends AbstractConverter<DirectorEntity, Directo
 
     @Autowired
     private DirectorService directorService;
-
     @Autowired
     private IpressService ipressService;
 

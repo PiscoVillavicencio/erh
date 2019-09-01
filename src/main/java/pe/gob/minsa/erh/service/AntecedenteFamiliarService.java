@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AntecedenteFamiliarService extends CRUDService<AntecedenteFamiliarEntity> {
 
-    List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPacientes(PacienteEntity entity);
+    List<AntecedenteFamiliarEntity> findAntecedenteFamiliarEntitiesByPaciente(PacienteEntity entity);
 
 }

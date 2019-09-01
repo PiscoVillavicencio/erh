@@ -8,6 +8,7 @@ import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Builder
 @Data

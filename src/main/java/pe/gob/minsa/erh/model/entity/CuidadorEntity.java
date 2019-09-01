@@ -85,13 +85,9 @@ public class CuidadorEntity implements Serializable {
     @JoinColumn(name = "idipress")
     private IpressEntity ipress;
 
-    @ManyToMany
-    @JoinTable(
-            name = "cuidadorxpaciente",
-            joinColumns = @JoinColumn(name = "idpaciente"),
-            inverseJoinColumns = @JoinColumn(name = "idcuidador")
-    )
-    private List<PacienteEntity> pacientes;
+    @ManyToOne
+    @JoinColumn(name = "idpaciente")
+    private PacienteEntity paciente;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")

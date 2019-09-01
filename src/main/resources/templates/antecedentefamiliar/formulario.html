@@ -43,7 +43,14 @@
                                             </div>
                                         </div>
 
-                                        <form role="form" th:object="${antecedenteFamiliar}">
+                                        <form role="form" th:object="${antecedenteFamiliar}" th:action="@{/antecedentefamiliar}" method="post">
+                                        
+                                            <input type="hidden" th:field="*{id}" />
+                                            <input type="hidden" th:field="*{condicion}" />
+                                            <input type="hidden" th:field="*{mismaEnfermedad}" />
+                                            <input type="hidden" th:field="*{estado}" />
+
+                                            <input type="hidden" id="pacienteId" name="pacienteId" th:value="${paciente.id}" />
 
                                             <hr/>
                                             <h5>Información del Familiar: </h5>
@@ -53,61 +60,61 @@
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{apePaterno}">Ape. Paterno</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{apePaterno}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{apePaterno}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{apeMaterno}">Ape. Materno</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{apeMaterno}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{apeMaterno}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{nombre}">Nombres</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{nombre}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{nombre}" />
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{documento.nombre}">Tipo Documento</label>
+                                                    <label class="col-sm-4 control-label" th:for="*{documento.id}">Tipo Documento</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{documento.nombre}" disabled="true" />
+                                                        <select class="form-control" th:field="*{documento.id}">
+                                                            <option th:each="documentoOpt : ${documentos}" th:value="${documentoOpt.id}" th:text="${documentoOpt.nombre}"></option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{nroDocumento}">Nro. Documento</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{nroDocumento}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{nroDocumento}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{genero.label}">Género</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:id="*{genero}" th:name="*{genero}" th:value="*{genero.label}" disabled="true" />
+                                                        <select class="form-control" th:field="*{genero}">
+                                                            <option th:each="generoOpt : ${generoEnum}" th:value="${generoOpt}" th:text="${generoOpt.label}"></option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{parentesco.nombre}">Parentesco</label>
+                                                    <label class="col-sm-4 control-label" th:for="*{parentesco.id}">Parentesco</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{parentesco.nombre}" disabled="true" />
+                                                        <select class="form-control" th:field="*{parentesco.id}">
+                                                            <option th:each="parentescoOpt : ${parentescos}" th:value="${parentescoOpt.id}" th:text="${parentescoOpt.nombre}"></option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-4 control-label" th:for="*{fecNacimiento}">Fecha Nacimiento</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{fecNacimiento}" disabled="true" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="*{edad}">Edad</label>
-                                                    <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="*{edad}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{fecNacimiento}" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,13 +125,13 @@
                                                 <div class="col-sm-6 form-group form-group-sm">
                                                     <label class="col-sm-8 control-label" th:for="*{condicion}">¿Aún se encuentra vivo?</label>
                                                     <div class="col-sm-2 col-sm-pull-3">
-                                                        <input class="form-control" placeholder="" th:id="*{condicion}" th:name="*{condicion}" th:value="*{condicion.label=='Activo' ? 'Si' : 'No'}" disabled="true" />
+                                                        <input type="checkbox" class="toggle-condicion" data-on="Si" data-off="No" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 col-sm-pull-2 form-group form-group-sm">
                                                     <label class="col-sm-8 control-label" th:for="*{mismaEnfermedad}">¿Es afectado por la misma enfermedad?</label>
                                                     <div class="col-sm-2">
-                                                        <input class="form-control" placeholder="" th:id="*{mismaEnfermedad}" th:name="*{mismaEnfermedad}" th:value="*{mismaEnfermedad.label=='Activo' ? 'Si' : 'No'}" disabled="true" />
+                                                        <input type="checkbox" class="toggle-mismaEnfermedad" data-on="Si" data-off="No" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +145,7 @@
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-6 control-label" th:for="*{fecDiagnostico}">Fecha Diagnóstico</label>
                                                     <div class="col-sm-6">
-                                                        <input class="form-control" placeholder="" th:field="*{fecDiagnostico}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{fecDiagnostico}" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,8 +207,11 @@
                                             <hr/>
 
                                             <div class="row">
-                                                <div class="col-sm-2 col-sm-offset-5 text-center" >
-                                                    <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/antecedentefamiliar'|" class="btn btn-default" value="Volver" />
+                                                <div class="col-sm-2 col-sm-offset-4">
+                                                    <input type="submit" class="btn btn-primary" value="Guardar" />
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/antecedentefamiliar'|" class="btn btn-default" value="Cancelar" />
                                                 </div>
                                             </div>
 

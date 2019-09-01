@@ -21,40 +21,37 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
 
     @Autowired
     private UbiDistritoConverter ubiDistritoConverter;
-
     @Autowired
     private MedicoConverter medicoConverter;
-
     @Autowired
     private IpressConverter ipressConverter;
-
     @Autowired
-    private CuidadorConverter cuidadorConverter;
-
+    private EnfermedadConverter enfermedadConverter;
     @Autowired
     private AntecedenteFamiliarConverter antecedenteFamiliarConverter;
+    @Autowired
+    private CuidadorConverter cuidadorConverter;
+    @Autowired
+    private DiscapacidadConverter discapacidadConverter;
 
     @Autowired
     private PacienteService pacienteService;
-
     @Autowired
     private DocumentoService documentoService;
-
     @Autowired
     private UbiDistritoService ubiDistritoService;
-
     @Autowired
     private MedicoService medicoService;
-
     @Autowired
     private IpressService ipressService;
-
     @Autowired
-    private CuidadorService cuidadorService;
-
+    private EnfermedadService enfermedadService;
     @Autowired
     private AntecedenteFamiliarService antecedenteFamiliarService;
-
+    @Autowired
+    private CuidadorService cuidadorService;
+    @Autowired
+    private DiscapacidadService discapacidadService;
 
     @Override
     protected PacienteDto entityToDto(PacienteEntity entity) throws Exception {
@@ -87,8 +84,6 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
                 .medico(medicoConverter.toDto(entity.getMedico()))
                 .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
-                .cuidadorDtos(cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPacientes(entity)))
-                .antecedenteFamiliarDtos(antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPacientes(entity)))
 
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
@@ -117,7 +112,7 @@ public class PacienteConverter extends AbstractConverter<PacienteEntity, Pacient
         entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
         entity.setNroDocumento(dto.getNroDocumento());
         entity.setGenero(dto.getGenero());
-        entity.setRutaImagen(entity.getRutaImagen());
+        entity.setRutaImagen(dto.getRutaImagen());
         entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
         entity.setCondicion(dto.getCondicion());
         entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());

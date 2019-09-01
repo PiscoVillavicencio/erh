@@ -83,13 +83,9 @@ public class AntecedenteFamiliarEntity implements Serializable {
     @Column(name = "strdetalle")
     private String detalleEnfermedad;
 
-    @ManyToMany
-    @JoinTable(
-            name = "antecedentefamiliarxpaciente",
-            joinColumns = @JoinColumn(name = "idpaciente"),
-            inverseJoinColumns = @JoinColumn(name = "idantecedentefamiliar")
-    )
-    private List<PacienteEntity> pacientes;
+    @ManyToOne
+    @JoinColumn(name = "idpaciente")
+    private PacienteEntity paciente;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "idperfil")

@@ -4,13 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.DiscapacidadDto;
-import pe.gob.minsa.erh.model.dto.DiscapacidadDto;
 import pe.gob.minsa.erh.model.entity.DiscapacidadEntity;
-import pe.gob.minsa.erh.model.entity.DiscapacidadEntity;
-import pe.gob.minsa.erh.model.enums.PerfilEnum;
-import pe.gob.minsa.erh.service.DirectorService;
 import pe.gob.minsa.erh.service.DiscapacidadService;
-import pe.gob.minsa.erh.service.IpressService;
 import pe.gob.minsa.erh.service.PacienteService;
 
 import java.text.SimpleDateFormat;
@@ -24,7 +19,6 @@ public class DiscapacidadConverter extends AbstractConverter<DiscapacidadEntity,
 
     @Autowired
     private DiscapacidadService discapacidadService;
-
     @Autowired
     private PacienteService pacienteService;
 

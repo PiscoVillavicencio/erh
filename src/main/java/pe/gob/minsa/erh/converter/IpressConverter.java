@@ -13,10 +13,10 @@ import java.text.SimpleDateFormat;
 public class IpressConverter extends AbstractConverter<IpressEntity, IpressDto> {
 
     @Autowired
-    private IpressService ipressService;
+    private UbiDistritoConverter ubiDistritoConverter;
 
     @Autowired
-    private UbiDistritoConverter ubiDistritoConverter;
+    private IpressService ipressService;
 
     @Override
     protected IpressDto entityToDto(IpressEntity entity) throws Exception {

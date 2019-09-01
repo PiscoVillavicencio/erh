@@ -50,7 +50,7 @@ public class CuidadorDto implements Serializable {
     private String detalleLugarDeTrabajo;
     private IpressDto ipress;
 
-    private List<PacienteDto> pacientes;
+    private PacienteDto paciente;
 
     private PerfilEnum perfil;
 

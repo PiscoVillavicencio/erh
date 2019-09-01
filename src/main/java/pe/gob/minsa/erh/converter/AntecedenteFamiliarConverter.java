@@ -10,6 +10,7 @@ import pe.gob.minsa.erh.model.entity.AntecedenteFamiliarEntity;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 import pe.gob.minsa.erh.service.AntecedenteFamiliarService;
 import pe.gob.minsa.erh.service.DocumentoService;
+import pe.gob.minsa.erh.service.PacienteService;
 import pe.gob.minsa.erh.service.ParentescoService;
 
 import java.text.SimpleDateFormat;
@@ -19,23 +20,22 @@ import java.util.Date;
 public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteFamiliarEntity, AntecedenteFamiliarDto> {
 
     @Autowired
+    private  PacienteConverter pacienteConverter;
+    @Autowired
     private DocumentoConverter documentoConverter;
-
 //    @Autowired
 //    private UbiDistritoConverter ubiDistritoConverter;
-
     @Autowired
     private ParentescoConverter parentescoConverter;
 
     @Autowired
     private AntecedenteFamiliarService antecedenteFamiliarService;
-
+    @Autowired
+    private PacienteService pacienteService;
     @Autowired
     private DocumentoService documentoService;
-
 //    @Autowired
 //    private UbiDistritoService ubiDistritoService;
-
     @Autowired
     private ParentescoService parentescoService;
 
@@ -75,6 +75,8 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
                 .detalleEnfermedad(entity.getDetalleEnfermedad())
                 .perfil(entity.getPerfil())
 
+                .paciente(pacienteConverter.toDto(entity.getPaciente()))
+
                 .estado(entity.getEstado())
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecRegistro()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecModificacion()))
@@ -102,7 +104,7 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
         entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
         entity.setNroDocumento(dto.getNroDocumento());
         entity.setGenero(dto.getGenero());
-        entity.setRutaImagen(entity.getRutaImagen());
+        entity.setRutaImagen(dto.getRutaImagen());
 //        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
         entity.setCondicion(dto.getCondicion());
 //        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
@@ -121,8 +123,10 @@ public class AntecedenteFamiliarConverter extends AbstractConverter<AntecedenteF
 //        entity.setFamiliarCondicion(dto.getFamiliarCondicion());
         entity.setMismaEnfermedad(dto.getMismaEnfermedad());
         entity.setFecDiagnostico(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecDiagnostico()));
-        entity.setDetalleEnfermedad(entity.getDetalleEnfermedad().trim());
+        entity.setDetalleEnfermedad(dto.getDetalleEnfermedad().trim());
         entity.setPerfil(PerfilEnum.ANTECEDENTE_FAMILIAR);
+
+        entity.setPaciente(pacienteService.getById(dto.getPaciente().getId()));
 
         entity.setEstado(dto.getEstado());
         entity.setFecModificacion(new Date());

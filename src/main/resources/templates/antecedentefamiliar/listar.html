@@ -60,7 +60,7 @@
                                                 <td th:text="${antFam.parentesco.nombre}"></td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/antecedentefamiliar/mostrar/' + ${antFam.id} + '?pacienteId=' + ${paciente.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/antecedentefamiliar/editar/' + ${antFam.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/antecedentefamiliar/editar/' + ${antFam.id} + '?pacienteId=' + ${paciente.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
                                                 <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/antecedentefamiliar/eliminar/'+ ${antFam.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                             </tr>
                                         </tbody>

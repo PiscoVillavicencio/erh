@@ -11,10 +11,10 @@ import pe.gob.minsa.erh.service.UbiDistritoService;
 public class UbiDistritoConverter extends AbstractConverter<UbiDistritoEntity, UbiDistritoDto> {
 
     @Autowired
-    private UbiDistritoService ubiDistritoService;
+    private UbiProvinciaConverter ubiProvinciaConverter;
 
     @Autowired
-    private UbiProvinciaConverter ubiProvinciaConverter;
+    private UbiDistritoService ubiDistritoService;
 
     @Override
     protected UbiDistritoDto entityToDto(UbiDistritoEntity entity) throws Exception {

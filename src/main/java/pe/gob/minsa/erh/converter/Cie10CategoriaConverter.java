@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.Cie10CategoriaDto;
-import pe.gob.minsa.erh.model.dto.Cie10CategoriaDto;
-import pe.gob.minsa.erh.model.entity.Cie10CategoriaEntity;
 import pe.gob.minsa.erh.model.entity.Cie10CategoriaEntity;
 import pe.gob.minsa.erh.service.Cie10CategoriaService;
-import pe.gob.minsa.erh.service.UbiDepartamentoService;
 
 @Component
 public class Cie10CategoriaConverter extends AbstractConverter<Cie10CategoriaEntity, Cie10CategoriaDto> {
@@ -31,7 +28,7 @@ public class Cie10CategoriaConverter extends AbstractConverter<Cie10CategoriaEnt
 
         if (dto.getId() == null) {
             entity = new Cie10CategoriaEntity();
-        }else {
+        } else {
             entity = cie10CategoriaService.getById(dto.getId());
         }
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.gob.minsa.erh.model.entity.DiscapacidadEntity;
+import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.repository.DiscapacidadRepository;
 
 import java.util.List;
@@ -35,4 +36,8 @@ public class DiscapacidadServiceImpl implements DiscapacidadService {
         discapacidadRepository.delete(id);
     }
 
+    @Override
+    public List<DiscapacidadEntity> findDiscapacidadEntitiesByPaciente(PacienteEntity entity) {
+        return discapacidadRepository.findDiscapacidadEntitiesByPaciente(entity);
+    }
 }

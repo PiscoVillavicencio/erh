@@ -13,6 +13,6 @@ public interface CuidadorRepository extends CrudRepository<CuidadorEntity, Long>
 /*    @Query("select c from CuidadorEntity c inner join c.pacientes p where p.id =:pacienteId")
     List<CuidadorEntity> findByPacienteId(@Param("pacienteId") Long pacienteId);*/
 
-    List<CuidadorEntity> findCuidadorEntitiesByPacientes(PacienteEntity entity);
+    List<CuidadorEntity> findCuidadorEntitiesByPaciente(PacienteEntity entity);
 
 }

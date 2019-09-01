@@ -18,22 +18,17 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
 
     @Autowired
     private DocumentoConverter documentoConverter;
-
 //    @Autowired
 //    private UbiDistritoConverter ubiDistritoConverter;
-
     @Autowired
     private IpressConverter ipressConverter;
 
     @Autowired
     private MedicoService medicoService;
-
     @Autowired
     private DocumentoService documentoService;
-
 //    @Autowired
 //    private UbiDistritoService ubiDistritoService;
-
     @Autowired
     private IpressService ipressService;
 
@@ -99,7 +94,7 @@ public class MedicoConverter extends AbstractConverter<MedicoEntity, MedicoDto> 
         entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
         entity.setNroDocumento(dto.getNroDocumento());
 //        entity.setGenero(dto.getGenero());
-        entity.setRutaImagen(entity.getRutaImagen());
+        entity.setRutaImagen(dto.getRutaImagen());
 //        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
 //        entity.setCondicion(dto.getCondicion());
 //        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());

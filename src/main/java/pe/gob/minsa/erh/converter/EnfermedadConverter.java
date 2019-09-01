@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
 import pe.gob.minsa.erh.model.dto.EnfermedadDto;
-import pe.gob.minsa.erh.model.dto.EnfermedadDto;
-import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
 import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
 import pe.gob.minsa.erh.service.*;
 
@@ -17,30 +15,27 @@ public class EnfermedadConverter extends AbstractConverter<EnfermedadEntity, Enf
 
     @Autowired
     private PacienteConverter pacienteConverter;
-
     @Autowired
     private MedicoConverter medicoConverter;
-
     @Autowired
     private Cie10CarpetaConverter cie10CarpetaConverter;
-
     @Autowired
     private OrphanetConverter orphanetConverter;
-    
+    @Autowired
+    private TratamientoConverter tratamientoConverter;
+
     @Autowired
     private EnfermedadService enfermedadService;
-    
     @Autowired
     private PacienteService pacienteService;
-
     @Autowired
     private MedicoService medicoService;
-
     @Autowired
     private Cie10CarpetaService cie10CarpetaService;
-
     @Autowired
     private OrphanetService orphanetService;
+    @Autowired
+    private TratamientoService tratamientoService;
 
     @Override
     protected EnfermedadDto entityToDto(EnfermedadEntity entity) throws Exception {

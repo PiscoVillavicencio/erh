@@ -27,6 +27,7 @@ public class DiscapacidadEntity {
     private EstadoEnum inscritoConadis;
     @Column(name = "strobservaciones")
     private String detalleObservaciones;
+
     @ManyToOne
     @JoinColumn(name = "idpaciente")
     private PacienteEntity paciente;

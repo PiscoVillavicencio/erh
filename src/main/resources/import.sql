@@ -15892,20 +15892,11 @@ INSERT INTO paciente (strnombres, strapepaterno, strapematerno, datfnacimiento, 
 
 ----------------------- CUIDADOR ---------------------------
 
-INSERT INTO cuidador(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strlugardetrabajo, strparentesconinguno, chrestado, datfmodificacion, datfregistro, chrlaboraactualmente, idperfil, idipress, idparentesco) VALUES ('Katiuska','Aguilar','Gonzales',date('now') - interval '42 year', 1, '01455956', 2, '01455956.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'k.aguilar@gmail.com', 1271, 'Avenida Los Alamos 1025', 'Lima', '5124589', '999205241', 'Hospital Loayza', 'Personal del hospital', '1', NOW(), NOW(), 1, 4, 1, 4);
-
------------------------ CUIDADOR X PACIENTE---------------------------
-
-INSERT INTO cuidadorxpaciente (idpaciente, idcuidador)VALUES (1, 1);
+INSERT INTO cuidador(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strlugardetrabajo, strparentesconinguno, chrestado, datfmodificacion, datfregistro, chrlaboraactualmente, idperfil, idipress, idparentesco, idpaciente) VALUES ('Katiuska','Aguilar','Gonzales',date('now') - interval '42 year', 1, '01455956', 2, '01455956.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'k.aguilar@gmail.com', 1271, 'Avenida Los Alamos 1025', 'Lima', '5124589', '999205241', 'Hospital Loayza', 'Personal del hospital', '1', NOW(), NOW(), 1, 4, 1, 4, 1);
 
 ----------------------- ANTECEDENTE FAMILIAR ---------------------------
 
--- INSERT INTO antecedentefamiliar(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, iddistrito, chrestavivo, chrnacionalidad, strpais, strestado, strciudad, strlugarnacimiento, stremail, iddistritoactual, strdireccionactual, strlugarprocedencia, strtelefonofijo, strtelefonomovil, strdetalle, chrestado, chrfamiliarcondicion, datfdiagnostico, datfmodificacion, datfregistro, chrmismaenfermedad, idperfil, idparentesco) VALUES ('Alejandro','Terrones','Linares',date('now') - interval '30 year', 1, '10549865', 1, '10549865.png', 1271, 1 , 0, null, null, null, 'Hospital Daniel Alcides Carrion', 'alejandro.terrones@gmail.com', 1271, 'Calle Los Alvares 425', 'Lima', '4325589', '939832658', 'El paciente se presenta la misma enfermedad que el paciente', '1', 0,  NOW(), NOW(), NOW(), 1, 5, 2);
-INSERT INTO antecedentefamiliar(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, chrestavivo, strdetalle, chrestado, datfdiagnostico, datfmodificacion, datfregistro, chrmismaenfermedad, idperfil, idparentesco) VALUES ('Alejandro','Terrones','Linares',date('now') - interval '30 year', 1, '10549865', 1, '10549865.png', 1 , 'El paciente se presenta la misma enfermedad que el paciente', '1', NOW(), NOW(), NOW(), 1, 5, 2);
-
------------------------ ANTECEDENTE FAMILIAR X PACIENTE---------------------------
-
-INSERT INTO antecedentefamiliarxpaciente (idpaciente, idantecedentefamiliar) VALUES (1, 1);
+INSERT INTO antecedentefamiliar(strnombres, strapepaterno, strapematerno, datfnacimiento, iddocumento, strnumdocumento, chrgenero, strRutaImagen, chrestavivo, strdetalle, chrestado, datfdiagnostico, datfmodificacion, datfregistro, chrmismaenfermedad, idperfil, idparentesco, idpaciente) VALUES ('Alejandro','Terrones','Linares',date('now') - interval '30 year', 1, '10549865', 1, '10549865.png', 1 , 'El paciente se presenta la misma enfermedad que el paciente', '1', NOW(), NOW(), NOW(), 1, 5, 2, 1);
 
 ----------------------- DISCAPACIDAD ---------------------------
 
