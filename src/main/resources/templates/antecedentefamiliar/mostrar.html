@@ -151,25 +151,25 @@
                                                 <div class="col-sm-4 form-group form-group-sm">
                                                     <label class="col-sm-3 control-label" for="pacienteNombre">Nombre</label>
                                                     <div class="col-sm-9">
-                                                        <input class="form-control" placeholder="" id="pacienteNombre" name="pacienteNombre" th:value="${paciente.nombre + ' ' + paciente.apePaterno + ' ' + paciente.apeMaterno}" disabled="true" />
+                                                        <input class="form-control" placeholder="" id="pacienteNombre" name="pacienteNombre" th:value="*{paciente.nombre + ' ' + paciente.apePaterno + ' ' + paciente.apeMaterno}" disabled="true" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="${paciente.documento.nombre}">Tipo Documento</label>
+                                                    <label class="col-sm-4 control-label" th:for="*{paciente.documento.nombre}">Tipo Documento</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="${paciente.documento.nombre}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{paciente.documento.nombre}" disabled="true" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 form-group form-group-sm">
-                                                    <label class="col-sm-4 control-label" th:for="${paciente.nroDocumento}">Nro Documento</label>
+                                                    <label class="col-sm-4 control-label" th:for="*{paciente.nroDocumento}">Nro Documento</label>
                                                     <div class="col-sm-8">
-                                                        <input class="form-control" placeholder="" th:field="${paciente.nroDocumento}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{paciente.nroDocumento}" disabled="true" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 form-group form-group-sm">
-                                                    <label class="col-sm-2 control-label" th:for="${paciente.ipress.nombre}">Ipress</label>
+                                                    <label class="col-sm-2 control-label" th:for="*{paciente.ipress.nombre}">Ipress</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" placeholder="" th:field="${paciente.ipress.nombre}" disabled="true" />
+                                                        <input class="form-control" placeholder="" th:field="*{paciente.ipress.nombre}" disabled="true" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,7 +201,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-2 col-sm-offset-5 text-center" >
-                                                    <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${paciente.id})}/antecedentefamiliar'|" class="btn btn-default" value="Volver" />
+                                                    <input type="button" th:onclick="|window.location.href='@{/paciente/{id}(id=${antecedenteFamiliar.paciente.id})}/antecedentefamiliar'|" class="btn btn-default" value="Volver" />
                                                 </div>
                                             </div>
 

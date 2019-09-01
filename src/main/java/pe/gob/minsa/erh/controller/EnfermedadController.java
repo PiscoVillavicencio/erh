@@ -12,14 +12,11 @@ import pe.gob.minsa.erh.converter.*;
 import pe.gob.minsa.erh.model.dto.EnfermedadDto;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
 import pe.gob.minsa.erh.model.entity.EnfermedadEntity;
-import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.service.*;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 @Secured({"ROLE_MASTER", "ROLE_DIRECTOR", "ROLE_MEDICO", "ROLE_PACIENTE"})
@@ -69,10 +66,10 @@ public class EnfermedadController {
         model.addAttribute("titulo", "Enfermedad");
         model.addAttribute("opcion", "Editar");
 
+        model.addAttribute("enfermedad", enfermedadConverter.toDto(enfermedadService.getById(id)));
+
         model.addAttribute("cie10Carpetas", cie10CarpetaConverter.toListDto(cie10CarpetaService.listAll()));
         model.addAttribute("orphanets", orphanetConverter.toListDto(orphanetService.listAll()));
-
-        model.addAttribute("enfermedad", enfermedadConverter.toDto(enfermedadService.getById(id)));
 
         return "enfermedad/formulario";
     }
@@ -110,16 +107,11 @@ public class EnfermedadController {
         model.addAttribute("titulo", "Enfermedad");
         model.addAttribute("opcion", "Búsqueda");
 
-        List<EnfermedadDto> entities = new ArrayList<>();
         EnfermedadEntity newEntity = enfermedadService.saveOrUpdate(enfermedadConverter.toEntity(dto));
 
-        if(newEntity != null){
-            entities.addAll(enfermedadConverter.toListDto(enfermedadService.findEnfermedadEntitiesByPaciente(newEntity.getPaciente())));
-        }
-
-        if (entities.size() > 0) {
+        if (newEntity != null) {
             model.addAttribute("paciente", enfermedadConverter.toDto(newEntity).getPaciente());
-            model.addAttribute("enfermedades", entities);
+            model.addAttribute("enfermedades", enfermedadConverter.toListDto(enfermedadService.findEnfermedadEntitiesByPaciente(newEntity.getPaciente())));
             model.addAttribute("success", "El registro de enfermedad se realizó con éxito.");
         } else {
             model.addAttribute("warning", "Ocurrió un error al registrar la enfermedad.");

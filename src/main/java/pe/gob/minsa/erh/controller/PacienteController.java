@@ -58,6 +58,11 @@ public class PacienteController {
     @Autowired
     private UbiDistritoConverter ubiDistritoConverter;
 
+    @Autowired
+    private AntecedenteFamiliarConverter antecedenteFamiliarConverter;
+    @Autowired
+    private AntecedenteFamiliarService antecedenteFamiliarService;
+
     @RequestMapping(method = RequestMethod.GET)
     public String listar(@RequestParam(value = "search", required = false) String search, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
@@ -185,6 +190,8 @@ public class PacienteController {
 
         PacienteEntity entity = pacienteService.getById(id);
         model.addAttribute("paciente", pacienteConverter.toDto(entity));
+        model.addAttribute("antecedentesfamiliares", antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPaciente(entity)));
+
         return "antecedentefamiliar/listar";
     }
 

@@ -50,11 +50,10 @@ public class AntecedenteFamiliarController {
     private ParentescoConverter parentescoConverter;
 
     @RequestMapping(value = "/mostrar/{id}", method = RequestMethod.GET)
-    public String mostrar(@PathVariable(value = "id") Long id, @RequestParam(value = "pacienteId") Long pacienteId, Model model) throws Exception {
+    public String mostrar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Antecedente Familiar");
         model.addAttribute("opcion", "Mostrar");
 
-        model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(pacienteId)));
         model.addAttribute("antecedenteFamiliar", antecedenteFamiliarConverter.toDto(antecedenteFamiliarService.getById(id)));
 
         return "antecedentefamiliar/mostrar";
@@ -62,11 +61,10 @@ public class AntecedenteFamiliarController {
 
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
-    public String editar(@PathVariable(value = "id") Long id, @RequestParam(value = "pacienteId") Long pacienteId, Model model) throws Exception {
+    public String editar(@PathVariable(value = "id") Long id, Model model) throws Exception {
         model.addAttribute("titulo", "Antecedente Familiar");
         model.addAttribute("opcion", "Editar");
 
-        model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(pacienteId)));
         model.addAttribute("antecedenteFamiliar", antecedenteFamiliarConverter.toDto(antecedenteFamiliarService.getById(id)));
 
         model.addAttribute("documentos", documentoConverter.toListDto(documentoService.listAll()));
@@ -82,13 +80,15 @@ public class AntecedenteFamiliarController {
         model.addAttribute("titulo", "Antecedente Familiar");
         model.addAttribute("opcion", "Nuevo");
 
-        model.addAttribute("paciente", pacienteConverter.toDto(pacienteService.getById(pacienteId)));
+        PacienteDto pacienteDto = pacienteConverter.toDto(pacienteService.getById(pacienteId));
+
         model.addAttribute("antecedenteFamiliar", AntecedenteFamiliarDto.builder()
                 .condicion(EstadoEnum.ACTIVO)
                 .mismaEnfermedad(EstadoEnum.ACTIVO)
                 .genero(GeneroEnum.OTRO)
                 .documento(documentoConverter.toDto(documentoService.getById(1L)))
                 .parentesco(parentescoConverter.toDto(parentescoService.getById(1L)))
+                .paciente(pacienteDto)
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
                 .fecModificacion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
@@ -104,21 +104,32 @@ public class AntecedenteFamiliarController {
 
     @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
     @RequestMapping(method = RequestMethod.POST)
-    public String saveOrUpdate(AntecedenteFamiliarDto dto, @RequestParam(value = "pacienteId") Long pacienteId, Model model) throws Exception {
+    public String saveOrUpdate(AntecedenteFamiliarDto dto, Model model) throws Exception {
 
-        PacienteEntity pacienteEntity = pacienteService.getById(pacienteId);
+        model.addAttribute("titulo", "Antecedente Familiar");
+        model.addAttribute("opcion", "Búsqueda");
 
-        if(pacienteEntity != null){
+        AntecedenteFamiliarEntity newEntity = antecedenteFamiliarService.saveOrUpdate(antecedenteFamiliarConverter.toEntity(dto));
 
-            AntecedenteFamiliarEntity antecedenteFamiliarEntity = antecedenteFamiliarConverter.toEntity(dto);
-            //pacienteEntity.getAntecedenteFamiliarEntities().add(antecedenteFamiliarEntity);
-
-            PacienteEntity newEntity = pacienteService.saveOrUpdate(pacienteEntity);
-            model.addAttribute("paciente", pacienteConverter.toDto(newEntity));
-
+        if(newEntity != null){
+            model.addAttribute("paciente", antecedenteFamiliarConverter.toDto(newEntity).getPaciente());
+            model.addAttribute("antecedentesfamiliares", antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPaciente(newEntity.getPaciente())));
+            model.addAttribute("success", "El registro de Antecedente Familiar se realizó con éxito.");
+        }else {
+            model.addAttribute("warning", "Ocurrió un error al registrar el Antecedente Familiar.");
         }
 
-        return "redirect:/paciente/" + pacienteId + "/antecedentefamiliar";
+        return "antecedentefamiliar/listar";
+    }
+
+    @Secured({"ROLE_MASTER", "ROLE_MEDICO"})
+    @RequestMapping(value = "/eliminar/{id}")
+    public String delete(@PathVariable(value = "id") Long id) throws Exception {
+
+        AntecedenteFamiliarEntity entity = antecedenteFamiliarService.getById(id);
+        antecedenteFamiliarService.delete(id);
+
+        return String.format("redirect:/paciente/%s/antecedentefamiliar", antecedenteFamiliarConverter.toDto(entity).getPaciente().getId());
     }
 
 }
