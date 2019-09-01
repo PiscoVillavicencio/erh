@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pe.gob.minsa.erh.converter.*;
 import pe.gob.minsa.erh.model.dto.PacienteDto;
+import pe.gob.minsa.erh.model.entity.DiscapacidadEntity;
 import pe.gob.minsa.erh.model.entity.PacienteEntity;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
@@ -67,6 +68,11 @@ public class PacienteController {
     private CuidadorService cuidadorService;
     @Autowired
     private CuidadorConverter cuidadorConverter;
+
+    @Autowired
+    private DiscapacidadService discapacidadService;
+    @Autowired
+    private DiscapacidadConverter discapacidadConverter;
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar(@RequestParam(value = "search", required = false) String search, Model model) throws Exception {
@@ -210,6 +216,18 @@ public class PacienteController {
         model.addAttribute("cuidadores", cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPaciente(entity)));
 
         return "cuidador/listar";
+    }
+
+    @RequestMapping(value = "/{id}/discapacidad", method = RequestMethod.GET)
+    public String listarDiscapacidades(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Discapacidad");
+        model.addAttribute("opcion", "Búsqueda");
+
+        PacienteEntity entity = pacienteService.getById(id);
+        model.addAttribute("paciente", pacienteConverter.toDto(entity));
+        model.addAttribute("discapacidades", discapacidadConverter.toListDto(discapacidadService.findDiscapacidadEntitiesByPaciente(entity)));
+
+        return "discapacidad/listar";
     }
 
 

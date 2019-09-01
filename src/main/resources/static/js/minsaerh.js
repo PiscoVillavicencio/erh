@@ -397,6 +397,36 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Initialize Toggle limitacionFuncional-->
+    $(function() {
+        $('.toggle-limitacionFuncional').bootstrapToggle();
+
+        if ($('#limitacionFuncional').val() === 'ACTIVO') {
+            $('.toggle-limitacionFuncional').bootstrapToggle('on')
+        } else {
+            $('.toggle-limitacionFuncional').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-limitacionFuncional').change(function() {
+            $('#limitacionFuncional').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
+    <!-- Initialize Toggle inscritoConadis-->
+    $(function() {
+        $('.toggle-inscritoConadis').bootstrapToggle();
+
+        if ($('#inscritoConadis').val() === 'ACTIVO') {
+            $('.toggle-inscritoConadis').bootstrapToggle('on')
+        } else {
+            $('.toggle-inscritoConadis').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-inscritoConadis').change(function() {
+            $('#inscritoConadis').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
     <!-- Radio Options Reset-->
     $(function() {
         $(".rdoption").click(function(){
