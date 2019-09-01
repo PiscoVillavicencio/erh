@@ -67,6 +67,15 @@ public class TratamientoController {
         EnfermedadDto enfermedadDto = enfermedadConverter.toDto(enfermedadService.getById(enfermedadId));
 
         model.addAttribute("tratamiento", TratamientoDto.builder()
+                .tratamientoFarmacologicoEspecifico(EstadoEnum.INACTIVO)
+                .tratamientoFarmacologicoNoEspecifico(EstadoEnum.INACTIVO)
+                .tratamientoNoFarmacologico(EstadoEnum.INACTIVO)
+                .terapiaFisica(EstadoEnum.INACTIVO)
+                .ergoterapia(EstadoEnum.INACTIVO)
+                .terapiaNutricionalEspecifica(EstadoEnum.INACTIVO)
+                .medicinaTradicional(EstadoEnum.INACTIVO)
+                .medicinaAlternativa(EstadoEnum.INACTIVO)
+
                 .enfermedad(enfermedadDto)
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))

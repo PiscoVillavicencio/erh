@@ -269,7 +269,7 @@ $(document).ready(function() {
         if ($('#consentimientoInformado').val() === 'ACTIVO') {
             $('.toggle-consentimientoInformado').bootstrapToggle('on')
         } else {
-            $('.toggle-medicinaAlternativa').bootstrapToggle('off')
+            $('.toggle-consentimientoInformado').bootstrapToggle('off')
         }
         <!-- Toogle Event Propagation -->
         $('.toggle-consentimientoInformado').change(function() {
