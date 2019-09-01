@@ -1,7 +1,5 @@
 package pe.gob.minsa.erh.converter;
 
-import org.joda.time.DateTime;
-import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.gob.minsa.erh.common.AbstractConverter;
@@ -17,7 +15,7 @@ import java.util.Date;
 public class CuidadorConverter extends AbstractConverter<CuidadorEntity, CuidadorDto> {
 
     @Autowired
-    private  PacienteConverter pacienteConverter;
+    private PacienteConverter pacienteConverter;
     @Autowired
     private DocumentoConverter documentoConverter;
     @Autowired
@@ -27,8 +25,8 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
 
     @Autowired
     private PacienteService pacienteService;
-    @Autowired
-    private IpressConverter ipressConverter;
+//    @Autowired
+//    private IpressConverter ipressConverter;
     @Autowired
     private CuidadorService cuidadorService;
     @Autowired
@@ -37,8 +35,8 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
     private UbiDistritoService ubiDistritoService;
     @Autowired
     private ParentescoService parentescoService;
-    @Autowired
-    private IpressService ipressService;
+//    @Autowired
+//    private IpressService ipressService;
 
     @Override
     protected CuidadorDto entityToDto(CuidadorEntity entity) throws Exception {
@@ -49,23 +47,23 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
                 .nombre(entity.getNombre())
                 .apePaterno(entity.getApePaterno())
                 .apeMaterno(entity.getApeMaterno())
-                .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
-                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
+//                .fecNacimiento(new SimpleDateFormat("dd-MM-yyyy").format(entity.getFecNacimiento()))
+//                .edad(Years.yearsBetween(new DateTime(entity.getFecNacimiento()), new DateTime()).getYears())
                 .documento(documentoConverter.toDto(entity.getDocumento()))
                 .nroDocumento(entity.getNroDocumento())
                 .genero(entity.getGenero())
                 .rutaImagen(entity.getRutaImagen())
-                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
-                .condicion(entity.getCondicion())
-                .origenNacionalidad(entity.getOrigenNacionalidad())
-                .origenPais(entity.getOrigenPais())
-                .origenEstado(entity.getOrigenEstado())
-                .origenCiudad(entity.getOrigenCiudad())
-                .lugarNacimiento(entity.getLugarNacimiento())
-                .email(entity.getEmail())
+//                .distritoNacimiento(ubiDistritoConverter.toDto(entity.getDistritoNacimiento()))
+//                .condicion(entity.getCondicion())
+//                .origenNacionalidad(entity.getOrigenNacionalidad())
+//                .origenPais(entity.getOrigenPais())
+//                .origenEstado(entity.getOrigenEstado())
+//                .origenCiudad(entity.getOrigenCiudad())
+//                .lugarNacimiento(entity.getLugarNacimiento())
                 .distritoResidencia(ubiDistritoConverter.toDto(entity.getDistritoResidencia()))
                 .direccionActual(entity.getDireccionActual())
-                .lugarProcedencia(entity.getLugarProcedencia())
+//                .lugarProcedencia(entity.getLugarProcedencia())
+                .email(entity.getEmail())
                 .telFijo(entity.getTelFijo())
                 .telMovil(entity.getTelMovil())
 
@@ -73,7 +71,7 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
                 .detalleParentescoNinguno(entity.getDetalleParentescoNinguno())
                 .laboraActualmente(entity.getLaboraActualmente())
                 .detalleLugarDeTrabajo(entity.getDetalleLugarDeTrabajo())
-                .ipress(ipressConverter.toDto(entity.getIpress()))
+//                .ipress(ipressConverter.toDto(entity.getIpress()))
                 .perfil(entity.getPerfil())
 
                 .paciente(pacienteConverter.toDto(entity.getPaciente()))
@@ -101,22 +99,22 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
         entity.setNombre(dto.getNombre().trim());
         entity.setApePaterno(dto.getApePaterno().trim());
         entity.setApeMaterno(dto.getApeMaterno().trim());
-        entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
+//        entity.setFecNacimiento(new SimpleDateFormat("dd-MM-yyyy").parse(dto.getFecNacimiento()));
         entity.setDocumento(documentoService.getById(dto.getDocumento().getId()));
         entity.setNroDocumento(dto.getNroDocumento());
         entity.setGenero(dto.getGenero());
         entity.setRutaImagen(dto.getRutaImagen());
-        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
-        entity.setCondicion(dto.getCondicion());
-        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
-        entity.setOrigenPais(dto.getOrigenPais());
-        entity.setOrigenEstado(dto.getOrigenEstado());
-        entity.setOrigenCiudad(dto.getOrigenCiudad());
-        entity.setLugarNacimiento(dto.getLugarNacimiento());
-        entity.setEmail(dto.getEmail());
+//        entity.setDistritoNacimiento(ubiDistritoService.getById(dto.getDistritoNacimiento().getId()));
+//        entity.setCondicion(dto.getCondicion());
+//        entity.setOrigenNacionalidad(dto.getOrigenNacionalidad());
+//        entity.setOrigenPais(dto.getOrigenPais());
+//        entity.setOrigenEstado(dto.getOrigenEstado());
+//        entity.setOrigenCiudad(dto.getOrigenCiudad());
+//        entity.setLugarNacimiento(dto.getLugarNacimiento());
         entity.setDistritoResidencia(ubiDistritoService.getById(dto.getDistritoResidencia().getId()));
         entity.setDireccionActual(dto.getDireccionActual());
-        entity.setLugarProcedencia(dto.getLugarProcedencia());
+//        entity.setLugarProcedencia(dto.getLugarProcedencia());
+        entity.setEmail(dto.getEmail());
         entity.setTelFijo(dto.getTelFijo());
         entity.setTelMovil(dto.getTelMovil());
 
@@ -124,7 +122,7 @@ public class CuidadorConverter extends AbstractConverter<CuidadorEntity, Cuidado
         entity.setDetalleParentescoNinguno(dto.getDetalleParentescoNinguno().trim());
         entity.setLaboraActualmente(dto.getLaboraActualmente());
         entity.setDetalleLugarDeTrabajo(dto.getDetalleLugarDeTrabajo().trim());
-        entity.setIpress(ipressService.getById(dto.getIpress().getId()));
+//        entity.setIpress(ipressService.getById(dto.getIpress().getId()));
         entity.setPerfil(PerfilEnum.CUIDADOR);
 
         entity.setPaciente(pacienteService.getById(dto.getPaciente().getId()));

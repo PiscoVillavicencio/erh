@@ -3,14 +3,11 @@ package pe.gob.minsa.erh.model.entity;
 import lombok.Data;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
-import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -29,8 +26,8 @@ public class CuidadorEntity implements Serializable {
     private String apePaterno;
     @Column(name = "strapematerno")
     private String apeMaterno;
-    @Column(name = "datfnacimiento")
-    private Date fecNacimiento;
+//    @Column(name = "datfnacimiento")
+//    private Date fecNacimiento;
     @ManyToOne
     @JoinColumn(name = "iddocumento")
     private DocumentoEntity documento;
@@ -41,31 +38,31 @@ public class CuidadorEntity implements Serializable {
     private GeneroEnum genero;
     @Column(name = "strrutaimagen")
     private String rutaImagen;
-    @ManyToOne
-    @JoinColumn(name = "iddistrito")
-    private UbiDistritoEntity distritoNacimiento;
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "chrestavivo")
-    private EstadoEnum condicion;
-    @Column(name = "chrnacionalidad")
-    private NacionalidadEnum origenNacionalidad;
-    @Column(name = "strpais")
-    private String origenPais;
-    @Column(name = "strestado")
-    private String origenEstado;
-    @Column(name = "strciudad")
-    private String origenCiudad;
-    @Column(name = "strlugarnacimiento")
-    private String lugarNacimiento;
-    @Column(name = "stremail")
-    private String email;
+//    @ManyToOne
+//    @JoinColumn(name = "iddistrito")
+//    private UbiDistritoEntity distritoNacimiento;
+//    @Enumerated(EnumType.ORDINAL)
+//    @Column(name = "chrestavivo")
+//    private EstadoEnum condicion;
+//    @Column(name = "chrnacionalidad")
+//    private NacionalidadEnum origenNacionalidad;
+//    @Column(name = "strpais")
+//    private String origenPais;
+//    @Column(name = "strestado")
+//    private String origenEstado;
+//    @Column(name = "strciudad")
+//    private String origenCiudad;
+//    @Column(name = "strlugarnacimiento")
+//    private String lugarNacimiento;
     @ManyToOne
     @JoinColumn(name = "iddistritoactual")
     private UbiDistritoEntity distritoResidencia;
     @Column(name = "strdireccionactual")
     private String direccionActual;
-    @Column(name = "strlugarprocedencia")
-    private String lugarProcedencia;
+//    @Column(name = "strlugarprocedencia")
+//    private String lugarProcedencia;
+    @Column(name = "stremail")
+    private String email;
     @Column(name = "strtelefonofijo")
     private String telFijo;
     @Column(name = "strtelefonomovil")
@@ -81,17 +78,16 @@ public class CuidadorEntity implements Serializable {
     private EstadoEnum laboraActualmente;
     @Column(name = "strlugardetrabajo")
     private String detalleLugarDeTrabajo;
-    @ManyToOne
-    @JoinColumn(name = "idipress")
-    private IpressEntity ipress;
+//    @ManyToOne
+//    @JoinColumn(name = "idipress")
+//    private IpressEntity ipress;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "idperfil")
+    private PerfilEnum perfil;
 
     @ManyToOne
     @JoinColumn(name = "idpaciente")
     private PacienteEntity paciente;
-
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "idperfil")
-    private PerfilEnum perfil;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrestado")

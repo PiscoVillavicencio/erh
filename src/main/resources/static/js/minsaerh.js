@@ -382,6 +382,21 @@ $(document).ready(function() {
         })
     });
 
+    <!-- Initialize Toggle laboraActualmente-->
+    $(function() {
+        $('.toggle-laboraActualmente').bootstrapToggle();
+
+        if ($('#laboraActualmente').val() === 'ACTIVO') {
+            $('.toggle-laboraActualmente').bootstrapToggle('on')
+        } else {
+            $('.toggle-laboraActualmente').bootstrapToggle('off')
+        }
+        <!-- Toogle Event Propagation -->
+        $('.toggle-laboraActualmente').change(function() {
+            $('#laboraActualmente').val($(this).prop('checked') ? 'ACTIVO' : 'INACTIVO')
+        })
+    });
+
     <!-- Radio Options Reset-->
     $(function() {
         $(".rdoption").click(function(){

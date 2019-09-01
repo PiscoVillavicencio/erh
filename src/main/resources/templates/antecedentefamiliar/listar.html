@@ -36,27 +36,26 @@
                                         <thead>
                                             <tr>
 
-                                                <th>Tipo Doc.</th>
-                                                <th>Num. Doc.</th>
-                                                <th>Nombres</th>
                                                 <th>Ape. Paterno</th>
                                                 <th>Ape. Materno</th>
+                                                <th>Nombres</th>
+                                                <th>Tipo Doc.</th>
+                                                <th>Num. Doc.</th>
                                                 <th>Parentesco</th>
 
                                                 <th>Mostrar</th>
                                                 <th>Editar</th>
                                                 <th>Eliminar</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="antFam: ${antecedentesfamiliares}" class="odd gradeX">
+                                            <tr th:each="antFam: ${antecedentesFamiliares}" class="odd gradeX">
 
-                                                <td th:text="${antFam.documento.nombre}"></td>
-                                                <td th:text="${antFam.nroDocumento}"></td>
-                                                <td th:text="${antFam.nombre}"></td>
                                                 <td th:text="${antFam.apePaterno}"></td>
                                                 <td th:text="${antFam.apeMaterno}"></td>
+                                                <td th:text="${antFam.nombre}"></td>
+                                                <td th:text="${antFam.documento.nombre}"></td>
+                                                <td th:text="${antFam.nroDocumento}"></td>
                                                 <td th:text="${antFam.parentesco.nombre}"></td>
 
                                                 <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/antecedentefamiliar/mostrar/' + ${antFam.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>

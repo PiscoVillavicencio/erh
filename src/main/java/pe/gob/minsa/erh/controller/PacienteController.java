@@ -63,6 +63,11 @@ public class PacienteController {
     @Autowired
     private AntecedenteFamiliarService antecedenteFamiliarService;
 
+    @Autowired
+    private CuidadorService cuidadorService;
+    @Autowired
+    private CuidadorConverter cuidadorConverter;
+
     @RequestMapping(method = RequestMethod.GET)
     public String listar(@RequestParam(value = "search", required = false) String search, Model model) throws Exception {
         model.addAttribute("titulo", "Paciente");
@@ -190,9 +195,22 @@ public class PacienteController {
 
         PacienteEntity entity = pacienteService.getById(id);
         model.addAttribute("paciente", pacienteConverter.toDto(entity));
-        model.addAttribute("antecedentesfamiliares", antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPaciente(entity)));
+        model.addAttribute("antecedentesFamiliares", antecedenteFamiliarConverter.toListDto(antecedenteFamiliarService.findAntecedenteFamiliarEntitiesByPaciente(entity)));
 
         return "antecedentefamiliar/listar";
     }
+
+    @RequestMapping(value = "/{id}/cuidador", method = RequestMethod.GET)
+    public String listarCuidadoreses(@PathVariable(value = "id") Long id, Model model) throws Exception {
+        model.addAttribute("titulo", "Cuidador");
+        model.addAttribute("opcion", "Búsqueda");
+
+        PacienteEntity entity = pacienteService.getById(id);
+        model.addAttribute("paciente", pacienteConverter.toDto(entity));
+        model.addAttribute("cuidadores", cuidadorConverter.toListDto(cuidadorService.findCuidadorEntitiesByPaciente(entity)));
+
+        return "cuidador/listar";
+    }
+
 
 }

@@ -36,15 +36,12 @@
                                         <thead>
                                             <tr>
 
+                                                <th>Ape. Paterno</th>
+                                                <th>Ape. Materno</th>
+                                                <th>Nombres</th>
                                                 <th>Tipo Doc.</th>
                                                 <th>Num. Doc.</th>
-                                                <th>Categoría Ce10</th>
-                                                <th>Bloque Ce10</th>
-                                                <th>Carpeta Ce10</th>
-                                                <th>Orphanet</th>
-                                                <th>Fecha Diagnostico</th>
-
-                                                <th class="text-center"><i class="fa fa-th-list fa-fw"></i></th>
+                                                <th>Parentesco</th>
 
                                                 <th>Mostrar</th>
                                                 <th>Editar</th>
@@ -53,28 +50,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="enfermedad: ${enfermedades}" class="odd gradeX">
+                                            <tr th:each="cuidador: ${cuidadores}" class="odd gradeX">
 
-                                                <td th:text="${enfermedad.paciente.persona.documento.nombre}"></td>
-                                                <td th:text="${enfermedad.paciente.persona.nroDocumento}"></td>
-                                                <td th:text="${enfermedad.cie10Carpeta.cie10Bloque.Cie10Categoria.nombre}"></td>
-                                                <td th:text="${enfermedad.cie10Carpeta.cie10Bloque.nombre}"></td>
-                                                <td th:text="${enfermedad.cie10Carpeta.nombre}"></td>
-                                                <td th:text="${enfermedad.orphanet.nombre}"></td>
-                                                <td th:text="${enfermedad.fecRegistro}"></td>
+                                                <td th:text="${cuidador.apePaterno}"></td>
+                                                <td th:text="${cuidador.apeMaterno}"></td>
+                                                <td th:text="${cuidador.nombre}"></td>
+                                                <td th:text="${cuidador.documento.nombre}"></td>
+                                                <td th:text="${cuidador.nroDocumento}"></td>
+                                                <td th:text="${cuidador.parentesco.nombre}"></td>
 
-                                                <td class="text-center"><input class="rdoption" type="radio" th:onclick="|window.location.href='@{/enfermedad/{id}(id=${enfermedad.id})}/tratamiento'|" /></td>
-
-                                                <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/enfermedad/mostrar/' + ${enfermedad.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/enfermedad/editar/' + ${enfermedad.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                                                <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/enfermedad/eliminar/'+ ${enfermedad.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-info btn-sm" th:href="@{'/cuidador/mostrar/' + ${cuidador.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-warning btn-sm" th:href="@{'/cuidador/editar/' + ${cuidador.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                                                <td class="text-center"><a class="btn btn-danger btn-sm" th:href="@{'/cuidador/eliminar/'+ ${cuidador.id}}" onclick="return confirm('Estás seguro que quieres eliminar?');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
-                                <div class="well well-sm">
-
+                                <div class="well well-sm text-left">
+                                    <input type="button" th:onclick="|window.location.href='@{/paciente(search=${paciente.nroDocumento})}'|" class="btn btn-default" value="Volver" />
+                                    <input type="button" th:onclick="|window.location.href='@{/cuidador/nuevo(pacienteId=${paciente.id})}'|" class="btn btn-primary" value="Nuevo" />
                                 </div>
                             </div>
                             <!-- /.panel-body -->

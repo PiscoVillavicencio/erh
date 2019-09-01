@@ -6,12 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.gob.minsa.erh.model.enums.EstadoEnum;
 import pe.gob.minsa.erh.model.enums.GeneroEnum;
-import pe.gob.minsa.erh.model.enums.NacionalidadEnum;
 import pe.gob.minsa.erh.model.enums.PerfilEnum;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Set;
 
 @Builder
 @Data
@@ -24,23 +21,23 @@ public class CuidadorDto implements Serializable {
     private String nombre;
     private String apePaterno;
     private String apeMaterno;
-    private String fecNacimiento;
-    private Integer edad;
+//    private String fecNacimiento;
+//    private Integer edad;
     private DocumentoDto documento;
     private String nroDocumento;
     private GeneroEnum genero;
     private String rutaImagen;
-    private UbiDistritoDto distritoNacimiento;
-    private EstadoEnum condicion;
-    private NacionalidadEnum origenNacionalidad;
-    private String origenPais;
-    private String origenEstado;
-    private String origenCiudad;
-    private String lugarNacimiento;
-    private String email;
+//    private UbiDistritoDto distritoNacimiento;
+//    private EstadoEnum condicion;
+//    private NacionalidadEnum origenNacionalidad;
+//    private String origenPais;
+//    private String origenEstado;
+//    private String origenCiudad;
+//    private String lugarNacimiento;
     private UbiDistritoDto distritoResidencia;
     private String direccionActual;
-    private String lugarProcedencia;
+    //    private String lugarProcedencia;
+    private String email;
     private String telFijo;
     private String telMovil;
 
@@ -48,11 +45,10 @@ public class CuidadorDto implements Serializable {
     private String detalleParentescoNinguno;
     private EstadoEnum laboraActualmente;
     private String detalleLugarDeTrabajo;
-    private IpressDto ipress;
+//    private IpressDto ipress;
+    private PerfilEnum perfil;
 
     private PacienteDto paciente;
-
-    private PerfilEnum perfil;
 
     private EstadoEnum estado;
     private String fecRegistro;
