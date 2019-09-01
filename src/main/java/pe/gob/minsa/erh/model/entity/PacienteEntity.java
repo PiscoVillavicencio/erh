@@ -35,7 +35,7 @@ public class PacienteEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "iddocumento")
     private DocumentoEntity documento;
-    @Column(name = "strnumdocumento")
+    @Column(name = "strnumdocumento", unique = true)
     private String nroDocumento;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "chrgenero")

@@ -86,6 +86,12 @@ public class EnfermedadController {
         PacienteDto pacienteDto = pacienteConverter.toDto(pacienteService.getById(pacienteId));
 
         model.addAttribute("enfermedad", EnfermedadDto.builder()
+                .consentimientoInformado(EstadoEnum.INACTIVO)
+                .diagnosticoClinico(EstadoEnum.INACTIVO)
+                .diagnosticoPorGenetico(EstadoEnum.INACTIVO)
+                .diagnosticoBioquimico(EstadoEnum.INACTIVO)
+                .diagnosticoPorImagenes(EstadoEnum.INACTIVO)
+                .diagnosticoInmunologico(EstadoEnum.INACTIVO)
                 .paciente(pacienteDto)
                 .estado(EstadoEnum.ACTIVO)
                 .fecRegistro(new SimpleDateFormat("dd-MM-yyyy").format(new Date()))
